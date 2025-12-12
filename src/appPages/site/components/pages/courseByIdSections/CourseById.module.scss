@@ -1,0 +1,20 @@
+.CourseById {
+	width: 100%;
+	form {
+		display: flex;
+		align-items: center;
+		input {
+			width: 100%;
+		}
+	}
+}
+
+.create_structure {
+	width: 100%;
+	// max-width: 500px;
+	form {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+	}
+}

@@ -1,0 +1,97 @@
+.Header {
+	position: sticky;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+	.scroll {
+		// padding-block: 15px;
+		padding-block: 7px;
+		background: #ffffffcc;
+		backdrop-filter: blur(4px);
+		// transition: var(--transition);
+		&.active {
+			// padding-block: 7px;
+			background: #ffffffcc;
+			border-bottom: 1px solid #00000016;
+			// box-shadow: 0px 1px 1px black;
+			backdrop-filter: blur(4px);
+		}
+	}
+	.content {
+		position: relative;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		.logo {
+			padding-block: 8px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			img {
+				width: 100%;
+				max-width: 67px;
+				height: auto;
+				@media (max-width: 1000px) {
+					max-width: 55px;
+				}
+			}
+		}
+		.nav {
+			display: flex;
+			gap: 40px;
+			justify-content: center;
+			align-items: center;
+			.ul {
+				padding: 0;
+				display: flex;
+				gap: 10px;
+				justify-content: center;
+				align-items: center;
+				flex-wrap: wrap;
+				.li {
+					list-style: none;
+					.link {
+						position: relative;
+						padding: 10px;
+						font-size: 15px;
+						color: var(--black);
+						z-index: 2;
+						transition: var(--transition);
+						text-decoration: none;
+						//&.active {
+						//	color: var(--white);
+						//}
+						.active {
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							z-index: -1;
+							width: 100%;
+							height: 3px;
+							background: #ff0000;
+						}
+					}
+				}
+			}
+			.dropDownMenus {
+				display: flex;
+				gap: 20px;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+		.profile {
+			display: flex;
+			gap: 20px;
+			justify-content: center;
+			align-items: center;
+			.auth_login_buttons {
+				display: flex;
+				gap: 15px;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}

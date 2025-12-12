@@ -1,0 +1,22 @@
+.Advantages {
+	padding-top: 90px;
+	@media (max-width: 768px) {
+		padding-top: 20px;
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 50px;
+		.block {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.img {
+				width: 100%;
+				max-width: 886px;
+				height: 100%;
+			}
+		}
+	}
+}

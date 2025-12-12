@@ -1,0 +1,142 @@
+.ClubStatistics {
+	padding: 50px 0;
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.block {
+			padding: 50px;
+			width: 100%;
+			display: flex;
+			gap: 75px;
+			flex-direction: column;
+			border-radius: 32px;
+			background: #1f1f1f;
+			@media (max-width: 500px) {
+				padding: 30px;
+			}
+			@media (max-width: 1090px) {
+				gap: 30px;
+			}
+			.top {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-end;
+				@media (max-width: 1090px) {
+					gap: 20px;
+					flex-direction: column;
+					align-items: flex-start;
+				}
+				.top_left {
+					display: flex;
+					flex-direction: column;
+					.title {
+						font-size: clamp(24px, 5vw, 52px);
+						font-weight: 400;
+						line-height: clamp(30px, 5vw, 63px);
+						letter-spacing: 0%;
+						color: #ffffff;
+						span {
+							background: linear-gradient(90deg, #f96b6b, #f64b6a, #bc1f5e);
+							-webkit-background-clip: text;
+							-webkit-text-fill-color: transparent;
+							background-clip: text;
+						}
+					}
+				}
+				.top_right_text {
+					width: 100%;
+					max-width: 540px;
+
+					color: #d1d1d1;
+					font-size: clamp(14px, 2vw, 16px);
+					font-weight: 400;
+					line-height: 24px;
+					letter-spacing: -0.18px;
+				}
+			}
+			.bottom {
+				padding: 20px 12px;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-radius: 16px;
+				border: 1px solid #3c3c3c;
+				background: linear-gradient(
+					180deg,
+					rgba(255, 255, 255, 0),
+					rgba(255, 255, 255, 0.06) 100%
+				);
+				@media (max-width: 1090px) {
+					padding: 20px 30px;
+					flex-direction: column;
+					gap: 20px;
+				}
+				.line {
+					width: 1px;
+					height: 130px;
+					background: rgba(255, 255, 255, 0.08);
+					@media (max-width: 1090px) {
+						width: 100%;
+						height: 1px;
+					}
+				}
+				.card {
+					width: 100%;
+					max-width: 275px;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					// &.line {
+					// 	border-right: 1px solid #3c3c3c;
+					// 	@media (max-width: 1090px) {
+					// 		border: none;
+					// 		border-bottom: 1px solid #3c3c3c;
+					// 	}
+					// }
+					.icon {
+						margin-bottom: 17px;
+						width: 44px;
+						height: 44px;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						border-radius: 58px;
+						background: linear-gradient(
+							180deg,
+							rgba(255, 255, 255, 0),
+							rgba(255, 255, 255, 0.12) 100%
+						);
+						color: #d1d1d1;
+						svg {
+							width: 25px;
+							height: 25px;
+						}
+					}
+					.name {
+						margin-bottom: 8px;
+						p {
+							color: rgb(143, 143, 143);
+							font-size: 14px;
+							font-weight: 400;
+							line-height: 20px;
+							letter-spacing: -0.08px;
+							text-align: center;
+						}
+					}
+					.count {
+						p {
+							color: rgb(255, 255, 255);
+							font-size: 31.5px;
+							font-weight: 400;
+							line-height: 40px;
+							letter-spacing: -1px;
+							text-align: center;
+						}
+					}
+				}
+			}
+		}
+	}
+}

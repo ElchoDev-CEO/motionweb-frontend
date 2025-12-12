@@ -1,0 +1,199 @@
+.Profile {
+	padding-top: 10px;
+	padding-bottom: 30px;
+	.content {
+		.top {
+			.title {
+				margin-bottom: 30px;
+				text-align: center;
+				font-size: 30px;
+				font-style: normal;
+				font-weight: 600;
+				line-height: normal;
+				border-radius: 896px;
+				background: radial-gradient(
+					40.17% 39.79% at 50% 50%,
+					#eb31243b 0%,
+					#d32f2f00 100%
+				);
+				@media (max-width: 767px) {
+					font-size: 24px;
+				}
+				span {
+					background: var(
+						--2,
+						linear-gradient(97deg, #eb3023 12.04%, #d32f2f 81.84%)
+					);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+			.backgroundImage_panel {
+				margin-bottom: 15px;
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				.backgroundImage_skeleton {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					.backgroundImage {
+						margin-bottom: 10px;
+						object-fit: cover;
+						object-position: center;
+						width: 100%;
+						height: clamp(70px, 18vw, 230px);
+						border-radius: 16px;
+					}
+				}
+			}
+		}
+		.bottom {
+			display: flex;
+			gap: 20px;
+			justify-content: flex-start;
+			@media (max-width: 845px) {
+				gap: 10px;
+				justify-content: space-between;
+			}
+			.left {
+				width: 100%;
+				max-width: 130px;
+				display: flex;
+				gap: 16px;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				@media (max-width: 845px) {
+					gap: 10px;
+					justify-content: flex-start;
+				}
+				.avatar_skeleton {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					.avatar {
+						object-fit: cover;
+						object-position: center;
+						width: clamp(80px, 15vw, 130px);
+						height: clamp(80px, 15vw, 130px);
+						border-radius: 50%;
+					}
+				}
+			}
+			.right {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				@media (max-width: 845px) {
+					flex-direction: column;
+				}
+				.right_left {
+					.user_name_block {
+						width: 100%;
+						max-width: 300px;
+						margin-bottom: 17px;
+						display: flex;
+						gap: 12px;
+						justify-content: center;
+						@media (max-width: 500px) {
+							flex-wrap: wrap;
+						}
+						@media (max-width: 845px) {
+							flex-direction: column;
+						}
+					}
+					.user_contacts_block {
+						display: flex;
+						gap: 10px;
+						flex-direction: column;
+						justify-content: flex-start;
+						align-items: flex-start;
+						p {
+							display: flex;
+							gap: 7px;
+							justify-content: flex-start;
+							align-items: center;
+							font-size: clamp(12px, 3vw, 16px);
+							svg {
+								width: 18px;
+								height: 18px;
+							}
+						}
+					}
+				}
+				.right_right {
+					margin-top: 10px;
+					.telegram {
+						.profile {
+							// display: flex;
+							// gap: 5px;
+							// flex-direction: column;
+							// align-items: flex-start;
+							// .firstName_lastName {
+							// 	font-size: clamp(13px, 3vw, 20px);
+							// }
+							// .username {
+							// 	font-size: clamp(12px, 3vw, 16px);
+							// }
+							.button {
+								padding: 10px 15px;
+								display: flex;
+								gap: 10px;
+								justify-content: center;
+								align-items: center;
+								background: #17a3e6;
+								border: none;
+								outline: none;
+								border-radius: 15px;
+								font-weight: 500;
+								text-decoration: none;
+								color: #ffffff;
+								.telegramIcon {
+									width: 24px;
+									height: 24px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.isOpenTelegramModal {
+	display: flex;
+	gap: 5px;
+	flex-direction: column;
+	align-items: flex-start;
+	.top {
+		display: flex;
+		gap: 10px;
+		.photo {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		}
+		.info {
+			.firstName_lastName {
+				font-weight: 600;
+				font-size: clamp(13px, 3vw, 16px);
+			}
+			.username {
+				font-weight: 500;
+				font-size: clamp(12px, 3vw, 16px);
+			}
+		}
+	}
+	.buttons {
+		margin-top: 10px;
+		width: 100%;
+		display: flex;
+		gap: 10px;
+		.button {
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.GroupById {
+	padding: 30px 0;
+	.content {
+		.controls {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.filters {
+				margin-top: 10px;
+				display: flex;
+			}
+			.buttons {
+				.icon {
+					width: 17px;
+					height: 17px;
+				}
+			}
+		}
+		.ScrollArea {
+			margin-block: 10px;
+			border: 1px solid #dee2e6;
+			border-radius: 4px;
+			.tableHead {
+				position: sticky;
+				top: 0;
+				background-color: #fff;
+				z-index: 1;
+			}
+		}
+	}
+}

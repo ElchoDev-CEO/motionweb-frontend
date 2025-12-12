@@ -1,0 +1,134 @@
+.FeedBack {
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 200;
+	background-color: #00000075;
+	backdrop-filter: blur(4px);
+
+	.container {
+		width: 100%;
+		max-width: 450px;
+		margin-inline: auto;
+		padding-inline: 20px;
+	}
+
+	.content {
+		.modal {
+			padding: 15px;
+			position: relative;
+			background-color: #ffffff;
+			color: #000000;
+			border-radius: 0.5rem;
+			width: 100%;
+			margin-left: 0.75rem;
+			margin-right: 0.75rem;
+			display: flex;
+			flex-direction: column;
+			animation:
+				fadeIn 0.2s ease-in-out,
+				glowingShadow 3s infinite alternate;
+
+			@keyframes glowingShadow {
+				0% {
+					box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+				}
+				25% {
+					box-shadow: 0 0 20px rgba(255, 105, 0, 0.7);
+				}
+				50% {
+					box-shadow: 0 0 25px rgba(132, 0, 255, 0.7) ж;
+				}
+				75% {
+					box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+				}
+				100% {
+					box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+				}
+			}
+
+			.title {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin-bottom: 1.5rem;
+				color: #333;
+				text-align: center;
+				span {
+					background: linear-gradient(90deg, #f96b6b, #f64b6a, #bc1f5e);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+				}
+			}
+
+			.form {
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+
+				.textareaContainer {
+					display: flex;
+					flex-direction: column;
+					gap: 5px;
+					.textareaLabel {
+						font-size: 15px;
+						font-weight: 500;
+						color: #555;
+						margin: 0;
+					}
+				}
+
+				.ratingContainer {
+					display: flex;
+					align-items: center;
+					gap: 12px;
+
+					.ratingLabel {
+						font-size: 15px;
+						font-weight: 500;
+						color: #555;
+						margin: 0;
+					}
+				}
+
+				.buttonGroup {
+					margin-left: auto;
+					display: flex;
+					gap: 16px;
+
+					.cancelButton {
+						padding: 8px 16px;
+						border: 1px solid #d9d9d9;
+						border-radius: 16px;
+						transition: background-color 0.3s;
+						cursor: pointer;
+						&:hover {
+							background-color: #f5f5f5;
+						}
+					}
+
+					.submitButton {
+						padding: 8px 16px;
+						background-color: #485388;
+						color: white;
+						border: none;
+						border-radius: 16px;
+						transition: background-color 0.3s;
+						cursor: pointer;
+
+						&:hover {
+							background-color: #3b4679;
+						}
+
+						&.submitting {
+							opacity: 0.5;
+							cursor: not-allowed;
+						}
+					}
+				}
+			}
+		}
+	}
+}

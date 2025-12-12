@@ -1,0 +1,58 @@
+.TelegramContactButton {
+	.content {
+		.telegramButton {
+			position: fixed;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			right: 10px;
+			bottom: 10px;
+			transform: translate(-50%, -50%);
+			background: #17a3e6; /*цвет кнопки*/
+			border-radius: 50%;
+			width: 55px; /*ширина кнопки*/
+			height: 55px; /*высота кнопки*/
+			color: #fff;
+			text-align: center;
+			line-height: 53px; /*центровка иконки в кнопке*/
+			font-size: 35px; /*размер иконки*/
+			z-index: 9999;
+			a {
+				color: #fff;
+			}
+			&:before,
+			&:after {
+				content: ' ';
+				display: block;
+				position: absolute;
+				border: 50%;
+				border: 1px solid #17a3e6; /*цвет анимированных волн от кнопки*/
+				left: -20px;
+				right: -20px;
+				top: -20px;
+				bottom: -20px;
+				border-radius: 50%;
+				animation: animate 1.5s linear infinite;
+				opacity: 0;
+				backface-visibility: hidden;
+			}
+			&:after {
+				animation-delay: 0.5s;
+			}
+		}
+
+		@keyframes animate {
+			0% {
+				transform: scale(0.5);
+				opacity: 0;
+			}
+			50% {
+				opacity: 1;
+			}
+			100% {
+				transform: scale(1.2);
+				opacity: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,75 @@
+.UserById {
+	padding: 30px 0;
+	.content {
+		.title {
+			margin-bottom: 30px;
+			text-align: center;
+			font-size: 30px;
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+
+			border-radius: 896px;
+			background: radial-gradient(
+				40.17% 39.79% at 50% 50%,
+				#eb31243b 0%,
+				#d32f2f00 100%
+			);
+			@media (max-width: 767px) {
+				font-size: 24px;
+			}
+			span {
+				background: var(
+					--2,
+					linear-gradient(97deg, #eb3023 12.04%, #d32f2f 81.84%)
+				);
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+		.profile {
+			margin-top: 12px;
+			width: 100%;
+			.top {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.skeleton {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					.backgroundImage {
+						object-fit: cover;
+						object-position: center;
+						width: 100%;
+						height: clamp(70px, 18vw, 230px);
+						border-radius: 16px;
+					}
+				}
+			}
+			.bottom {
+				margin-top: 20px;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				gap: clamp(10px, 5vw, 50px);
+				.avatar {
+					object-fit: cover;
+					object-position: center;
+					border-radius: 50%;
+					width: 100%;
+					max-width: clamp(70px, 10vw, 200px);
+					height: 100%;
+				}
+				.userInfo {
+					width: 100%;
+					max-width: 1000px;
+					display: flex;
+					flex-direction: column;
+					gap: 7px;
+				}
+			}
+		}
+	}
+}

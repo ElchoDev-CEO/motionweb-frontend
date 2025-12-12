@@ -1,0 +1,190 @@
+.SomeCourses {
+	padding: 50px 0;
+	.content {
+		.top {
+			display: flex;
+			gap: 10px;
+			flex-direction: column;
+			.title {
+				font-size: clamp(24px, 5vw, 58px);
+				font-weight: 500;
+				line-height: clamp(20px, 5vw, 69px);
+				letter-spacing: 0%;
+				span {
+					background: linear-gradient(90deg, #f96b6b, #f64b6a, #bc1f5e);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					background-clip: text;
+				}
+			}
+		}
+		.cards {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 20px;
+			margin-top: 30px;
+			@media (max-width: 1330px) {
+				justify-content: center;
+			}
+			.card {
+				position: relative;
+				padding: 12px;
+				width: 100%;
+				max-width: 620px;
+				height: auto;
+				display: flex;
+				gap: 18px;
+				justify-content: space-between;
+				border-radius: 8px;
+				background: #f1f1f1;
+				border: 1px solid #ebebeb;
+				transition: transform 0.2s ease-in-out;
+				&:hover {
+					transform: scale(1.01);
+				}
+				@media (max-width: 700px) {
+					flex-direction: column;
+				}
+				.is_hit {
+					position: absolute;
+					left: 21px;
+					top: 21px;
+
+					padding: 9px 20px;
+					border-radius: 24.04px;
+					background: linear-gradient(
+						90deg,
+						#ff9898,
+						#f64b6a 38%,
+						#bc1f5e 100%
+					);
+
+					color: #ffffff;
+					font-size: 11.1px;
+					font-weight: 500;
+					line-height: 17.01px;
+					letter-spacing: 0%;
+				}
+				.left {
+					width: 100%;
+					max-width: 220px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background: #ffffff;
+					border-radius: 14.79px;
+					@media (max-width: 700px) {
+						max-width: 700px;
+					}
+					img {
+						width: 100%;
+						// max-width: 220.06px;
+						height: auto;
+						border-radius: 14.79px;
+					}
+				}
+
+				.right {
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					.right_header {
+						.title {
+							margin: 14px 0 9px 0;
+							color: #272727;
+							font-size: clamp(16px, 5vw, 25px);
+							font-weight: 600;
+							line-height: 30px;
+							letter-spacing: -0.16px;
+						}
+						.text {
+							margin-bottom: 17px;
+							color: #5c5c5c;
+							font-size: 14px;
+							font-weight: 400;
+							line-height: 17px;
+							letter-spacing: -0.08px;
+						}
+						ul {
+							margin-bottom: 15px;
+							list-style: none;
+							padding: 0;
+							display: flex;
+							gap: 7px;
+							flex-wrap: wrap;
+							justify-content: flex-start;
+							.tech_stack {
+								padding: 5px 9px;
+								display: flex;
+								gap: 3.7px;
+								align-items: center;
+								border: 0.92px solid #ececf0;
+								border-radius: 18.49px;
+								background: #ffffff;
+								.icon_img {
+									width: 12.94px;
+									height: 12.94px;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									svg {
+										width: 12.94px;
+										height: 12.94px;
+									}
+								}
+								.icon_name {
+									padding: 0;
+									margin: 0;
+									color: #36364a;
+									font-size: 12px;
+									font-weight: 400;
+									line-height: 15px;
+									letter-spacing: 0%;
+								}
+							}
+						}
+					}
+					.right_footer {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						.start_date {
+							height: 19px;
+							display: flex;
+							gap: 6px;
+							align-items: flex-start;
+							.start {
+								color: #5c5c5c;
+								font-size: 14px;
+								font-weight: 400;
+								line-height: 17px;
+								letter-spacing: -0.08px;
+							}
+							span {
+								color: #1f1f1f;
+								font-size: 16px;
+								font-weight: 500;
+								line-height: 19px;
+								letter-spacing: -0.08px;
+							}
+						}
+						.button {
+							padding: 8px 20px;
+							border-radius: 26px;
+							background: rgb(35, 36, 38);
+							border: none;
+
+							color: #ffffff;
+							font-size: 14px;
+							font-weight: 500;
+							line-height: 18.4px;
+							letter-spacing: 0%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

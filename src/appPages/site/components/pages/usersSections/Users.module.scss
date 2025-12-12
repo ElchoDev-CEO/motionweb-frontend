@@ -1,0 +1,60 @@
+.Users {
+	padding: 30px 0;
+	.container {
+		width: 100%;
+		max-width: 1383px;
+		margin-inline: auto;
+		padding-inline: 40px;
+		@media (max-width: 500px) {
+			padding-inline: 20px;
+		}
+	}
+	.content {
+		.controls {
+			margin-top: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.ScrollArea {
+			margin-block: 10px;
+			border: 1px solid #dee2e6;
+			border-radius: 4px;
+			.tableHead {
+				position: sticky;
+				top: 0;
+				background-color: #fff;
+				z-index: 1;
+			}
+		}
+		.pagination {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.left {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.right {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.firstName {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-start;
+	align-items: center;
+	.avatar {
+		width: 30px;
+		height: 30px;
+		border-radius: 4px;
+		object-fit: cover;
+		object-position: center;
+	}
+}

@@ -1,0 +1,50 @@
+.ModuleCourseFS {
+	.content {
+		padding: 53px 72px;
+		background: #1f1f1f;
+		border-radius: 32px;
+		.top {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+		}
+		.cards {
+			overflow: hidden;
+			margin-top: 18px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			border-radius: 32px;
+			.card {
+				border: 1px solid #2f2f2f;
+				padding: 30px;
+				width: 100%;
+				max-width: 370px;
+				.icon {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+				.title {
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
+					gap: 20px;
+					font-size: 16px;
+					font-weight: 700;
+					line-height: 24px;
+					letter-spacing: 0%;
+					color: #e5e7eb;
+				}
+				.description {
+					margin-top: 10px;
+					font-size: 14px;
+					font-weight: 400;
+					line-height: 20px;
+					letter-spacing: -0.08px;
+					color: #8f8f8f;
+				}
+			}
+		}
+	}
+}

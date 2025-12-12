@@ -1,0 +1,77 @@
+.ContractItems {
+	padding: 30px 0;
+	.container {
+		width: 100%;
+		max-width: 1648px;
+		margin-inline: auto;
+		padding-inline: 40px;
+		@media (max-width: 500px) {
+			padding-inline: 20px;
+		}
+	}
+	.content {
+		.controls {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			.filters {
+				margin-top: 10px;
+				display: flex;
+			}
+			.buttons {
+				.icon {
+					width: 17px;
+					height: 17px;
+				}
+			}
+		}
+		.ScrollArea {
+			margin-block: 10px;
+			border: 1px solid #dee2e6;
+			border-radius: 4px;
+			.tableHead {
+				position: sticky;
+				top: 0;
+				background-color: #fff;
+				z-index: 1;
+			}
+		}
+		.pagination {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.left {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.right {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.edit_subscription {
+	.form {
+		display: flex;
+		flex-direction: column;
+		.button {
+			margin-top: 10px;
+		}
+	}
+}
+
+.create_subscription {
+	.form {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		.button {
+			margin-top: 5px;
+		}
+	}
+}

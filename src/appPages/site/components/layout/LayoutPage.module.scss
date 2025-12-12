@@ -1,0 +1,21 @@
+.LayoutPage {
+	// overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+	footer {
+		margin-top: auto;
+	}
+}
+
+.preloader {
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.4s;
+	&.active {
+		visibility: visible;
+		opacity: 1;
+	}
+}

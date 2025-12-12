@@ -1,0 +1,21 @@
+.ZegoControl {
+	display: flex;
+	gap: 15px;
+	justify-content: center;
+	align-items: center;
+	.upload_telegram {
+		.progress {
+			width: 245px;
+		}
+	}
+}
+
+.start_lesson {
+	width: 100%;
+	// max-width: 500px;
+	form {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+	}
+}

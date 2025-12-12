@@ -1,0 +1,77 @@
+.HWByLessonId {
+	width: 100%;
+	.content {
+		.controls {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			.filters {
+				margin-top: 10px;
+				display: flex;
+				.button {
+					margin-right: 15px;
+				}
+			}
+		}
+		.ScrollArea {
+			margin-block: 10px;
+			border: 1px solid #dee2e6;
+			border-radius: 4px;
+			.tableHead {
+				position: sticky;
+				top: 0;
+				background-color: #fff;
+				z-index: 1;
+			}
+		}
+		.pagination {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.left {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.right {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.edit_hw {
+	width: 100%;
+	.form {
+		width: 100%;
+		.block {
+			margin-bottom: 20px;
+			display: flex;
+			justify-content: space-between;
+			.editing_user {
+				width: 120%;
+				.avatar {
+					margin-bottom: 5px;
+				}
+			}
+			.editing_hw {
+				width: 80%;
+				display: flex;
+				gap: 7px;
+				flex-direction: column;
+				.form_group {
+					// display: flex;
+
+					// justify-content: flex-start;
+					// align-items: center;
+				}
+			}
+		}
+		.button {
+			width: 100%;
+		}
+	}
+}

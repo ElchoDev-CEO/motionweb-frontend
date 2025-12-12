@@ -1,0 +1,70 @@
+.AccordionSection {
+	position: relative;
+	display: flex;
+	align-items: center;
+	.title {
+		font-size: 14px;
+	}
+	.buttons {
+		position: absolute;
+		right: 5px;
+		padding: 2px;
+		display: flex;
+		gap: 5px;
+		// background: #0c0c0c28;
+		border-radius: 4px;
+		.button {
+			width: 27px;
+			height: 27px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			backdrop-filter: blur(7px);
+		}
+		.edit_button {
+			background: transparent;
+			border: 1px solid #fb4652;
+			border-radius: 4px;
+			font-size: 12px;
+			color: #fb4652;
+			cursor: pointer;
+		}
+		.delete_button {
+			background: transparent;
+			border: 1px solid #fb4652;
+			border-radius: 4px;
+			font-size: 12px;
+			color: #fb4652;
+			cursor: pointer;
+		}
+	}
+}
+
+.svg_unlock {
+	margin: 0 1.5px;
+	width: 17px;
+	height: 17px;
+}
+.svg_lock {
+	width: 20px;
+	height: 20px;
+}
+
+.edit_lesson {
+	width: 100%;
+	form {
+		display: flex;
+		gap: 10px;
+		flex-direction: column;
+	}
+}
+
+.delete_structure {
+	p {
+		margin-bottom: 15px;
+	}
+	.delete_buttons {
+		display: flex;
+		gap: 10px;
+	}
+}

@@ -1,0 +1,34 @@
+.isOpenTGAuthModal {
+	.description {
+		font-size: clamp(12px, 3vw, 14px);
+	}
+}
+.isOpenTGActivateModal {
+	display: flex;
+	gap: 6px;
+	flex-direction: column;
+	align-items: flex-start;
+	.sup_description {
+		font-size: clamp(12px, 3vw, 14px);
+	}
+	.button {
+		padding: 10px 15px;
+		display: flex;
+		gap: 10px;
+		justify-content: center;
+		align-items: center;
+		background: #17a3e6;
+		border: none;
+		outline: none;
+		border-radius: 15px;
+		text-decoration: none;
+		color: #ffffff;
+		svg {
+			width: 24px;
+			height: 24px;
+		}
+	}
+	.sub_description {
+		font-size: clamp(12px, 3vw, 14px);
+	}
+}
