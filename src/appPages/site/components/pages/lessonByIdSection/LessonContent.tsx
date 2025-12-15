@@ -53,8 +53,8 @@ import lowlight from '@/constants/lowlight';
 
 // !
 import { Document, Page } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
 import {
 	useGetFeedbackLessonByIdQuery,
 	useSendFeedbackLessonMutation
@@ -338,7 +338,7 @@ const LessonContent: FC = () => {
 												{formData.videoUrl && (
 													<ReactPlayer
 														className={scss.player}
-														url={formData.videoUrl}
+														src={formData.videoUrl}
 														controls={true}
 														width="100%"
 														height="550px"

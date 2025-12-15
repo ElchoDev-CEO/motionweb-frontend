@@ -104,7 +104,7 @@ const Podcasts: FC = () => {
 									<div className={scss.card}>
 										<ReactPlayer
 											className={scss.player}
-											url={item.videoUrl}
+											src={item.videoUrl}
 											controls={true}
 											width="380px"
 											height="225px"
