@@ -8,57 +8,34 @@ import LayoutRoot from '@/app/layout.c';
 const euclidCircular = localFont({
 	src: [
 		{
-			path: './fonts/EuclidCircularA-Regular.ttf',
+			path: './fonts/EuclidCircularA-Regular.woff2',
 			weight: '400',
 			style: 'normal'
 		},
 		{
-			path: './fonts/EuclidCircularA-Bold.ttf',
+			path: './fonts/EuclidCircularA-Bold.woff2',
 			weight: '700',
 			style: 'normal'
 		},
 		{
-			path: './fonts/EuclidCircularA-BoldItalic.ttf',
-			weight: '700',
-			style: 'italic'
-		},
-		{
-			path: './fonts/EuclidCircularA-Italic.ttf',
-			weight: '400',
-			style: 'italic'
-		},
-		{
-			path: './fonts/EuclidCircularA-Light.ttf',
+			path: './fonts/EuclidCircularA-Light.woff2',
 			weight: '300',
 			style: 'normal'
 		},
 		{
-			path: './fonts/EuclidCircularA-LightItalic.ttf',
-			weight: '300',
-			style: 'italic'
-		},
-		{
-			path: './fonts/EuclidCircularA-Medium.ttf',
+			path: './fonts/EuclidCircularA-Medium.woff2',
 			weight: '500',
 			style: 'normal'
 		},
 		{
-			path: './fonts/EuclidCircularA-MediumItalic.ttf',
-			weight: '500',
-			style: 'italic'
-		},
-		{
-			path: './fonts/EuclidCircularA-SemiBold.ttf',
+			path: './fonts/EuclidCircularA-SemiBold.woff2',
 			weight: '600',
 			style: 'normal'
 		},
-		{
-			path: './fonts/EuclidCircularA-SemiBoldItalic.ttf',
-			weight: '600',
-			style: 'italic'
-		}
 	],
-	variable: '--font-euclid'
+	variable: '--font-euclid',
+	display:'swap',
+	adjustFontFallback: 'Arial',
 });
 
 declare global {
