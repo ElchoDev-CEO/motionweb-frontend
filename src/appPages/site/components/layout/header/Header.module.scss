@@ -7,12 +7,12 @@
 	.scroll {
 		// padding-block: 15px;
 		padding-block: 7px;
-		background: #ffffffcc;
+		background: var(--bg-primary);
 		backdrop-filter: blur(4px);
 		// transition: var(--transition);
 		&.active {
 			// padding-block: 7px;
-			background: #ffffffcc;
+			background: var(--bg-primary);
 			border-bottom: 1px solid #00000016;
 			// box-shadow: 0px 1px 1px black;
 			backdrop-filter: blur(4px);

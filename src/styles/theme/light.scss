@@ -1,0 +1,26 @@
+:root {
+	/* Background */
+	--bg-primary: var(--white);
+	--bg-secondary: var(--lightest-slate);
+	--bg-tertiary: var(--light-slate);
+
+	/* Text */
+	--text-primary: var(--black);
+	--text-secondary: var(--slate);
+	--text-muted: var(--light-slate);
+	--text-inverse: var(--white);
+
+	/* Border */
+	--border-default: var(--light-slate);
+
+	/* Accent / Brand */
+	--accent-primary: var(--red);
+	--accent-hover: var(--red);
+
+	/* States */
+	--error: var(--red);
+	--error-shadow: var(--error-shadow);
+
+	/* Shadow */
+	--shadow-primary: var(--navy-shadow);
+}

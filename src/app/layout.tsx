@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import '@mantine/tiptap/styles.css';
 import '@mantine/core/styles.css';
 import './globals.scss';
+import '../styles/main.scss';
 import LayoutRoot from '@/app/layout.c';
 
 const euclidCircular = localFont({
@@ -31,11 +32,11 @@ const euclidCircular = localFont({
 			path: './fonts/EuclidCircularA-SemiBold.woff2',
 			weight: '600',
 			style: 'normal'
-		},
+		}
 	],
 	variable: '--font-euclid',
-	display:'swap',
-	adjustFontFallback: 'Arial',
+	display: 'swap',
+	adjustFontFallback: 'Arial'
 });
 
 declare global {
@@ -78,7 +79,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html data-theme="light" lang="en">
 			<body className={`${euclidCircular.variable}`}>
 				<LayoutRoot>{children}</LayoutRoot>
 			</body>
