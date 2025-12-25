@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	experimental: {
+		optimizePackageImports: ['react-icons'] // for Tree Shaking
+	},
 	images: {
 		domains: [
 			'lh3.googleusercontent.com',

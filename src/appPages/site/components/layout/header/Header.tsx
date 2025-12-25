@@ -101,7 +101,7 @@ const Header: FC = () => {
 					<div className="container">
 						<div className={scss.content}>
 							<div className={scss.logo}>
-								<Image src={logo} alt="logo" />
+								<Image loading="eager" src={logo} alt="logo" />
 							</div>
 							{!isMobile ? (
 								<>

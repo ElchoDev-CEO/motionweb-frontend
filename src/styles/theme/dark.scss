@@ -1,0 +1,26 @@
+[data-theme='dark'] {
+	/* Background */
+	--bg-primary: var(--navy);
+	--bg-secondary: var(--light-navy);
+	--bg-tertiary: var(--lightest-navy);
+
+	/* Text */
+	--text-primary: var(--white);
+	--text-secondary: var(--light-slate);
+	--text-muted: var(--slate);
+	--text-inverse: var(--black);
+
+	/* Border */
+	--border-default: var(--lightest-navy);
+
+	/* Accent / Brand */
+	--accent-primary: #ff5a4d;
+	--accent-hover: #ff766b;
+
+	/* States */
+	--error: #f57165;
+	--error-shadow: var(--error-shadow);
+
+	/* Shadow */
+	--shadow-primary: var(--navy-shadow);
+}
