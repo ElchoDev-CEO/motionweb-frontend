@@ -1,5 +1,4 @@
-export { default as bgFrame } from './bg-frame.png';
-export { default as orator } from './orator.png';
-export { default as enLanguage } from './en-language.png';
-export { default as ruLanguage } from './ru-language.png';
-export { default as parents } from './parents.png';
+export { default as extraCourse_1 } from './extra_course1.png';
+export { default as extraCourse_2 } from './extra_course2.png';
+export { default as extraCourse_3 } from './extra_course3.png';
+export { default as extraCourse_4 } from './extra_course4.png';

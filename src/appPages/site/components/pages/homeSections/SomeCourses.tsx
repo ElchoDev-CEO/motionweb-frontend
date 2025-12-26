@@ -1,6 +1,7 @@
 'use client';
 import { FC } from 'react';
 import scss from './SomeCourses.module.scss';
+import SpotlightCard from '@/components/SpotlightCard';
 import Image from 'next/image';
 import IconSomeCourse from '@/assets/icons/icon-some-course';
 import {
@@ -19,6 +20,7 @@ import {
 	BiLogoRedux,
 	BiLogoTypescript
 } from 'react-icons/bi';
+import { SiNginx } from "react-icons/si";
 import { FcLinux } from 'react-icons/fc';
 import {
 	some_courses_1,
@@ -56,7 +58,7 @@ const courseData = [
 			{ icon: <BiLogoPostgresql />, name: 'PostgreSQL' },
 			{ icon: <FaDocker />, name: 'Docker' },
 			{ icon: <FcLinux />, name: 'Linux' },
-			{ icon: '', name: 'Nginx' }
+			{ icon: <SiNginx />, name: 'Nginx' }
 		],
 		startDate: '1-февраля'
 	},
@@ -77,11 +79,11 @@ const courseData = [
 		title: 'IT шаг для маленьких детей',
 		description: '4 месяца',
 		image: some_courses_4,
-		isHit: false,
+		isHit: true,
 		technologies: [
-			{ icon: '', name: 'JavaScript' },
-			{ icon: '', name: 'HTML5' },
-			{ icon: '', name: 'CSS3' },
+			{ icon: <IoLogoJavascript />, name: 'JavaScript' },
+			{ icon: <FaHtml5 />, name: 'HTML5' },
+			{ icon: <FaCss3Alt />, name: 'CSS3' },
 			{ icon: <FaPython />, name: 'Python' }
 		],
 		startDate: '29-декабря'
@@ -104,28 +106,35 @@ const SomeCourses: FC = () => {
 					</div>
 					<div className={scss.cards}>
 						{courseData.map((item, index) => (
-							<div key={index} className={scss.card}>
+							<SpotlightCard key={index} className={scss.card} spotlightColor="#f96b6b">
 								{item.isHit && <span className={scss.is_hit}>Хит продаж</span>}
-								<div className={scss.left}>
+								<div className={scss.left} >
 									<Image
 										width={200}
 										height={200}
 										src={item.image}
 										alt={item.title}
+										style={{ zIndex: 100 }}
 									/>
 								</div>
 								<div className={scss.right}>
 									<div className={scss.right_header}>
 										<h2 className={scss.title}>{item.title}</h2>
-										<p className={scss.text}>{item.description}</p>
-										<ul>
-											{item.technologies.map((tech, index) => (
-												<li key={index} className={scss.tech_stack}>
-													<span className={scss.icon_img}>{tech.icon}</span>
-													<p className={scss.icon_name}>{tech.name}</p>
-												</li>
-											))}
-										</ul>
+										<div className={scss.separator}>
+											<span className={scss.details}>Длительность:</span>
+											<p className={scss.text}>{item.description}</p>
+										</div>
+										<div>
+											<span className={scss.details}>Технологии:</span>
+											<ul>
+												{item.technologies.map((tech, index) => (
+													<li key={index} className={scss.tech_stack}>
+														{tech.icon && <span className={scss.icon_img}>{tech.icon}</span>}
+														<p className={scss.icon_name}>{tech.name}</p>
+													</li>
+												))}
+											</ul>
+										</div>
 									</div>
 									<div className={scss.right_footer}>
 										<div className={scss.start_date}>
@@ -141,12 +150,13 @@ const SomeCourses: FC = () => {
 										</button>
 									</div>
 								</div>
-							</div>
+							</SpotlightCard>
+
 						))}
 					</div>
 				</div>
 			</div>
-		</section>
+		</section >
 	);
 };
 
