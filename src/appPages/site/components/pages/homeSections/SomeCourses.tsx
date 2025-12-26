@@ -79,7 +79,7 @@ const courseData = [
 		title: 'IT шаг для маленьких детей',
 		description: '4 месяца',
 		image: some_courses_4,
-		isHit: false,
+		isHit: true,
 		technologies: [
 			{ icon: <IoLogoJavascript />, name: 'JavaScript' },
 			{ icon: <FaHtml5 />, name: 'HTML5' },

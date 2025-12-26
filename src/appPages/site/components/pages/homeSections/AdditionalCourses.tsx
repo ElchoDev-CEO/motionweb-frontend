@@ -1,5 +1,5 @@
 'use client';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import scss from './AdditionalCourses.module.scss';
 import {
 	extraCourse_1,
@@ -10,6 +10,8 @@ import {
 import CustomTitle from '@/ui/title/CustomTitle';
 import ScrollStack, { ScrollStackItem } from '@/components/ScrollStack'
 import Image from 'next/image';
+import Carousel from '@/components/Carousel'
+
 
 const additionalCoursesData = [
 	{
@@ -42,6 +44,31 @@ const additionalCoursesData = [
 ];
 
 const AdditionalCourses: FC = () => {
+	const [basicWidth, setBasicWidth] = useState(340)
+	const [isUpdatedUX, setIsUpdatedUX] = useState<boolean>(false)
+
+	useEffect(() => {
+		const update = () => {
+
+			if (window.innerWidth <= 700) {
+				setBasicWidth(540)
+				setIsUpdatedUX(true)
+			} else if (window.innerWidth <= 510) {
+				setBasicWidth(340)
+			} else if (window.innerWidth <= 360) {
+				setBasicWidth(100)
+			}
+			else {
+				setIsUpdatedUX(false)
+				setBasicWidth(340)
+			}
+		}
+
+		window.addEventListener("resize", update)
+		return () => window.removeEventListener("resize", update)
+	}, [])
+
+
 	return (
 		<section className={scss.AdditionalCourses}>
 			<div className="container">
@@ -53,21 +80,37 @@ const AdditionalCourses: FC = () => {
 					/>
 
 					<div className={scss.scrollWrapper}>
-						<ScrollStack>
-							{additionalCoursesData.map((item, index) => (
-								<ScrollStackItem key={index}>
-									<div className={scss.cardItem}>
-										<div className={scss.left}>
-											<h2>{item.title}</h2>
-											<p style={{ color: item.text_color }} className={`${item.isRussiaText && scss.russia}`}> {item.description}</p>
-										</div>
-										<div className={scss.right}>
-											<Image width={300} height={300} src={item.image} alt={item.description} loading='lazy' />
-										</div>
-									</div>
-								</ScrollStackItem>
-							))}
-						</ScrollStack>
+						{
+							isUpdatedUX ?
+								<div style={{ position: 'relative', marginTop: '20px' }}>
+									<Carousel
+										baseWidth={basicWidth}
+										autoplay={true}
+										autoplayDelay={3000}
+										pauseOnHover={true}
+										loop={true}
+										round={false}
+										items={additionalCoursesData}
+									/>
+								</div>
+
+								: <ScrollStack>
+									{additionalCoursesData.map((item, index) => (
+										<ScrollStackItem key={index}>
+											<div className={scss.cardItem}>
+												<div className={scss.left}>
+													<h2>{item.title}</h2>
+													<p style={{ color: item.text_color }} className={`${item.isRussiaText && scss.russia}`}> {item.description}</p>
+												</div>
+												<div className={scss.right}>
+													<Image width={300} height={300} src={item.image} alt={item.description} loading='lazy' />
+												</div>
+											</div>
+										</ScrollStackItem>
+									))}
+								</ScrollStack>
+
+						}
 					</div>
 				</div>
 			</div>

@@ -3,71 +3,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import scss from './Style.module.scss';
 import { IoIosDoneAll } from 'react-icons/io';
-import {
-	logo_chase,
-	logo_apple,
-	logo_microsoft,
-	logo_verizon,
-	logo_caterpillar,
-	logo_amazon,
-	logo_trueaccord,
-	logo_openfit
-} from '@/assets/company_logos';
+import SplitText from "@/components/SplitText";
+
 import GoogleButton from '@/appPages/auth/components/pages/authButtons/GoogleButton';
 import GitHubButton from '@/appPages/auth/components/pages/authButtons/GitHubButton';
 import AppleButton from '@/appPages/auth/components/pages/authButtons/AppleButton';
 import logo from '@/assets/logo.png';
 
-const company_logos = [
-	{
-		img: logo_chase,
-		width: 145,
-		height: 28,
-		alt: 'Chase'
-	},
-	{
-		img: logo_apple,
-		width: 80,
-		height: 28,
-		alt: 'Apple'
-	},
-	{
-		img: logo_microsoft,
-		width: 127,
-		height: 28,
-		alt: 'Microsoft'
-	},
-	{
-		img: logo_verizon,
-		width: 122,
-		height: 28,
-		alt: 'Verizon'
-	},
-	{
-		img: logo_caterpillar,
-		width: 49,
-		height: 28,
-		alt: 'CAT'
-	},
-	{
-		img: logo_amazon,
-		width: 90,
-		height: 28,
-		alt: 'Amazon'
-	},
-	{
-		img: logo_trueaccord,
-		width: 211,
-		height: 28,
-		alt: 'TrueAccord'
-	},
-	{
-		img: logo_openfit,
-		width: 92,
-		height: 28,
-		alt: 'OpenFit'
-	}
-];
+
 
 const SingInPage: FC = () => {
 	return (
@@ -81,19 +24,15 @@ const SingInPage: FC = () => {
 					<div className={scss.container}>
 						<div className={scss.content}>
 							<div className={scss.get_started}>
-								<h1 className={scss.sup_title}>Get started for free</h1>
 								<div className={scss.blocks}>
 									<div className={scss.block}>
 										<div className={scss.icon}>
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>Access to Micro Lectures</p>
+											<p className={scss.title}>Доступ к микро-лекциям</p>
 											<p className={scss.text}>
-												We provide free micro lectures on Java and soft-skills
-												taught by expert instructors from top companies like
-												Apple. Learn from the best and apply valuable knowledge
-												in the real world.
+												Мы предоставляем бесплатные микро-лекции по Java и soft-skills от опытных преподавателей из ведущих компаний, таких как Apple. Учитесь у лучших и применяйте полученные знания на практике в реальных проектах.
 											</p>
 										</div>
 									</div>
@@ -102,11 +41,9 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>Reinforce Your Learning</p>
+											<p className={scss.title}>Закрепляйте знания на практике</p>
 											<p className={scss.text}>
-												Our platform offers java exercises for practice,
-												providing instant automated results to track your
-												progress and identify areas for improvement.
+												Наша платформа предлагает практические задания по Java с мгновенной автоматической проверкой результатов. Это помогает отслеживать прогресс и быстро находить области, требующие улучшения.
 											</p>
 										</div>
 									</div>
@@ -115,17 +52,15 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>Free Consultation</p>
+											<p className={scss.title}>Бесплатная консультация</p>
 											<p className={scss.text}>
-												Free personalized consultations with our student
-												advisors can help you identify learning goals, select
-												courses, and get guidance on achieving your objectives.
+												Бесплатные персональные консультации с нашими учебными консультантами помогут вам определить цели обучения, выбрать подходящие курсы и получить рекомендации по их успешному прохождению.
 											</p>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div className={scss.our_graduates}>
+							{/* <div className={scss.our_graduates}>
 								<p className={scss.sup_title}>
 									Our graduates work at companies like:
 								</p>
@@ -144,7 +79,7 @@ const SingInPage: FC = () => {
 										/>
 									))}
 								</div>
-							</div>
+							</div> */}
 						</div>
 					</div>
 				</div>
@@ -165,18 +100,32 @@ const SingInPage: FC = () => {
 								Motion<span>Web</span>
 							</Link>
 							<div className={scss.auth_buttons}>
-								<h2 className={scss.title}>Welcome back 👋</h2>
+
+								<SplitText
+									text="С возвращением ❕"
+									className="text-3xl text-center"
+									delay={100}
+									duration={0.6}
+									ease="power3.out"
+									splitType="chars"
+									from={{ opacity: 0, y: 40 }}
+									to={{ opacity: 1, y: 0 }}
+									threshold={0.1}
+									rootMargin="-100px"
+									textAlign="center"
+								/>
+								<h2 className={scss.title}></h2>
 								<GoogleButton>Log in with Google</GoogleButton>
 								<GitHubButton>Log in with GitHub</GitHubButton>
 								<AppleButton>Log in with Apple</AppleButton>
 								<p className={scss.privacy}>
-									By logging in, you agree to our{' '}
+									Входя в систему, вы соглашаетесь с нашей{' '}
 									<Link href={'/privacy-policy.pdf'} target={'_blank'}>
-										Privacy Policy
+										Политикой конфиденциальности
 									</Link>{' '}
 									and{' '}
 									<Link href={'/terms-of-service.pdf'} target={'_blank'}>
-										Terms of Service
+										Условиями использования
 									</Link>
 									.
 								</p>

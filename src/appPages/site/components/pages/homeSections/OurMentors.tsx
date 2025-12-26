@@ -1,5 +1,5 @@
 'use client';
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import scss from './OurMentors.module.scss';
 import Image from 'next/image';
 import { FaLinkedinIn } from 'react-icons/fa';
@@ -43,66 +43,84 @@ const mentorsData = [
 ];
 
 const OurMentors: FC = () => {
-	const [currentSlide, setCurrentSlide] = useState(0);
-	const [loaded, setLoaded] = useState(false);
+	const [currentSlide, setCurrentSlide] = useState(0)
+	const [loaded, setLoaded] = useState(false)
+
+	// refs для autoplay
+	const autoplayTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+	const isPaused = useRef(false)
+
+	// autoplay plugin
+	const autoplay = (slider: any) => {
+		const clear = () => {
+			if (autoplayTimeout.current) {
+				clearTimeout(autoplayTimeout.current)
+				autoplayTimeout.current = null
+			}
+		}
+
+		const start = () => {
+			clear()
+			if (isPaused.current) return
+
+			autoplayTimeout.current = setTimeout(() => {
+				slider.next()
+			}, 1300)
+		}
+
+		slider.on('created', () => {
+			slider.container.addEventListener('mouseover', () => {
+				isPaused.current = true
+				clear()
+			})
+
+			slider.container.addEventListener('mouseout', () => {
+				isPaused.current = false
+				start()
+			})
+
+			start()
+		})
+
+		slider.on('dragStarted', clear)
+		slider.on('animationEnded', start)
+		slider.on('updated', start)
+
+		slider.autoplay = { clear, start }
+	}
+
 	const [ref, instanceRef] = useKeenSlider<HTMLDivElement>(
-		// slider settings
 		{
 			loop: true,
 			mode: 'free-snap',
+			initial: 0,
+
+			slides: { perView: 4, spacing: 25 },
+
 			breakpoints: {
 				'(max-width: 1250px)': {
-					slides: { perView: 3, spacing: 15 }
+					slides: { perView: 3, spacing: 15 },
 				},
 				'(max-width: 1000px)': {
-					slides: { perView: 2, spacing: 5 }
+					slides: { perView: 2, spacing: 8 },
 				},
 				'(max-width: 600px)': {
-					slides: { perView: 1, spacing: 3 }
-				}
+					slides: { perView: 1, spacing: 6 },
+				},
 			},
-			slides: { perView: 4, spacing: 25 },
-			// control
-			initial: 0,
+
 			slideChanged(slider) {
-				setCurrentSlide(slider.track.details.rel);
+				setCurrentSlide(slider.track.details.rel)
 			},
+
 			created() {
-				setLoaded(true);
-			}
+				setLoaded(true)
+			},
 		},
-		// autoplay
-		[
-			(slider) => {
-				let timeout: ReturnType<typeof setTimeout>;
-				let mouseOver = true;
-				function clearNextTimeout() {
-					clearTimeout(timeout);
-				}
-				function nextTimeout() {
-					clearTimeout(timeout);
-					if (mouseOver) return;
-					timeout = setTimeout(() => {
-						slider.next();
-					}, 1300);
-				}
-				slider.on('created', () => {
-					slider.container.addEventListener('mouseover', () => {
-						mouseOver = true;
-						clearNextTimeout();
-					});
-					slider.container.addEventListener('mouseout', () => {
-						mouseOver = false;
-						nextTimeout();
-					});
-					nextTimeout();
-				});
-				slider.on('dragStarted', clearNextTimeout);
-				slider.on('animationEnded', nextTimeout);
-				slider.on('updated', nextTimeout);
-			}
-		]
-	);
+		[autoplay]
+	)
+
+
 
 	return (
 		<section className={scss.OurMentors}>
@@ -119,22 +137,28 @@ const OurMentors: FC = () => {
 						{loaded && instanceRef.current && (
 							<>
 								<button
-									onClick={(e: any) =>
-										e.stopPropagation() || instanceRef.current?.prev()
-									}
-									// disabled={currentSlide === 0}
+									onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+										e.stopPropagation()
+										instanceRef.current?.autoplay.clear()
+										instanceRef.current?.prev()
+										instanceRef.current?.autoplay.start()
+									}}
+								// disabled={currentSlide === 0}
 								>
 									<IconChevronLeft />
 								</button>
 
 								<button
-									onClick={(e: any) =>
-										e.stopPropagation() || instanceRef.current?.next()
-									}
-									// disabled={
-									// 	currentSlide ===
-									// 	instanceRef.current.track.details.slides.length - 1
-									// }
+									onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+										e.stopPropagation()
+										instanceRef.current?.autoplay.clear()
+										instanceRef.current?.next()
+										instanceRef.current?.autoplay.start()
+									}}
+								// disabled={
+								// 	currentSlide ===
+								// 	instanceRef.current.track.details.slides.length - 1
+								// }
 								>
 									<IconChevronRight />
 								</button>
