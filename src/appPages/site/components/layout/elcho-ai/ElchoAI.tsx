@@ -7,6 +7,7 @@ import { BiSolidSend } from 'react-icons/bi';
 import { IoClose, IoLogOutOutline } from 'react-icons/io5';
 import { Button, Input, Textarea } from '@mantine/core';
 import { RiRobot2Fill } from 'react-icons/ri';
+import SplitText from "@/components/SplitText";
 import { useSendMessageAIMutation } from '@/redux/api/ai';
 
 // Type Definitions
@@ -74,13 +75,13 @@ export const ElchoAI: FC<IElchoAIProps> = ({
 	// ? 🔹 Авторизация клиента
 	const authTelegramClient = async (data: IUser) => {
 		const message = `
-🚀 <b>Новая заявка на разработку сайта!</b> 🚀
+	🚀 <b>Новая заявка на разработку сайта!</b> 🚀
 
-👤 <b>Имя:</b> <code>${data.username}</code>
-📞 <b>Телефон:</b> <code>${data.phone}</code>
-${data.email ? `📧 <b>Email:</b> <code>${data.email}</code>` : ''}
+	👤 <b>Имя:</b> <code>${data.username}</code>
+	📞 <b>Телефон:</b> <code>${data.phone}</code>
+	${data.email ? `📧 <b>Email:</b> <code>${data.email}</code>` : ''}
 
-🔥 Свяжитесь с клиентом как можно скорее!
+	🔥 Свяжитесь с клиентом как можно скорее!
 `;
 		await sendTelegramMessage(message);
 	};
@@ -165,9 +166,16 @@ ${message}
 	useEffect(() => {
 		if (isOpen) {
 			const timer = setTimeout(scrollToBottom, 100);
+			document.body.classList.add("modal-open");
 			return () => clearTimeout(timer);
+		} else {
+			document.body.classList.remove("modal-open");
 		}
+		return () => {
+			document.body.classList.remove("modal-open");
+		};
 	}, [isOpen]);
+
 
 	// Event Listeners
 	// ? Escape key press handler
@@ -230,23 +238,37 @@ ${message}
 			// );
 
 			const response = await sendMessageAIMutation({
-				conversationHistory: updatedMessages
+				conversationHistory: updatedMessages,
+
 			});
+			console.log(response);
 
 			if (response.data?.success) {
-				const assistantMessage = response.data.results.content
-					.filter((block: any) => block.type === 'text')
-					.map((block: any) => block.text)
-					.join('');
+				const assistantMessage = response.data.results.content;
+				// .filter((block: any) => block.type === 'text')
+				// .map((block: any) => block.text)
+				// .join('');
+
+				// O(L + n) --> O(L)
+				let assistantsTotalMessage = ''
+				for (let i = 0; i < assistantMessage.length; i++) {
+					let parseToString = ''
+					//@ts-ignore
+					if (assistantMessage[i].type === "text") {
+						//@ts-ignore
+						parseToString += assistantMessage[i].text
+					}
+					assistantsTotalMessage = parseToString
+				}
 
 				setMessages((prev) => [
 					...prev,
-					{ role: 'assistant', content: assistantMessage }
+					{ role: 'assistant', content: assistantsTotalMessage }
 				]);
-				sendMessageTelegramAssistant(assistantMessage);
+				sendMessageTelegramAssistant(assistantsTotalMessage);
 			} else {
 				const limitReachedMessage =
-					'Вы достигли лимита сообщений. Для получения дополнительной информации и решения проблемы, пожалуйста, свяжитесь с нами по телефону: 0999 99 88 66.';
+					'Вы достигли лимита сообщений для неавторизованных пользователей. Чтобы продолжить использовать MotionAI без ограничений, пожалуйста, авторизуйтесь или свяжитесь с нами по телефону: 0999 99 88 66.';
 
 				setMessages((prev) => [
 					...prev,
@@ -270,11 +292,9 @@ ${message}
 
 	// User Form Submit
 	const onUserFormSubmit: SubmitHandler<IUser> = (data) => {
-		const userIntroduction = `Меня зовут ${
-			data.username
-		}. Мой номер телефона: ${data.phone}${
-			data.email ? `, моя почта: ${data.email}` : ''
-		}.`;
+		const userIntroduction = `Меня зовут ${data.username
+			}. Мой номер телефона: ${data.phone}${data.email ? `, моя почта: ${data.email}` : ''
+			}.`;
 
 		setUserInfo(data);
 		authTelegramClient(data);
@@ -300,8 +320,8 @@ ${message}
 	const renderMessageContent = (content: string) => {
 		return content.indexOf(' ') === -1
 			? content.split('').reduce((acc, char, i) => {
-					return i > 0 && i % 25 === 0 ? acc + '<br>' + char : acc + char;
-				}, '')
+				return i > 0 && i % 25 === 0 ? acc + '<br>' + char : acc + char;
+			}, '')
 			: content;
 	};
 
@@ -323,9 +343,8 @@ ${message}
 			>
 				{/* Chat Container */}
 				<div
-					className={`${styles.chatContainer} ${
-						isOpen ? styles.open : styles.closed
-					}`}
+					className={`${styles.chatContainer} ${isOpen ? styles.open : styles.closed
+						}`}
 				>
 					<div ref={chatRef} className={styles.chatInner}>
 						<div className={styles.chatContent}>
@@ -366,13 +385,23 @@ ${message}
 										{messages.slice(1).map((item, index) => (
 											<div
 												key={index}
-												className={`${styles.messageItem} ${
-													item.role === 'user' ? styles.user : styles.assistant
-												}`}
+												className={`${styles.messageItem} ${item.role === 'user' ? styles.user : styles.assistant
+													}`}
 											>
-												<span className={styles.messageBubble}>
-													{item.content}
-												</span>
+												<SplitText
+													text={item.content}
+													className="text-left"
+													splitType="words"
+													delay={15}
+													duration={0.18}
+													ease="power1.out"
+													from={{ opacity: 0, y: 4 }}
+													to={{ opacity: 1, y: 0 }}
+													threshold={0.1}
+													textAlign='left'
+												/>
+
+
 											</div>
 										))}
 										{isSending && (
@@ -433,9 +462,8 @@ ${message}
 											<label className={errors.username ? styles.error : ''}>
 												Имя
 												<span
-													className={`${styles.errorText} ${
-														!errors.username ? styles.hidden : styles.visible
-													}`}
+													className={`${styles.errorText} ${!errors.username ? styles.hidden : styles.visible
+														}`}
 												>
 													обязательно
 												</span>
@@ -451,9 +479,8 @@ ${message}
 											<label className={errors.phone ? styles.error : ''}>
 												Номер телефона
 												<span
-													className={`${styles.errorText} ${
-														!errors.phone ? styles.hidden : styles.visible
-													}`}
+													className={`${styles.errorText} ${!errors.phone ? styles.hidden : styles.visible
+														}`}
 												>
 													обязательно
 												</span>
@@ -475,9 +502,8 @@ ${message}
 											<label className={errors.email ? styles.error : ''}>
 												Email почта (необязательно)
 												<span
-													className={`${styles.errorText} ${
-														!errors.email ? styles.hidden : styles.visible
-													}`}
+													className={`${styles.errorText} ${!errors.email ? styles.hidden : styles.visible
+														}`}
 												>
 													"Некорректный формат"
 												</span>

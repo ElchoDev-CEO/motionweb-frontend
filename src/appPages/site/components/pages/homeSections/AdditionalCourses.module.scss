@@ -1,44 +1,128 @@
 .AdditionalCourses {
-	padding: 50px 0;
-	.content {
-		text-align: center;
-		.scrollWrapper {
-			height: 500px;
-		}
-		.cardItem {
-			display: flex;
-			justify-content: space-between;
-			text-align: start;
-			gap: 30px;
-			width: 100%;
-			padding: 24px;
-			border-radius: 16px;
-			// background: #333;
-			border: 1px solid rgb(235, 235, 235);
-			color: #fff;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-			.left {
-				h2 {
-					font-size: 35px;
-					font-weight: 600;
-					margin-bottom: 12px;
-				}
+	padding: 100px 0 120px;
+	background: #ffffff;
 
-				p {
-					font-size: 20px;
-					line-height: 1.4;
-				}
-			}
-			.right {
-			}
+	@media (max-width: 1024px) {
+		padding: 80px 0;
+	}
+
+	@media (max-width: 768px) {
+		padding: 60px 0;
+	}
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 64px;
+
+	@media (max-width: 768px) {
+		margin-bottom: 48px;
+	}
+}
+
+.subtitle {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #666;
+	max-width: 720px;
+	margin: 24px auto 0;
+	font-weight: 400;
+
+	@media (max-width: 768px) {
+		font-size: 15px;
+		padding: 0 20px;
+	}
+}
+
+.cardsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 32px;
+	max-width: 1320px;
+	margin: 0 auto;
+
+	@media (max-width: 1024px) {
+		gap: 28px;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	}
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+		gap: 24px;
+		padding: 0 16px;
+	}
+}
+
+.card {
+	position: relative;
+	border-radius: 20px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+	transition:
+		transform 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+		box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+	&:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+		.accentLine {
+			width: 100px;
 		}
 	}
 }
 
-.russia {
-	background: linear-gradient(to right, red, white, blue);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	color: transparent;
+.imageWrapper {
+	position: relative;
+	width: 100%;
+	height: 160px;
+
+	@media (max-width: 768px) {
+		height: 300px;
+	}
+}
+
+.content {
+	padding: 20px 28px 28px;
+	z-index: 2;
+	background: #fff;
+
+	@media (max-width: 768px) {
+		padding: 24px 28px 28px;
+	}
+}
+
+.title {
+	font-size: 20px;
+	font-weight: 700;
+	color: #1a1a1a;
+	margin: 0 0 14px;
+	line-height: 1.35;
+
+	@media (max-width: 768px) {
+		font-size: 18px;
+	}
+}
+
+.description {
+	font-size: 13px;
+	line-height: 1.65;
+	color: #555;
+	margin: 0;
+
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
+}
+
+.accentLine {
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	background: var(--card-accent, #ec3025);
+	border-radius: 2px;
+	transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+	bottom: 0px;
+	left: 0;
 }

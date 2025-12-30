@@ -4,6 +4,10 @@
 	right: 0;
 	bottom: 0;
 
+	body.modal-open {
+		overflow: hidden;
+	}
+
 	// Chatbot Toggle Button
 	.toggleBtn {
 		position: absolute;
@@ -58,6 +62,9 @@
 			justify-content: center;
 			align-items: center;
 			transition: right 0.5s ease;
+			// overflow-y: auto;
+			// padding-left: 17px; /* визуальный отступ контента */
+			// margin-right: -10px;
 
 			&.open {
 				right: 0;
@@ -160,6 +167,8 @@
 						gap: 10px;
 						border-radius: 8px;
 						scroll-behavior: smooth;
+						scrollbar-width: none;
+						align-items: flex-start;
 
 						// Message Item
 						.messageItem {
@@ -168,7 +177,12 @@
 
 							&.user {
 								justify-content: flex-end;
-
+								margin-left: auto;
+								padding: 5px 10px;
+								width: inherit;
+								background-color: #ef4444;
+								color: #333;
+								border-radius: 30px;
 								.messageBubble {
 									background-color: #c2deff;
 									margin-left: auto;

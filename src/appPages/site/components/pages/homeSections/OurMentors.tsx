@@ -89,7 +89,7 @@ const OurMentors: FC = () => {
 		slider.autoplay = { clear, start }
 	}
 
-	const [ref, instanceRef] = useKeenSlider<HTMLDivElement>(
+	const [ref, instanceRef] = useKeenSlider(
 		{
 			loop: true,
 			mode: 'free-snap',
