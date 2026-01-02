@@ -4,71 +4,11 @@ import Image from 'next/image';
 import scss from './Style.module.scss';
 import { IoIosDoneAll } from 'react-icons/io';
 import SplitText from "@/components/SplitText";
-import {
-	logo_chase,
-	logo_apple,
-	logo_microsoft,
-	logo_verizon,
-	logo_caterpillar,
-	logo_amazon,
-	logo_trueaccord,
-	logo_openfit
-} from '@/assets/company_logos';
 import GoogleButton from '@/appPages/auth/components/pages/authButtons/GoogleButton';
 import GitHubButton from '@/appPages/auth/components/pages/authButtons/GitHubButton';
 import AppleButton from '@/appPages/auth/components/pages/authButtons/AppleButton';
 import logo from '@/assets/logo.png';
 
-const company_logos = [
-	{
-		img: logo_chase,
-		width: 145,
-		height: 28,
-		alt: 'Chase'
-	},
-	{
-		img: logo_apple,
-		width: 80,
-		height: 28,
-		alt: 'Apple'
-	},
-	{
-		img: logo_microsoft,
-		width: 127,
-		height: 28,
-		alt: 'Microsoft'
-	},
-	{
-		img: logo_verizon,
-		width: 122,
-		height: 28,
-		alt: 'Verizon'
-	},
-	{
-		img: logo_caterpillar,
-		width: 49,
-		height: 28,
-		alt: 'CAT'
-	},
-	{
-		img: logo_amazon,
-		width: 90,
-		height: 28,
-		alt: 'Amazon'
-	},
-	{
-		img: logo_trueaccord,
-		width: 211,
-		height: 28,
-		alt: 'TrueAccord'
-	},
-	{
-		img: logo_openfit,
-		width: 92,
-		height: 28,
-		alt: 'OpenFit'
-	}
-];
 
 const SingUpPage: FC = () => {
 	return (
@@ -159,7 +99,7 @@ const SingUpPage: FC = () => {
 							</Link>
 							<div className={scss.auth_buttons}>
 								<SplitText
-									text="С возвращением ❕"
+									text="Добро пожаловать!"
 									className="text-3xl text-center"
 									delay={100}
 									duration={0.6}
@@ -171,15 +111,15 @@ const SingUpPage: FC = () => {
 									rootMargin="-100px"
 									textAlign="center"
 								/>
-								<GoogleButton>Sign up with Google</GoogleButton>
-								<GitHubButton>Sign up with GitHub</GitHubButton>
-								<AppleButton>Sign up with Apple</AppleButton>
+								<GoogleButton>Регистрация через Google</GoogleButton>
+								<GitHubButton>Регистрация через GitHub</GitHubButton>
+								<AppleButton>Регистрация через Apple</AppleButton>
 								<p className={scss.privacy}>
 									Входя в систему, вы соглашаетесь с нашей{' '}
 									<Link href={'/privacy-policy.pdf'} target={'_blank'}>
 										Политикой конфиденциальности
 									</Link>{' '}
-									and{' '}
+									и{' '}
 									<Link href={'/terms-of-service.pdf'} target={'_blank'}>
 										Условиями использования
 									</Link>

@@ -102,7 +102,7 @@ const SingInPage: FC = () => {
 							<div className={scss.auth_buttons}>
 
 								<SplitText
-									text="С возвращением ❕"
+									text="С возвращением!"
 									className="text-3xl text-center"
 									delay={100}
 									duration={0.6}
@@ -115,15 +115,15 @@ const SingInPage: FC = () => {
 									textAlign="center"
 								/>
 								<h2 className={scss.title}></h2>
-								<GoogleButton>Log in with Google</GoogleButton>
-								<GitHubButton>Log in with GitHub</GitHubButton>
-								<AppleButton>Log in with Apple</AppleButton>
+								<GoogleButton>Войти через Google</GoogleButton>
+								<GitHubButton>Войти через GitHub</GitHubButton>
+								<AppleButton>Войти через Apple</AppleButton>
 								<p className={scss.privacy}>
 									Входя в систему, вы соглашаетесь с нашей{' '}
 									<Link href={'/privacy-policy.pdf'} target={'_blank'}>
 										Политикой конфиденциальности
 									</Link>{' '}
-									and{' '}
+									и{' '}
 									<Link href={'/terms-of-service.pdf'} target={'_blank'}>
 										Условиями использования
 									</Link>
@@ -131,8 +131,8 @@ const SingInPage: FC = () => {
 								</p>
 								<p className={scss.auth_switcher}>
 									{/* eslint-disable-next-line react/no-unescaped-entities */}
-									Don't have an account?{' '}
-									<Link href="/auth/sign-up">Sign up</Link>
+									Нет аккаунта?{' '}
+									<Link href="/auth/sign-up">Зарегистрируйтесь</Link>
 								</p>
 							</div>
 						</div>
