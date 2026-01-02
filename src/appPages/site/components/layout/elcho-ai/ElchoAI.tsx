@@ -389,8 +389,7 @@ ${message}
 													}`}
 											>
 												<SplitText
-													text={item.content}
-													className="text-left"
+													text={item.role === "assistant" && item.content}
 													splitType="words"
 													delay={15}
 													duration={0.18}
@@ -400,8 +399,7 @@ ${message}
 													threshold={0.1}
 													textAlign='left'
 												/>
-
-
+												<p>{item.role==="user" && item.content}</p>
 											</div>
 										))}
 										{isSending && (
