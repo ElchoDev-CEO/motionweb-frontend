@@ -1,4 +1,32 @@
 .ModuleCourseFS {
+	position: relative;
+	.decor_1 {
+		@media (max-width: 1240px) {
+			display: none;
+		}
+		position: absolute;
+		left: 30px;
+		top: 200px;
+		font-size: 60px;
+		color: #7ea04d;
+	}
+	.decor_2 {
+		@media (max-width: 1240px) {
+			display: none;
+		}
+		position: absolute;
+		right: 30px;
+		top: 500px;
+		font-size: 60px;
+		color: #7ea04d;
+	}
+	.decor_3 {
+		position: absolute;
+		right: 200px;
+		top: 100vh;
+		font-size: 60px;
+		color: #7ea04d;
+	}
 	.content {
 		padding: 53px 72px;
 		background: #1f1f1f;
@@ -7,6 +35,15 @@
 			display: flex;
 			flex-direction: column;
 			gap: 20px;
+
+			h2 {
+				font-size: clamp(24px, 5vw, 45px);
+				font-weight: 500;
+				color: #d6a99d;
+				span {
+					color: #7ea04d;
+				}
+			}
 		}
 		.cards {
 			overflow: hidden;

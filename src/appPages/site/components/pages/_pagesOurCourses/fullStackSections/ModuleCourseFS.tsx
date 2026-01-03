@@ -10,8 +10,9 @@ import {
 	FaRocket,
 	FaTasks
 } from 'react-icons/fa';
-import { IconModule } from '@/assets/icons';
-import CustomTitle from '@/ui/title/CustomTitle';
+import { GiCurledLeaf } from "react-icons/gi";
+import { IoIosLeaf } from "react-icons/io";
+
 
 const courseModules = [
 	{
@@ -64,11 +65,15 @@ const courseModules = [
 const ModuleCourseFS: FC = () => {
 	return (
 		<section className={scss.ModuleCourseFS}>
+			<GiCurledLeaf className={scss.decor_1} />
+			<IoIosLeaf className={scss.decor_2} />
+
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.top}>
-						<IconModule />
-						<CustomTitle spanLeft="Модули" title="курса" color="#ffffff" />
+						<h2>
+							Модули <span>курса</span>
+						</h2>
 					</div>
 					<div className={scss.cards}>
 						{courseModules.map((item, index) => (

@@ -8,7 +8,7 @@ import { Button, Input, InputBase } from '@mantine/core';
 import { IMaskInput } from 'react-imask';
 import { IconChevronRight } from '@tabler/icons-react';
 import { Bounce, toast } from 'react-toastify';
-import photo from '@/assets/contact.png';
+import photo from '@/assets/contact.avif';
 
 interface IContactForm {
 	username: string;
@@ -68,7 +68,7 @@ const Contact: FC = () => {
 								height={500}
 								src={photo}
 								alt="contact_photo"
-							/>
+							/>	
 						</div>
 						<div className={scss.right}>
 							<h1 className={scss.title}>

@@ -4,7 +4,8 @@ import scss from './FullStack.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
-import fullStackPhoto from '@/assets/img/full-stack/FC.gif';
+import fullStackPhoto from '@/assets/img/full-stack/fullstack-dev.avif';
+import { IoIosLeaf } from "react-icons/io";
 
 const FullStack: FC = () => {
 	const handleScrollContact = () => {
@@ -15,6 +16,7 @@ const FullStack: FC = () => {
 
 	return (
 		<section className={scss.FullStack}>
+			<IoIosLeaf className={scss.decor_1} />
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.content}>
