@@ -1,10 +1,6 @@
 'use client';
 import { FC } from 'react';
 import scss from './Advantages.module.scss';
-import CustomTitle from '@/ui/title/CustomTitle';
-import Image from 'next/image';
-import photoImage from '@/assets/img/advantages/full_section.png';
-
 const advantagesData = [
 	{
 		title: 'Практика с первого дня',
@@ -32,12 +28,17 @@ const advantagesData = [
 	},
 ];
 
-const Advantages: FC = () => {
+interface IAdvantagesProps {
+	titleColor: string
+	spanColor: string
+}
+
+const Advantages: FC<IAdvantagesProps> = ({ titleColor, spanColor }) => {
 	return (
 		<section className={scss.Advantages}>
 			<div className="container">
 				<div className={scss.content}>
-					<h2>Преимущества <span>курса</span></h2>
+					<h2 style={{ color: `${titleColor}` }}>Преимущества <span style={{ color: `${spanColor}` }}>курса</span></h2>
 					<div className={scss.wrapper}>
 						<div className={scss.cards}>
 							{advantagesData.map((item, index) => (
@@ -50,7 +51,7 @@ const Advantages: FC = () => {
 								</div>
 							))}
 						</div>
-							</div>
+					</div>
 				</div>
 			</div>
 		</section>

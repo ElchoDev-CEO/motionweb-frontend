@@ -13,7 +13,6 @@ import {
 } from 'react-icons/fa';
 import { FaComputer } from 'react-icons/fa6';
 import { IconModule } from '@/assets/icons';
-import CustomTitle from '@/ui/title/CustomTitle';
 
 const courseModules = [
 	{
@@ -77,7 +76,7 @@ const ModuleCourseKids: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top}>
 						<IconModule />
-						<CustomTitle spanLeft="Модули" title="курса" color="#ffffff" />
+						<h2>Модули <span>курса</span></h2>
 					</div>
 					<div className={scss.cards}>
 						{courseModules.map((item, index) => (

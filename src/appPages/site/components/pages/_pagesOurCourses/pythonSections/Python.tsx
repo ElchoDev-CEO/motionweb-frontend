@@ -4,7 +4,7 @@ import scss from './Python.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
-import pythonPhoto from '@/assets/img/python/python.gif';
+import pythonPhoto from '@/assets/img/python/python.avif';
 
 const Python: FC = () => {
 	const handleScrollContact = () => {

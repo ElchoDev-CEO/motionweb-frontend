@@ -4,7 +4,7 @@ import scss from './Kids.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
-import kidsPhoto from '@/assets/img/kids/kids.gif';
+import kidsPhoto from '@/assets/img/kids/kids.avif';
 
 const Kids: FC = () => {
 	const handleScrollContact = () => {
@@ -23,7 +23,7 @@ const Kids: FC = () => {
 								<IconCourses />
 							</span>
 							<h1 className={scss.title}>
-								Юный <span>Компьютерный Гений</span>
+								Юный <span>IT-Гений</span>
 							</h1>
 							<p className={scss.text}>
 								Узнай, как правильно пользоваться компьютером, работать с

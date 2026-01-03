@@ -7,6 +7,17 @@
 			display: flex;
 			flex-direction: column;
 			gap: 20px;
+
+			h2 {
+				font-size: clamp(24px, 5vw, 45px);
+				font-weight: 500;
+				color: #ffe08f;
+
+				span {
+					color: #1a2a4f;
+					-webkit-text-stroke: 0;
+				}
+			}
 		}
 		.cards {
 			overflow: hidden;

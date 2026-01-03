@@ -1,5 +1,5 @@
 .FullStack {
-	// padding: 50px 0 0 0;
+	padding: 40px 0 0 0;
 	position: relative;
 	@media (max-width: 768px) {
 		padding: 10px 0 0 0;
@@ -46,15 +46,6 @@
 				font-style: normal;
 				font-weight: 600;
 				line-height: clamp(30px, 8vw, 60px);
-				// span {
-				// 	background: var(
-				// 		--2,
-				// 		linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
-				// 	);
-				// 	background-clip: text;
-				// 	-webkit-background-clip: text;
-				// 	-webkit-text-fill-color: transparent;
-				// }
 				span {
 					background: #d6a99d;
 					background-clip: text;
@@ -78,7 +69,7 @@
 				justify-content: center;
 				align-items: center;
 				border-radius: 9999px;
-				background: #d6a99d;
+				background: #202020;
 				border: none;
 				color: #ffffff;
 				font-size: 17.16px;
@@ -91,7 +82,7 @@
 					margin-left: 9px;
 				}
 				&:hover {
-					background-color: #202020;
+					background-color: #d6a99d;
 				}
 				svg {
 					margin-left: 7px;

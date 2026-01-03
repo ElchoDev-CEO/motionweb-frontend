@@ -70,7 +70,9 @@ const ModuleCoursePython: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top}>
 						<IconModule />
-						<CustomTitle spanLeft="Модули" title="курса" color="#ffffff" />
+						<h2>
+							Модули <span>курса</span>
+						</h2>
 					</div>
 					<div className={scss.cards}>
 						{courseModules.map((item, index) => (

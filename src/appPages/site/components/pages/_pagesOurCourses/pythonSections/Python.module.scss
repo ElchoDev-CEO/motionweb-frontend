@@ -30,28 +30,13 @@
 			// }
 			.title {
 				margin-bottom: clamp(10px, 8vw, 20px);
-				color: var(--black);
+				color:#715A5A;
 				font-size: clamp(25px, 8vw, 50px);
 				font-style: normal;
 				font-weight: 600;
 				line-height: clamp(30px, 8vw, 60px);
-				// span {
-				// 	background: var(
-				// 		--2,
-				// 		linear-gradient(97deg, #f86cf8 12.04%, #64cef5 81.84%)
-				// 	);
-				// 	background-clip: text;
-				// 	-webkit-background-clip: text;
-				// 	-webkit-text-fill-color: transparent;
-				// }
 				span {
-					background: var(
-						--2,
-						linear-gradient(97deg, #eb3023 12.04%, #d32f2f 81.84%)
-					);
-					background-clip: text;
-					-webkit-background-clip: text;
-					-webkit-text-fill-color: transparent;
+					color: #B7B7B7;
 				}
 			}
 			.text {
@@ -70,7 +55,7 @@
 				justify-content: center;
 				align-items: center;
 				border-radius: 9999px;
-				background: #ff6368;
+				background: #715A5A;
 				border: none;
 				color: #ffffff;
 				font-size: 17.16px;

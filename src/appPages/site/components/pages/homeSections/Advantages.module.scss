@@ -10,10 +10,6 @@
 		h2 {
 			font-size: clamp(24px, 5vw, 45px);
 			font-weight: 500;
-			color: #d6a99d;
-			span {
-				color: #7ea04d;
-			}
 		}
 	}
 
@@ -53,7 +49,7 @@
 					inset: 0;
 					background: linear-gradient(
 						135deg,
-						rgba(188, 247, 107, 0.25),
+						rgba(173, 173, 173, 0.25),
 						transparent 80%
 					);
 					opacity: 0;
