@@ -1,66 +1,106 @@
 .InternshipProgram {
-	padding: 60px 0;
-	background: #f6f6f6;
+	padding: 120px 0;
+	// background: #0f0f0f; // f dark mode
+	color: #ffffff;
+
 	.content {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		.title {
-			margin-bottom: 40px;
+		gap: 80px;
+	}
+
+	.heading {
+		font-size: clamp(28px, 5vw, 48px);
+		font-weight: 600;
+		color: #202020;
+		span {
+			color: #ff6368;
+		}
+	}
+
+	.timeline {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 24px;
+			top: 0;
+			width: 2px;
+			height: 100%;
+			background: linear-gradient(to bottom, #ff6368, rgba(126, 160, 77, 0.2));
+		}
+	}
+
+	.step {
+		display: flex;
+		align-items: flex-start;
+		gap: 32px;
+		position: relative;
+
+		.marker {
+			min-width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			background: #ff6368;
 			display: flex;
-			justify-content: center;
 			align-items: center;
-			font-size: clamp(24px, 5vw, 58px);
-			font-weight: 400;
-			line-height: clamp(20px, 5vw, 69px);
-			letter-spacing: 0%;
-			span {
-				background: linear-gradient(90deg, #f96b6b, #f64b6a, #bc1f5e);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
+			justify-content: center;
+			font-weight: 700;
+			color: #202020;
+			z-index: 2;
+		}
+
+		.card {
+			display: flex;
+			gap: 24px;
+			padding: 28px;
+			border-radius: 20px;
+			// background: #202020; // f dark mode
+			background: #44444E;
+			flex: 1;
+			transition:
+				transform 0.3s ease,
+				box-shadow 0.3s ease;
+
+			&:hover {
+				transform: translateX(8px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+			}
+
+			img {
+				filter: drop-shadow(0 0 10px rgba(126, 160, 77, 0.4));
+			}
+
+			.text {
+				h3 {
+					font-size: 20px;
+					margin-bottom: 8px;
+					color: #ff6368;
+				}
+
+				p {
+					font-size: 15px;
+					line-height: 1.6;
+					color: #d0d0d0;
+				}
 			}
 		}
-		.cards {
-			display: flex;
-			gap: 30px;
-			justify-content: center;
-			@media (max-width: 1000px) {
-				flex-direction: column;
-				align-items: center;
-			}
+	}
+
+	@media (max-width: 768px) {
+		.timeline::before {
+			left: 18px;
+		}
+
+		.step {
+			gap: 20px;
+
 			.card {
-				padding: 40px 30px;
-				width: 100%;
-				max-width: 370px;
-				display: flex;
 				flex-direction: column;
-				// justify-content: center;
-				align-items: center;
-				border: 1px solid #e5f4f2;
-				border-radius: 20px;
-				box-shadow: 34.85px 29.63px 48.34px 0px #4545450d;
-				background: #ffffff;
-				.pic {
-					margin-bottom: clamp(12px, 5vw, 30px);
-				}
-				.title {
-					margin-bottom: clamp(10px, 5vw, 24px);
-					color: #1f1f1f;
-					font-size: clamp(20px, 5vw, 28px);
-					font-weight: 600;
-					line-height: 130%;
-					letter-spacing: -1%;
-					text-align: center;
-				}
-				.description {
-					color: #2d2d2d;
-					font-size: 16px;
-					font-weight: 400;
-					line-height: 150%;
-					letter-spacing: 0%;
-					text-align: center;
-				}
 			}
 		}
 	}

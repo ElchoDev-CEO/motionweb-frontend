@@ -13,19 +13,19 @@ const internship_program_data = [
 		pic: termsOfParticipation,
 		title: 'Условия участия',
 		description:
-			'Необходимо иметь базовые знания в выбранной области IT. Участники проходят отборочный процесс на основе их навыков и мотивации.'
+			'Необходимо иметь базовые знания в выбранной области IT. Участники проходят отбор на основе навыков и мотивации.'
 	},
 	{
 		pic: duration,
 		title: 'Длительность',
 		description:
-			'Продолжительность стажировки варьируется от 3 до 6 месяцев в зависимости от конкретной программы.'
+			'Стажировка длится от 3 до 6 месяцев с гибким графиком и поэтапной нагрузкой.'
 	},
 	{
 		pic: opportunities,
 		title: 'Возможности',
 		description:
-			'Возможность работать над реальными проектами. Участие в обучающих мероприятиях, тренингах и мастер-классах, что помогает вам расширить свой кругозор и навыки в IT.'
+			'Работа над реальными проектами, участие в мастер-классах и развитие профессиональных навыков.'
 	}
 ];
 
@@ -34,21 +34,29 @@ const InternshipProgram: FC = () => {
 		<section className={scss.InternshipProgram}>
 			<div className="container">
 				<div className={scss.content}>
-					<h1 className={scss.title}>
-						Программа&nbsp;<span>стажировки</span>
-					</h1>
-					<div className={scss.cards}>
+					<h2 className={scss.heading}>
+						Программа <span>стажировки</span>
+					</h2>
+
+					<div className={scss.timeline}>
 						{internship_program_data.map((item, index) => (
-							<div key={index} className={scss.card}>
-								<Image
-									className={scss.pic}
-									width={80}
-									height={80}
-									src={item.pic}
-									alt={item.title}
-								/>
-								<h1 className={scss.title}>{item.title}</h1>
-								<p className={scss.description}>{item.description}</p>
+							<div key={index} className={scss.step}>
+								<div className={scss.marker}>
+									<span>{index + 1}</span>
+								</div>
+
+								<div className={scss.card}>
+									<Image
+										src={item.pic}
+										width={56}
+										height={56}
+										alt={item.title}
+									/>
+									<div className={scss.text}>
+										<h3>{item.title}</h3>
+										<p>{item.description}</p>
+									</div>
+								</div>
 							</div>
 						))}
 					</div>

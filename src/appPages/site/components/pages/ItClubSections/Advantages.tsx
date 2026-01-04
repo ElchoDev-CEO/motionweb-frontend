@@ -15,23 +15,25 @@ const advantages_data = [
 		icon: done_blue,
 		title: 'Менторство',
 		description:
-			'Стажеры получают поддержку и руководство от опытных профессионалов.'
+			'Индивидуальная поддержка от практикующих специалистов IT-индустрии.'
 	},
 	{
 		icon: done_yellow,
 		title: 'Практический опыт',
 		description:
-			'Возможность применить свои знания на практике в профессиональной IT среде.'
+			'Работа с реальными задачами и проектами в командной среде.'
 	},
 	{
 		icon: done_brown,
 		title: 'Обучение',
-		description: 'Разнообразные проекты для расширения навыков.'
+		description:
+			'Современные методики обучения и развитие ключевых навыков.'
 	},
 	{
 		icon: done_green,
 		title: 'Трудоустройство',
-		description: 'Возможность трудоустройства после завершения стажировки.'
+		description:
+			'Лучшие стажёры получают предложения о работе после программы.'
 	}
 ];
 
@@ -39,31 +41,41 @@ const Advantages: FC = () => {
 	return (
 		<section className={scss.Advantages}>
 			<div className="container">
-				<div className={scss.content}>
-					<div className={scss.left}>
+				<div className={scss.grid}>
+					{/* Highlight */}
+					<div className={scss.highlight}>
+						<h2>
+							Почему <span>эта стажировка</span>
+							<br /> даёт результат
+						</h2>
+						<p>
+							Мы создаём среду, максимально приближенную к реальной
+							работе в IT-командах, где вы растёте как настоящий специалист.
+						</p>
+
 						<Image
-							className={scss.photo}
 							src={advantages_photo}
-							alt="advantages_photo"
+							alt="advantages"
+							className={scss.photo}
 						/>
 					</div>
-					<div className={scss.right}>
-						<h1 className={scss.title}>Преимущества</h1>
-						<div className={scss.cards}>
-							{advantages_data.map((item, index) => (
-								<div key={index} className={scss.card}>
+
+					{/* Features */}
+					<div className={scss.features}>
+						{advantages_data.map((item, index) => (
+							<div key={index} className={scss.feature}>
+								<div className={scss.icon}>
 									<Image
-										className={scss.icon}
-										width={40}
-										height={40}
 										src={item.icon}
+										width={36}
+										height={36}
 										alt={item.title}
 									/>
-									<h1 className={scss.title}>{item.title}</h1>
-									<p className={scss.description}>{item.description}</p>
 								</div>
-							))}
-						</div>
+								<h3>{item.title}</h3>
+								<p>{item.description}</p>
+							</div>
+						))}
 					</div>
 				</div>
 			</div>

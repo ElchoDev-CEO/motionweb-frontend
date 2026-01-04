@@ -4,7 +4,7 @@ import scss from './WelcomeItClub.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconInternship } from '@/assets/icons';
-import ItClubPhoto from '@/assets/img/it-club/it-club.png';
+import ItClubPhoto from '@/assets/img/it-club/it-club_img.avif';
 
 const WelcomeItClub: FC = () => {
 	const handleScrollContact = () => {
@@ -21,10 +21,11 @@ const WelcomeItClub: FC = () => {
 						<span className={scss.icon}>
 							<IconInternship />
 						</span>
-						<h1 className={scss.title}>IT Клуб</h1>
+						<h1 className={scss.title}><span>IT</span> Клуб</h1>
 						<p className={scss.text}>
-							Стань экспертом в разработке на языке JavaScript и овладей
-							инженерными навыками для создания сложных веб-приложений.
+							Сообщество, где учатся через практику.
+							Реальные проекты, живая коммуникация, командная работа и поддержка наставников.
+
 						</p>
 						{/* Исправлено: добавлен id-атрибут для плавной прокрутки */}
 						<button className={scss.button} onClick={handleScrollContact}>
@@ -34,7 +35,7 @@ const WelcomeItClub: FC = () => {
 					<div className={scss.right}>
 						<Image
 							className={scss.img}
-							width={663}
+							width={863}
 							height={546}
 							src={ItClubPhoto}
 							alt="IT Club illustration"
