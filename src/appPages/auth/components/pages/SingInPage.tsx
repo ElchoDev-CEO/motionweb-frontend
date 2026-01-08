@@ -60,26 +60,6 @@ const SingInPage: FC = () => {
 									</div>
 								</div>
 							</div>
-							{/* <div className={scss.our_graduates}>
-								<p className={scss.sup_title}>
-									Our graduates work at companies like:
-								</p>
-								<div className={scss.images}>
-									{company_logos.map((item, index) => (
-										<Image
-											key={index + 1}
-											src={item.img}
-											width={item.width}
-											height={item.height}
-											alt={item.alt}
-											style={{
-												width: item.width,
-												height: item.height
-											}}
-										/>
-									))}
-								</div>
-							</div> */}
 						</div>
 					</div>
 				</div>
