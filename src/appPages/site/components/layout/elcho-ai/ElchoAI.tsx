@@ -37,7 +37,7 @@ export const ElchoAI: FC<IElchoAIProps> = ({
 	// Refs
 	const chatRef = useRef<HTMLDivElement>(null);
 	const messagesScrollRef = useRef<HTMLDivElement>(null);
-
+	let errorMessage = 'Вы достигли лимита сообщений для неавторизованных пользователей. Чтобы продолжить использовать MotionAI без ограничений, пожалуйста, авторизуйтесь или свяжитесь с нами по телефону: 0999 99 88 66.';
 	// State Management
 	const [userInfo, setUserInfo] = useState<IUser | null>(null);
 	const [messages, setMessages] = useState<IMessage[]>([]);
@@ -267,9 +267,7 @@ ${message}
 				]);
 				sendMessageTelegramAssistant(assistantsTotalMessage);
 			} else {
-				const limitReachedMessage =
-					'Вы достигли лимита сообщений для неавторизованных пользователей. Чтобы продолжить использовать MotionAI без ограничений, пожалуйста, авторизуйтесь или свяжитесь с нами по телефону: 0999 99 88 66.';
-
+				const limitReachedMessage = errorMessage
 				setMessages((prev) => [
 					...prev,
 					{ role: 'assistant', content: limitReachedMessage }
@@ -277,10 +275,6 @@ ${message}
 			}
 		} catch (error) {
 			console.error('Ошибка при отправке сообщения:', error);
-
-			const errorMessage =
-				'Вы достигли лимита сообщений. Для получения дополнительной информации и решения проблемы, пожалуйста, свяжитесь с нами по телефону: 0999 99 88 66.';
-
 			setMessages((prev) => [
 				...prev,
 				{ role: 'assistant', content: errorMessage }
@@ -399,7 +393,7 @@ ${message}
 													threshold={0.1}
 													textAlign='left'
 												/>
-												<p>{item.role==="user" && item.content}</p>
+												<p>{item.role === "user" && item.content}</p>
 											</div>
 										))}
 										{isSending && (

@@ -34,6 +34,21 @@ const links = {
 	}
 };
 
+const extraLinks = {
+	python: {
+		name: "Python для всех",
+		href: "/our-courses/python"
+	},
+	fullstack: {
+		name: "Fullstack курс",
+		href: "/our-courses/full-stack"
+	},
+	kids: {
+		name: "IT для детей",
+		href: "our-courses/kids"
+	}
+}
+
 // Функция для создания ссылок на курсы
 const createCourseLink = (name: string, slug: string) => ({
 	name,
@@ -48,6 +63,12 @@ export const siteLinks = [
 	links.myGroups,
 	links.users
 ];
+
+export const extraSiteLinks = [
+	extraLinks.python,
+	extraLinks.fullstack,
+	extraLinks.kids,
+]
 
 // Функция для создания меню профиля в зависимости от роли пользователя
 export const getMenuLinks = (role: UserRole) => {
