@@ -11,10 +11,15 @@
 		display: flex;
 		align-items: flex-start;
 		gap: 20px;
-
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+		}
 		.left {
 			// Brandset block
 			width: 50%;
+			@media screen and (max-width: 768px) {
+				width: 100%;
+			}
 			.cover {
 				background: #f2f2f2;
 				height: 295px;
@@ -50,7 +55,6 @@
 							object-fit: cover;
 							border-radius: 34px;
 							border: 3px solid rgba(218, 216, 216, 0.155);
-							// position: absolute;
 							margin-top: -60px;
 							margin-left: 30px;
 							top: -60px;
@@ -75,7 +79,6 @@
 				.left_bottom {
 					padding: 10px 30px;
 					.avatar_btn {
-						// margin-top: 50px;
 						border: 2px solid black;
 						background: none;
 						color: #000;
@@ -123,6 +126,9 @@
 
 		.right {
 			width: 50%;
+			@media screen and (max-width: 768px) {
+				width: 100%;
+			}
 			display: flex;
 			flex-direction: column;
 			gap: 20px;
@@ -143,112 +149,121 @@
 				div {
 					border: 1px solid rgb(215, 215, 215);
 					margin: 0 auto;
-					width: 580px;
+					max-width: 34rem;
 					border-radius: 10px;
 					background-color: #fff;
 					color: #474652;
 					overflow: hidden;
 					padding: 15px;
+					font-size: 16px;
 				}
 			}
-			.interests_hobby {
-				display: flex;
-				flex-direction: column;
-				justify-content: space-between;
-				border-radius: 15px;
-				height: 200px;
-				background: #f2f2f2;
+		}
+		.interests_hobby {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			border-radius: 15px;
+			min-height: 200px;
+			background: #f2f2f2;
+			padding: 10px;
+			span {
+				font-size: 20px;
+				font-weight: 500;
+				margin-left: 10px;
+				margin-bottom: 20px;
+			}
+			.ticket_cover {
 				padding: 10px;
-				span {
-					font-size: 20px;
-					font-weight: 500;
-					margin-left: 10px;
-					margin-bottom: 20px;
-				}
-				.ticket_cover {
-					padding: 10px;
-					display: flex;
-					gap: 10px;
-					flex-wrap: wrap;
-					.ticket {
-						white-space: nowrap;
-						cursor: pointer;
-						display: flex;
-						align-items: center;
-						gap: 6px;
-						max-width: 120px;
-						background-color: #d7e3fe;
-						font-weight: 500;
-						color: #0b52a4;
-						padding: 4px 9px;
-						border-radius: 24px;
-						transition: 0.2s;
-						&:hover {
-							background-color: #cfd4fa;
-						}
-					}
-				}
-				button {
-					background: #f2f2f2;
-					width: 100%;
-					border: 2px solid rgb(214, 213, 213);
-					border-radius: 12px;
+				display: flex;
+				gap: 10px;
+				flex-wrap: wrap;
+				.ticket {
+					white-space: nowrap;
+					cursor: pointer;
 					display: flex;
 					align-items: center;
-					justify-content: center;
-					padding: 10px 0;
-					transition: 0.3s;
+					gap: 6px;
+					max-width: 120px;
+					background-color: #d7e3fe;
+					font-weight: 500;
+					color: #0b52a4;
+					padding: 4px 9px;
+					border-radius: 24px;
+					transition: 0.2s;
 					&:hover {
-						background: #ffffff98;
+						background-color: #cfd4fa;
 					}
 				}
 			}
-			.social_media_acc {
+			button {
+				cursor: pointer;
+				background: #f2f2f2;
+				width: 100%;
+				border: 2px solid rgb(214, 213, 213);
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 10px 0;
+				transition: 0.3s;
+				&:hover {
+					background: #ffffff98;
+				}
+				&:active {
+					background: #ffffff98;
+				}
+			}
+		}
+		.social_media_acc {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			border-radius: 15px;
+			min-height: 350px;
+			background: #f2f2f2;
+			padding: 10px;
+			span {
+				font-size: 20px;
+				font-weight: 500;
+				margin-left: 10px;
+				margin-bottom: 16px;
+			}
+			.social_cover {
 				display: flex;
 				flex-direction: column;
-				justify-content: space-between;
-				border-radius: 15px;
-				height: 350px;
-				background: #f2f2f2;
-				padding: 10px;
-				span {
-					font-size: 20px;
-					font-weight: 500;
-					margin-left: 10px;
-					margin-bottom: 16px;
-				}
-				.social_cover {
-					display: flex;
-					flex-direction: column;
-					align-items: flex-start;
-					gap: 10px;
-					.social_item {
-						display: flex;
-						align-items: center;
-						justify-content: flex-start;
-						padding: 3px 11px;
-						width: 100%;
-						gap: 20px;
-						background-color: #fff;
-						border-radius: 12px;
-						span {
-							font-size: 16px;
-						}
-					}
-				}
-				button {
-					background: #f2f2f2;
-					width: 100%;
-					border: 2px solid rgb(214, 213, 213);
-					border-radius: 12px;
+				align-items: flex-start;
+				gap: 10px;
+				.social_item {
 					display: flex;
 					align-items: center;
-					justify-content: center;
-					padding: 10px 0;
-					transition: 0.3s;
-					&:hover {
-						background: #ffffff98;
+					justify-content: flex-start;
+					padding: 3px 11px;
+					width: 100%;
+					gap: 20px;
+					background-color: #fff;
+					border-radius: 12px;
+					span {
+						font-size: 16px;
 					}
+				}
+			}
+			button {
+				cursor: pointer;
+				background: #f2f2f2;
+				width: 100%;
+				border: 2px solid rgb(214, 213, 213);
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 10px 0;
+				transition: 0.3s;
+				&:hover {
+					background: #ffffff98;
+				}
+				&:active {
+					background: #ffffff98;
 				}
 			}
 		}

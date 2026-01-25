@@ -208,7 +208,7 @@ const Profile: FC = () => {
 										onChange={handleBackgroundChange}
 									/>
 								</div>
-								{/*  Avatar , upload block goes here */}
+								{/*  Brandset */}
 								<div className={scss.left__avatar}>
 									<Skeleton
 										visible={isLoadingGetMe}
@@ -249,7 +249,7 @@ const Profile: FC = () => {
 							</div>
 
 
-							{/* Personal informations , edit them goes here */}
+							{/* Personal information */}
 							<div className={scss.left__personal_info}>
 								<span className={scss.title}>Персональная информация</span>
 
