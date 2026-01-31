@@ -49,6 +49,7 @@ declare global {
 	}
 }
 
+
 export const metadata: Metadata = {
 	title:
 		'MotionWeb LMS Платформа | Доступ к качественным образовательным материалам',
@@ -69,7 +70,23 @@ export const metadata: Metadata = {
 				alt: 'MotionWeb LMS Платформа'
 			}
 		],
-		type: 'website'
+		type: 'website',
+	},
+
+	twitter: {
+		card: "summary_large_image",
+		title: "MotionWeb LMS Платформа",
+		description: "MotionWeb — это современная LMS платформа, предоставляющая студентам первоклассные образовательные материалы и инструменты.",
+		images: [{
+			url: '/motion-web-card.jpg',
+			width: 1200,
+			height: 630,
+			alt: "MotionWeb LMS Platform"
+		}]
+	},
+
+	verification: {
+		google: "XAZVJKt28bfwTCHjZ5OrExxHtqr4FoeyvIYanVuDhU8"
 	}
 };
 
