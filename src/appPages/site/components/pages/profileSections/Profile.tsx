@@ -5,9 +5,7 @@ import imageCompression from 'browser-image-compression';
 import {
 	IconCamera,
 	IconMail,
-	IconMobiledataOff,
 	IconPhone,
-	IconPhoto
 } from '@tabler/icons-react';
 import { MdModeEdit } from "react-icons/md";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -52,7 +50,9 @@ const Profile: FC = () => {
 	const avatarInputRef = useRef<HTMLInputElement>(null);
 	const backgroundInputRef = useRef<HTMLInputElement>(null);
 	const timerRef = useRef<NodeJS.Timeout | null>(null);
-	const [hasChanges, setHasChanges] = useState(false);
+	const [hasChanges, setHasChanges] = useState<boolean>(false);
+	const [isModal, setIsModal] = useState<boolean>(false)
+
 
 	const handleUpdate = useCallback(
 		async (firstName: string, lastName: string) => {
@@ -351,8 +351,32 @@ const Profile: FC = () => {
 										</div>
 									</div>
 								</div>
-								<button>+ Add more</button>
+								<button onClick={() => setIsModal(true)}>+ Add more</button>
 							</div>
+							{isModal && <Modal
+								opened={isModal}
+								onClose={() => setIsModal(false)}
+								withCloseButton={false}
+								closeOnClickOutside={true}
+								title="Выберите интересы"
+								size="xl"
+								centered
+							>
+								<div className={scss.modal}>
+									<div className={scss.modal_items}>
+										<div className={scss.ticket}>
+											UI Design <RxCross2 />
+										</div>
+										<div className={scss.ticket}>
+											UI Design <RxCross2 />
+										</div>
+										<div className={scss.ticket}>
+											UI Design <RxCross2 />
+										</div>
+									</div>
+								</div>
+							</Modal>
+							}
 							<div className={scss.social_media_acc}>
 								<span>Social Media accounts</span>
 								<div className={scss.social_cover}>
