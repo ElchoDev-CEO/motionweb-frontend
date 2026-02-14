@@ -2,10 +2,12 @@ FROM node:24-slim
 
 WORKDIR /home/app
 
-COPY . .
+COPY package.json ./
 
 RUN npm i -g bun
 RUN bun i --ignore-scripts
+
+COPY . .
 
 ENV PORT=3000
 EXPOSE ${PORT}
