@@ -8,7 +8,7 @@ import { Button, Input, InputBase } from '@mantine/core';
 import { IMaskInput } from 'react-imask';
 import { IconChevronRight } from '@tabler/icons-react';
 import { Bounce, toast } from 'react-toastify';
-import photo from '@/assets/contact.avif';
+import photo from '@/assets/contact.webp';
 
 interface IContactForm {
 	username: string;

@@ -4,7 +4,7 @@ import scss from './FullStack.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
-import fullStackPhoto from '@/assets/img/full-stack/fullstack-dev.avif';
+import fullStackPhoto from '@/assets/img/full-stack/fullstack-dev.webp';
 import { IoIosLeaf } from "react-icons/io";
 
 const FullStack: FC = () => {

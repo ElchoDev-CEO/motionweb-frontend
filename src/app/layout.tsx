@@ -51,6 +51,7 @@ declare global {
 
 
 export const metadata: Metadata = {
+	metadataBase: new URL('https://motion.kg'),
 	title:
 		'MotionWeb LMS Платформа | Доступ к качественным образовательным материалам',
 	description:

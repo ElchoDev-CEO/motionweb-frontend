@@ -4,7 +4,7 @@ import scss from './WelcomeItClub.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconInternship } from '@/assets/icons';
-import ItClubPhoto from '@/assets/img/it-club/it-club_img.avif';
+import ItClubPhoto from '@/assets/img/it-club/it-club_img.webp';
 
 const WelcomeItClub: FC = () => {
 	const handleScrollContact = () => {

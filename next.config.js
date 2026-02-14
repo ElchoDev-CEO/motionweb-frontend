@@ -1,14 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	reactCompiler: true,
 	experimental: {
 		optimizePackageImports: ['react-icons'] // for Tree Shaking
 	},
 	images: {
-		domains: [
-			'lh3.googleusercontent.com',
-			'avatars.githubusercontent.com',
-			'xtovytvlpfwfopdwaedf.supabase.co',
-			'ctxaofgvpokdnmcrxnnu.supabase.co'
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'lh3.googleusercontent.com'
+			},
+			{
+				protocol: 'https',
+				hostname: 'avatars.githubusercontent.com'
+			},
+			{
+				protocol: 'https',
+				hostname: 'xtovytvlpfwfopdwaedf.supabase.co'
+			},
+			{
+				protocol: 'https',
+				hostname: 'ctxaofgvpokdnmcrxnnu.supabase.co'
+			}
 		]
 	}
 };

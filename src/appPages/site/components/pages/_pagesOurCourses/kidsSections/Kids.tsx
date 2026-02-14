@@ -4,7 +4,7 @@ import scss from './Kids.module.scss';
 import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
-import kidsPhoto from '@/assets/img/kids/kids.avif';
+import kidsPhoto from '@/assets/img/kids/kids.webp';
 
 const Kids: FC = () => {
 	const handleScrollContact = () => {
