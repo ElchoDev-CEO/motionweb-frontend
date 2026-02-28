@@ -1,0 +1,9 @@
+export { default as TranslateHeaderRu } from './header.json';
+export { default as TranslateHomeRu } from './home.json';
+export { default as TranslateMyCoursesRu } from './myCourses.json';
+export { default as TranslateMyGroupsRu } from './myGroups.json';
+export { default as TranslateRegisterRu } from './register.json';
+export { default as TranslateLoginRu } from './login.json';
+export { default as TranslateFSRu } from './full-stack.json';
+export { default as TranslatePythonRu } from './python.json';
+export { default as TranslateKidsRu } from './kids.json';

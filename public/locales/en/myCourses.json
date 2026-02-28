@@ -1,0 +1,32 @@
+{
+	"addBtn": "Add a new course",
+	"renewSub": "Renew your subscription to access the course",
+	"paymantHasn'tBeenMade": "Access to the course is open, but payment has not been made.",
+	"loading": "Loading...",
+	"yourCourses": "You don't have any courses...",
+	"course": {
+		"createdAt": "Created",
+		"updateAt": "Updated"
+	},
+	"courseNotFound": "No courses found...",
+	"createCourseForm": {
+		"title": "Create a course",
+		"nameInput": "Enter course name...",
+		"descriptionInput": "Enter course description...",
+		"coverCourseInput": "Select a course cover...",
+		"createBtn": "Create"
+	},
+	"updateCourseForm": {
+		"title": "Editing a course",
+		"nameInput": "Enter course name...",
+		"descriptionInput": "Enter course description...",
+		"coverCourseInput": "Select a course cover...",
+		"updateBtn": "Update"
+	},
+	"deleteCourseConfirm": {
+		"title": "Deletion confirmation",
+		"confirm": "Are you sure you want to delete this course? This action cannot be undone.",
+		"cancelBtn": "Cancel",
+		"deleteBtn": "Delete"
+	}
+}

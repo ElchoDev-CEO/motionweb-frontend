@@ -1,0 +1,16 @@
+{
+	"banner": {
+		"theme": "Javascript",
+		"custom_theme": " Engineer",
+		"subtitle": "Become an expert in JavaScript development and master the engineering skills to build complex web applications.",
+		"btnText": "Enroll Now"
+	},
+	"courseModules": {
+		"theme": "Course",
+		"custom_theme": " Modules"
+	},
+	"advantages": {
+		"theme": "Advantages",
+		"custom_theme": " of the course"
+	}
+}

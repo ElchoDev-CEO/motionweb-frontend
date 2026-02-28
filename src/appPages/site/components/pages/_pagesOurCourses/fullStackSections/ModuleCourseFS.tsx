@@ -10,59 +10,78 @@ import {
 	FaRocket,
 	FaTasks
 } from 'react-icons/fa';
-import { GiCurledLeaf } from "react-icons/gi";
-import { IoIosLeaf } from "react-icons/io";
-
+import { GiCurledLeaf } from 'react-icons/gi';
+import { IoIosLeaf } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
 
 const courseModules = [
 	{
 		title: 'Основы JavaScript',
+		titleEn: 'JavaScript Basics',
 		description: 'Основы JavaScript и программирования',
+		descriptionEn: 'JavaScript Basics and Programming Fundamentals',
 		icon: <FaJs />
 	},
 	{
 		title: 'Основы JavaScript',
+		titleEn: 'JavaScript Basics',
 		description: 'Объектно-ориентированное программирование в JavaScript',
+		descriptionEn: 'Object-oriented programming in JavaScript',
 		icon: <FaJs />
 	},
 	{
 		title: 'Асинхронное программирование',
+		titleEn: 'Asynchronous programming',
 		description: 'Асинхронное программирование и обработка событий',
+		descriptionEn: 'Asynchronous programming and event handling',
 		icon: <FaClock />
 	},
 	{
 		title: 'Фреймворки',
+		titleEn: 'Frameworks',
 		description: 'Фреймворки: React.js, Angular, или Vue.js',
+		descriptionEn: 'Frameworks: React.js, Angular, or Vue.js',
 		icon: <FaReact />
 	},
 	{
 		title: 'Основы JavaScript',
+		titleEn: 'JavaScript Basics',
 		description: 'Объектно-ориентированное программирование в JavaScript',
+		descriptionEn: 'Object-oriented programming in JavaScript',
 		icon: <FaJs />
 	},
 	{
 		title: 'Node.js',
+		titleEn: 'Node.js',
 		description: 'Node.js и разработка серверной части приложений',
+		descriptionEn: 'Node.js and server-side application development',
 		icon: <FaNodeJs />
 	},
 	{
 		title: 'База данных',
+		titleEn: 'Database',
 		description: 'Работа с базами данных: MongoDB, MySQL, PostgreSQL',
+		descriptionEn: 'Working with databases: MongoDB, MySQL, PostgreSQL',
 		icon: <FaDatabase />
 	},
 	{
 		title: 'Оптимизация',
+		titleEn: 'Optimization',
 		description: 'Оптимизация производительности и безопасности приложений',
+		descriptionEn: 'Optimizing performance and application security',
 		icon: <FaRocket />
 	},
 	{
 		title: 'Практика',
+		titleEn: 'Practice',
 		description: 'Проектная работа и практикум',
+		descriptionEn: 'Project work and practicum',
 		icon: <FaTasks />
 	}
 ];
 
 const ModuleCourseFS: FC = () => {
+	const { i18n, t } = useTranslation('FS');
 	return (
 		<section className={scss.ModuleCourseFS}>
 			<GiCurledLeaf className={scss.decor_1} />
@@ -72,7 +91,8 @@ const ModuleCourseFS: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top}>
 						<h2>
-							Модули <span>курса</span>
+							{t('courseModules.theme')}{' '}
+							<span>{t('courseModules.custom_theme')}</span>
 						</h2>
 					</div>
 					<div className={scss.cards}>
@@ -81,9 +101,13 @@ const ModuleCourseFS: FC = () => {
 								<div className={scss.card}>
 									<h2 className={scss.title}>
 										<span className={scss.icon}>{item.icon}</span>
-										{item.title}
+										{i18n.language === 'ru' ? item.title : item.titleEn}
 									</h2>
-									<p className={scss.description}>{item.description}</p>
+									<p className={scss.description}>
+										{i18n.language === 'ru'
+											? item.description
+											: item.descriptionEn}
+									</p>
 								</div>
 								{index !== courseModules.length - 1 && (
 									<span className={scss.line}></span>

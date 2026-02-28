@@ -1,25 +1,26 @@
+'use client';
 import React, { FC } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import scss from './Style.module.scss';
 import { IoIosDoneAll } from 'react-icons/io';
-import SplitText from "@/components/SplitText";
+import SplitText from '@/components/SplitText';
 
 import GoogleButton from '@/appPages/auth/components/pages/authButtons/GoogleButton';
 import GitHubButton from '@/appPages/auth/components/pages/authButtons/GitHubButton';
 import AppleButton from '@/appPages/auth/components/pages/authButtons/AppleButton';
 import logo from '@/assets/logo.png';
-
-
+import { useTranslation } from 'react-i18next';
 
 const SingInPage: FC = () => {
+	const { t } = useTranslation('login');
 	return (
 		<>
 			<div className={scss.auth}>
 				{/* ! left */}
 				<div className={scss.left}>
 					<Link className={scss.back_link} href={'/'}>
-						&lt; Back
+						&lt; {t('back')}
 					</Link>
 					<div className={scss.container}>
 						<div className={scss.content}>
@@ -30,9 +31,9 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>Доступ к микро-лекциям</p>
+											<p className={scss.title}>{t('accessBlock.title')}</p>
 											<p className={scss.text}>
-												Мы предоставляем бесплатные микро-лекции по Java и soft-skills от опытных преподавателей из ведущих компаний, таких как Apple. Учитесь у лучших и применяйте полученные знания на практике в реальных проектах.
+												{t('accessBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -41,9 +42,11 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>Закрепляйте знания на практике</p>
+											<p className={scss.title}>
+												{t('consolidateBlock.title')}{' '}
+											</p>
 											<p className={scss.text}>
-												Наша платформа предлагает практические задания по Java с мгновенной автоматической проверкой результатов. Это помогает отслеживать прогресс и быстро находить области, требующие улучшения.
+												{t('consolidateBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -52,9 +55,9 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>Бесплатная консультация</p>
+											<p className={scss.title}> {t('freeConsBlock.title')}</p>
 											<p className={scss.text}>
-												Бесплатные персональные консультации с нашими учебными консультантами помогут вам определить цели обучения, выбрать подходящие курсы и получить рекомендации по их успешному прохождению.
+												{t('freeConsBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -80,9 +83,8 @@ const SingInPage: FC = () => {
 								Motion<span>Web</span>
 							</Link>
 							<div className={scss.auth_buttons}>
-
 								<SplitText
-									text="С возвращением!"
+									text={t('content.text')}
 									className="text-3xl text-center"
 									delay={100}
 									duration={0.6}
@@ -95,24 +97,24 @@ const SingInPage: FC = () => {
 									textAlign="center"
 								/>
 								<h2 className={scss.title}></h2>
-								<GoogleButton>Войти через Google</GoogleButton>
-								<GitHubButton>Войти через GitHub</GitHubButton>
-								<AppleButton>Войти через Apple</AppleButton>
+								<GoogleButton>{t('content.googleBtn')}</GoogleButton>
+								<GitHubButton>{t('content.gitHubBtn')}</GitHubButton>
+								<AppleButton>{t('content.appleBtn')}</AppleButton>
 								<p className={scss.privacy}>
-									Входя в систему, вы соглашаетесь с нашей{' '}
+									{t('content.agree.text')}{' '}
 									<Link href={'/privacy-policy.pdf'} target={'_blank'}>
-										Политикой конфиденциальности
+										{t('content.agree.privacy')}
 									</Link>{' '}
-									и{' '}
+									{t('content.agree.between')}{' '}
 									<Link href={'/terms-of-service.pdf'} target={'_blank'}>
-										Условиями использования
+										{t('content.agree.terms')}
 									</Link>
 									.
 								</p>
 								<p className={scss.auth_switcher}>
 									{/* eslint-disable-next-line react/no-unescaped-entities */}
-									Нет аккаунта?{' '}
-									<Link href="/auth/sign-up">Зарегистрируйтесь</Link>
+									{t('content.noAccount')}{' '}
+									<Link href="/auth/sign-up">{t('content.signUp')}</Link>
 								</p>
 							</div>
 						</div>

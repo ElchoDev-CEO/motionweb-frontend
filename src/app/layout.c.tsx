@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import NextTopLoader from 'nextjs-toploader';
 import { ToastContainer } from 'react-toastify';
 import { Toaster } from 'react-hot-toast';
+import '../lib/i18n';
 const VideoRecProvider = dynamic(
 	() => import('@/providers/ScreenRecordingProvider'),
 	{

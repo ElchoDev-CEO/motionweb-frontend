@@ -1,0 +1,12 @@
+{
+	"banner": {
+		"theme": "Python",
+		"custom_theme": " Engineer",
+		"subtitle": "Become an expert in Python development and master the engineering skills to build powerful applications.",
+		"btnText": "Enroll Now"
+	},
+	"courseModules": {
+		"theme": "Course",
+		"custom_theme": " Modules"
+	}
+}

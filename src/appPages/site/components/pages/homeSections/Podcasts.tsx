@@ -7,6 +7,7 @@ import { IconMicrophone } from '@tabler/icons-react';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import CustomTitle from '@/ui/title/CustomTitle';
+import { useTranslation } from 'react-i18next';
 
 // if (typeof window !== 'undefined') {
 // 	const originalFetch = window.fetch;
@@ -24,27 +25,35 @@ import CustomTitle from '@/ui/title/CustomTitle';
 const podcasts_data = [
 	{
 		name: 'MOTION PODCAST | ТААНЫШУУ | Аскеров Канатбек',
+		nameEn: 'MOTION PODCAST | Acquaintance | Askerov Kanatbek',
 		videoUrl: 'https://youtu.be/ldiOAWE6j8s'
 	},
 	{
 		name: 'Алишер Турдалиев КАРЛИКОВЫЙ АЙЫЛДАН ДУБАЙГА',
+		nameEn: 'Alisher Turdaliev FROM KARLIKOVY VILLAGE TO DUBAI',
 		videoUrl: 'https://youtu.be/wtUwUao7nJg'
 	},
 	{
 		name: 'IT клубтун алкагында ресторан жана кафелерге жасашкан электрондук меню',
+		nameEn:
+			'Electronic menus created for restaurants and cafes as part of the IT club',
 		videoUrl: 'https://youtu.be/SDCDrdlYScE'
 	},
 	{
 		name: 'INTI - ЭЛ АРАЛЫК ЖОГОРКУУ ОКУУ ЖАЙ!',
+		nameEn: 'INTI - IS AN INTERNATIONAL UNIVERSITY!',
 		videoUrl: 'https://youtu.be/0n912BOhx7Q'
 	},
 	{
 		name: 'APU - МАЛАЙЗИЯДАГЫ №1 IT ОКУУ ЖАЙ',
+		nameEn: 'APU - №1 IT SCHOOL IN MALAYSIA',
 		videoUrl: 'https://youtu.be/wModLQ7Alu4'
 	}
 ];
 
 const Podcasts: FC = () => {
+	const { i18n, t } = useTranslation('home');
+
 	const [ref] = useKeenSlider<HTMLDivElement>(
 		{
 			loop: true,
@@ -95,8 +104,14 @@ const Podcasts: FC = () => {
 		<section className={scss.Podcasts}>
 			<div className="container">
 				<div className={scss.content}>
-					<Tag icon={<IconMicrophone stroke={2} />}>Подкасты</Tag>
-					<CustomTitle title="Motion " spanRight="Подкасты" color="#ffffff" />
+					<Tag icon={<IconMicrophone stroke={2} />}>
+						{t('podcasts.subtopic')}
+					</Tag>
+					<CustomTitle
+						title={t('podcasts.theme')}
+						spanRight={t('podcasts.custom_theme')}
+						color="#ffffff"
+					/>
 					<div className={scss.gridContainer}>
 						<div ref={ref} className="keen-slider">
 							{podcasts_data.map((item, index) => (
@@ -109,7 +124,7 @@ const Podcasts: FC = () => {
 											width="380px"
 											height="225px"
 										/>
-										<p>{item.name}</p>
+										<p>{i18n.language === 'ru' ? item.name : item.nameEn}</p>
 									</div>
 								</div>
 							))}

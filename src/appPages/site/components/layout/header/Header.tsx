@@ -26,6 +26,7 @@ import DropDownMenu from '@/ui/dropDownMenu/DropDownMenu';
 import { useLogoutMutation } from '@/redux/api/auth';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/utils/firebase';
+import { useTranslation } from 'react-i18next';
 
 const Header: FC = () => {
 	const [headerScroll, setHeaderScroll] = useState(false);
@@ -33,6 +34,12 @@ const Header: FC = () => {
 	const [menuLinks, setMenuLinks] = useState<{ name: string; href: string }[]>(
 		[]
 	);
+	const { i18n, t } = useTranslation('header');
+
+	const handleChangeLang = () => {
+		const newLang = i18n.language === 'ru' ? 'en' : 'ru';
+		i18n.changeLanguage(newLang);
+	};
 
 	const {
 		isOpen,
@@ -100,7 +107,7 @@ const Header: FC = () => {
 				>
 					<div className="container">
 						<div className={scss.content}>
-							<div className={scss.logo}>
+							<div className={scss.logo} onClick={handleChangeLang}>
 								<Image loading="eager" src={logo} alt="logo" />
 							</div>
 							{!isMobile ? (
@@ -119,7 +126,7 @@ const Header: FC = () => {
 														}
 														href={item.href}
 													>
-														{item.name}
+														{i18n.language === 'ru' ? item.name : item.nameEn}
 														{(pathname === item.href ||
 															(item.href !== '/' &&
 																pathname.startsWith(item.href))) && (
@@ -141,13 +148,13 @@ const Header: FC = () => {
 										</ul>
 										<div className={scss.dropDownMenus}>
 											<DropDownMenu
-												title="Наши курсы"
+												title={t('ourCourses')}
 												links={dropDownMenuCourses}
 												isOpen={isOpenDropDownMenuCourses}
 												setIsOpen={setIsOpenDropDownMenuCourses}
 											/>
 											<DropDownMenu
-												title="Ресурсы"
+												title={t('resources')}
 												links={dropDownMenuResources}
 												isOpen={isOpenDropDownMenuResources}
 												setIsOpen={setIsOpenDropDownMenuResources}
@@ -188,10 +195,10 @@ const Header: FC = () => {
 											<>
 												<div className={scss.auth_login_buttons}>
 													<Button onClick={linkToSignIn} variant="filled">
-														Вход
+														{t('login')}
 													</Button>
 													<Button onClick={linkToSignUp} variant="outline">
-														Регистрация
+														{t('register')}
 													</Button>
 												</div>
 											</>

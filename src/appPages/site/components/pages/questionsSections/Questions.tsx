@@ -2,69 +2,100 @@
 import React, { FC } from 'react';
 import scss from './Questions.module.scss';
 import { Group, Avatar, Text, Accordion } from '@mantine/core';
+import { useTranslation } from 'react-i18next';
 
 const motionWebInfo = [
 	{
 		id: 'learning_management',
 		image: 'https://img.icons8.com/clouds/256/000000/classroom.png',
 		label: 'Управление обучением',
+		labelEn: 'Learning Management',
 		description:
 			'Инструменты для организации и управления учебными материалами',
+		descriptionEn: 'Tools for organizing and managing educational materials',
 		content:
-			'Платформа MotionWeb LMS предоставляет мощные инструменты для создания, организации и управления учебными материалами. Эти инструменты делают процесс обучения проще и удобнее как для преподавателей, так и для студентов. Преподаватели могут эффективно структурировать курсы, а студенты — легко находить и использовать необходимые материалы, что значительно ускоряет обучение.'
+			'Платформа MotionWeb LMS предоставляет мощные инструменты для создания, организации и управления учебными материалами. Эти инструменты делают процесс обучения проще и удобнее как для преподавателей, так и для студентов. Преподаватели могут эффективно структурировать курсы, а студенты — легко находить и использовать необходимые материалы, что значительно ускоряет обучение.',
+		contentEn:
+			'MotionWeb LMS provides powerful tools for creating, organizing, and managing educational materials. These tools make the learning process simpler and more convenient for both teachers and students. Teachers can efficiently structure courses, while students can easily find and use the necessary materials, significantly accelerating the learning process.'
 	},
 
 	{
 		id: 'resource_accessibility',
 		image: 'https://img.icons8.com/clouds/256/000000/futurama-bender.png',
 		label: 'Доступность образовательных ресурсов',
+		labelEn: 'Accessibility of Educational Resources',
 		description: 'Централизованный доступ к учебным материалам',
+		descriptionEn: 'Centralized access to educational materials',
 		content:
-			'MotionWeb LMS предоставляет централизованный доступ к учебным материалам, что позволяет студентам изучать нужные темы в любое удобное для них время и из любого места. Такая гибкость особенно важна в современном мире, где ценится возможность обучаться удаленно и в индивидуальном темпе. Платформа позволяет сосредоточиться на получении знаний, не отвлекаясь на технические сложности.'
+			'MotionWeb LMS предоставляет централизованный доступ к учебным материалам, что позволяет студентам изучать нужные темы в любое удобное для них время и из любого места. Такая гибкость особенно важна в современном мире, где ценится возможность обучаться удаленно и в индивидуальном темпе. Платформа позволяет сосредоточиться на получении знаний, не отвлекаясь на технические сложности.',
+		contentEn:
+			'MotionWeb LMS provides centralized access to educational materials, allowing students to study the required topics at any convenient time and from any location. This flexibility is especially important in today’s world, where remote and individualized learning is valued. The platform allows students to focus on acquiring knowledge without being distracted by technical difficulties.'
 	},
 
 	{
 		id: 'progress_tracking',
 		image: 'https://img.icons8.com/clouds/256/000000/combo-chart.png',
 		label: 'Мониторинг прогресса',
+		labelEn: 'Progress Tracking',
 		description: 'Функции отслеживания успеваемости студентов',
+		descriptionEn: 'Features for tracking student performance',
 		content:
-			'Система мониторинга прогресса, встроенная в MotionWeb LMS, позволяет преподавателям отслеживать успеваемость студентов в реальном времени. Это помогает выявлять трудности, с которыми сталкиваются студенты, и своевременно вносить корректировки в процесс обучения. Преподаватели могут использовать данные для создания более персонализированных и эффективных программ обучения.'
+			'Система мониторинга прогресса, встроенная в MotionWeb LMS, позволяет преподавателям отслеживать успеваемость студентов в реальном времени. Это помогает выявлять трудности, с которыми сталкиваются студенты, и своевременно вносить корректировки в процесс обучения. Преподаватели могут использовать данные для создания более персонализированных и эффективных программ обучения.',
+		contentEn:
+			'The built-in progress tracking system in MotionWeb LMS allows teachers to monitor student performance in real-time. This helps identify difficulties students encounter and enables timely adjustments to the learning process. Teachers can use this data to create more personalized and effective learning programs.'
 	},
 
 	{
 		id: 'interactive_learning',
 		image: 'https://img.icons8.com/clouds/256/000000/futurama-mom.png',
 		label: 'Интерактивное обучение',
+		labelEn: 'Interactive Learning',
 		description: 'Поддержка взаимодействия между преподавателями и студентами',
+		descriptionEn: 'Support for interaction between teachers and students',
 		content:
-			'MotionWeb LMS активно поддерживает интерактивное обучение, обеспечивая различные формы взаимодействия между преподавателями и студентами. Виртуальные классы, чаты, совместные задания и другие функции помогают студентам лучше усваивать материал, а преподавателям — эффективнее взаимодействовать с группой. Такой подход делает обучение более увлекательным и продуктивным.'
+			'MotionWeb LMS активно поддерживает интерактивное обучение, обеспечивая различные формы взаимодействия между преподавателями и студентами. Виртуальные классы, чаты, совместные задания и другие функции помогают студентам лучше усваивать материал, а преподавателям — эффективнее взаимодействовать с группой. Такой подход делает обучение более увлекательным и продуктивным.',
+		contentEn:
+			'MotionWeb LMS actively supports interactive learning by providing various forms of interaction between teachers and students. Virtual classrooms, chats, collaborative assignments, and other features help students better absorb the material and allow teachers to interact more effectively with the group. This approach makes learning more engaging and productive.'
 	},
 
 	{
 		id: 'administrative_automation',
 		image: 'https://img.icons8.com/clouds/256/000000/homer-simpson.png',
 		label: 'Автоматизация административных процессов',
+		labelEn: 'Automation of administrative processes',
 		description: 'Снижение нагрузки на административный персонал',
+		descriptionEn: 'Reduction of administrative workload',
 		content:
-			'MotionWeb LMS существенно снижает нагрузку на административный персонал за счет автоматизации рутинных задач. Управление курсами, создание расписаний, формирование отчетности — всё это выполняется автоматически, экономя время и усилия. Это позволяет сосредоточиться на более важных аспектах образовательного процесса и улучшении качества обучения.'
+			'MotionWeb LMS существенно снижает нагрузку на административный персонал за счет автоматизации рутинных задач. Управление курсами, создание расписаний, формирование отчетности — всё это выполняется автоматически, экономя время и усилия. Это позволяет сосредоточиться на более важных аспектах образовательного процесса и улучшении качества обучения.',
+		contentEn:
+			'MotionWeb LMS significantly reduces the workload of administrative staff by automating routine tasks. Course management, schedule creation, and report generation are all performed automatically, saving time and effort. This allows staff to focus on more important aspects of the educational process and improve learning quality.'
 	}
 ];
 
 interface AccordionLabelProps {
 	label: string;
+	labelEn: string;
 	image: string;
 	description: string;
+	descriptionEn: string;
 }
 
-function AccordionLabel({ label, image, description }: AccordionLabelProps) {
+function AccordionLabel({
+	label,
+	labelEn,
+	image,
+	description,
+	descriptionEn
+}: AccordionLabelProps) {
+	const { i18n } = useTranslation('home');
+
 	return (
 		<Group wrap="nowrap">
 			<Avatar src={image} radius="xl" size="lg" />
 			<div>
-				<Text>{label}</Text>
+				<Text>{i18n.language === 'ru' ? label : labelEn}</Text>
 				<Text size="sm" c="dimmed" fw={400}>
-					{description}
+					{i18n.language === 'ru' ? description : descriptionEn}
 				</Text>
 			</div>
 		</Group>
@@ -72,13 +103,17 @@ function AccordionLabel({ label, image, description }: AccordionLabelProps) {
 }
 
 const Questions: FC = () => {
+	const { i18n } = useTranslation();
+
 	const items = motionWebInfo.map((item) => (
 		<Accordion.Item value={item.id} key={item.label}>
 			<Accordion.Control>
 				<AccordionLabel {...item} />
 			</Accordion.Control>
 			<Accordion.Panel>
-				<Text size="sm">{item.content}</Text>
+				<Text size="sm">
+					{i18n.language === 'ru' ? item.content : item.contentEn}
+				</Text>
 			</Accordion.Panel>
 		</Accordion.Item>
 	));
@@ -89,7 +124,15 @@ const Questions: FC = () => {
 				<div className="container">
 					<div className={scss.content}>
 						<h1 className={scss.title}>
-							Часто задаваемые <span>вопросы (FAQs)</span>
+							{i18n.language === 'ru' ? (
+								<>
+									Часто задаваемые <span>вопросы (FAQs)</span>
+								</>
+							) : (
+								<>
+									Frequently asked <span>questions (FAQs)</span>
+								</>
+							)}
 						</h1>
 						<Accordion
 							chevronPosition="right"
