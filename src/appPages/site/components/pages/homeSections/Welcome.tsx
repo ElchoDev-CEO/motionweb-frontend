@@ -24,73 +24,67 @@ interface ITab {
 	image: StaticImageData;
 }
 const TABS_DATA: ITab[] = [
-        {	area: 'Основатель MotionWeb',
-            label: 'Software engineer',
-            company: company2,
-            image: TabImage2
-        },
-        {
-            area: 'Сооснователь MotionWeb',
-            label: 'Предприниматель',
-            company: company1,
-            image: TabImage1
-        },
-        {
-            area: 'Сооснователь MotionWeb',
-            label: 'FullStack',
-            company: company3,
-            image: TabImage3
-        },
-        {
-            area: 'FullStack Ментор',
-            label: 'Руководитель FS',
-            company: company4,
-            image: TabImage4
-        },
-        {
-            area: 'Frontend Ментор',
-            label: 'IT инженер',
-            company: company5,
-            image: TabImage5
-        }
-    ];
+	{
+		area: 'Основатель MotionWeb',
+		label: 'Software engineer',
+		company: company2,
+		image: TabImage2
+	},
+	{
+		area: 'Сооснователь MotionWeb',
+		label: 'Предприниматель',
+		company: company1,
+		image: TabImage1
+	},
+	{
+		area: 'Сооснователь MotionWeb',
+		label: 'FullStack',
+		company: company3,
+		image: TabImage3
+	},
+
+	{
+		area: 'Frontend Ментор',
+		label: 'IT инженер',
+		company: company5,
+		image: TabImage5
+	}
+];
 
 const Welcome: FC = () => {
 	const [activeTab, setActiveTab] = useState<number>(0);
-	const [isPaused, setIsPaused] = useState<boolean>(false)
+	const [isPaused, setIsPaused] = useState<boolean>(false);
 	// const intervalIdRef = useRef<number | null>(null);
 
+	const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+	useEffect(() => {
+		if (isPaused) return;
 
-const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+		const id = setInterval(() => {
+			setActiveTab((prev) => (prev + 1) % TABS_DATA.length);
+		}, 3000);
 
-useEffect(() => {
-    if (isPaused) return;
+		return () => clearInterval(id);
+	}, [isPaused]);
 
-    const id = setInterval(() => {
-        setActiveTab(prev => (prev + 1) % TABS_DATA.length);
-    }, 3000);
+	const handleTabClick = (index: number) => {
+		setActiveTab(index);
+		setIsPaused(true);
 
-    return () => clearInterval(id);
-}, [isPaused]); 
+		if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
 
-const handleTabClick = (index: number) => {
-    setActiveTab(index);
-    setIsPaused(true);
+		pauseTimeoutRef.current = setTimeout(() => {
+			setIsPaused(false);
+		}, 2000);
+	};
 
-    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
-
-    pauseTimeoutRef.current = setTimeout(() => {
-        setIsPaused(false);
-    }, 2000);
-};
-
-// Очистка при размонтировании
-useEffect(() => {
-    return () => {
-        if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
-    };
-}, []);
+	// Очистка при размонтировании
+	useEffect(() => {
+		return () => {
+			if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+		};
+	}, []);
 
 	return (
 		<>

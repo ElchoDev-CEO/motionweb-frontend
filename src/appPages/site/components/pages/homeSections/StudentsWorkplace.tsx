@@ -8,53 +8,133 @@ import IconStudentsWorkplace from '@/assets/icons/icon-students-workplace';
 import CustomTitle from '@/ui/title/CustomTitle';
 import LogoLoop from '@/components/LogoLoop';
 import {
-	logo_chase,
-	logo_apple,
-	logo_microsoft,
-	logo_verizon,
-	logo_caterpillar,
-	logo_amazon,
-	logo_trueaccord,
-	logo_openfit
+	logo_jogorkukenesh,
+	logo_skynet,
+	logo_kyrgyzaltyn,
+	logo_growave,
+	logo_remotion,
+	logo_mbank,
+	logo_aiylbank,
+	logo_asiabank,
+	logo_bishkekcityhall,
+	logo_timelyskills
 } from '@/assets/company_logos';
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import {
+	SiReact,
+	SiNextdotjs,
+	SiTypescript,
+	SiTailwindcss
+} from 'react-icons/si';
 import Image from 'next/image';
 
-
 const StudentsWorkplace: FC = () => {
-
-	const [logoHeightTrack, setLogoHeightTrack] = useState(40)
+	const [logoHeightTrack, setLogoHeightTrack] = useState(40);
 
 	useEffect(() => {
 		const update = () => {
 			if (window.innerWidth <= 768) {
-				setLogoHeightTrack(30)
+				setLogoHeightTrack(30);
 			} else if (window.innerHeight <= 470) {
-				setLogoHeightTrack(20)
+				setLogoHeightTrack(20);
+			} else {
+				setLogoHeightTrack(40);
 			}
-			else {
-				setLogoHeightTrack(40)
-			}
-		}
+		};
 
-		window.addEventListener("resize", update)
-		return () => window.removeEventListener("resize", update)
-
-	}, [])
+		window.addEventListener('resize', update);
+		return () => window.removeEventListener('resize', update);
+	}, []);
 
 	const company_logos = [
-		{ node: <Image src={logo_chase} alt="Chase" width={50} height={50} />, title: "Chase", href: "https://chase.com" },
-		{ node: <Image src={logo_apple} alt="Apple" width={50} height={50} />, title: "Apple", href: "https://apple.com" },
-		{ node: <Image src={logo_microsoft} alt="Microsoft" width={50} height={50} />, title: "Microsoft", href: "https://microsoft.com" },
-		{ node: <Image src={logo_verizon} alt="Verizon" width={50} height={50} />, title: "Verizon", href: "https://verizon.com" },
-		{ node: <Image src={logo_caterpillar} alt="Caterpillar" width={50} height={50} />, title: "Caterpillar", href: "https://www.caterpillar.com" },
-		{ node: <Image src={logo_amazon} alt="Amazon" width={50} height={50} />, title: "Amazon", href: "https://amazon.com" },
-		{ node: <Image src={logo_trueaccord} alt="TrueAccord" width={90} height={80} />, title: "TrueAccord", href: "https://trueaccord.com" },
-		{ node: <Image src={logo_openfit} alt="OpenFit" width={50} height={50} />, title: "OpenFit", href: "https://openfit.com" },
+		{
+			node: (
+				<Image src={logo_asiabank} alt="logo_asiabank" width={50} height={50} />
+			),
+			title: 'AsiaBank',
+			href: 'https://www.bankasia.kg'
+		},
+		{
+			node: (
+				<Image
+					src={logo_bishkekcityhall}
+					alt="bishkekcityhall"
+					width={50}
+					height={50}
+				/>
+			),
+			title: 'Мэрия Бишкек',
+			href: 'https://bishkek.gov.kg'
+		},
+		{
+			node: <Image src={logo_mbank} alt="logo_mbank" width={50} height={50} />,
+			title: 'MBank',
+			href: 'https://mbank.kg'
+		},
+		{
+			node: (
+				<Image src={logo_aiylbank} alt="logo_aiylbank" width={50} height={50} />
+			),
+			title: 'AiylBank',
+			href: 'https://www.ab.kg/ky'
+		},
+		{
+			node: (
+				<Image
+					src={logo_jogorkukenesh}
+					alt="logo_jogorkukenesh"
+					width={50}
+					height={50}
+				/>
+			),
+			title: 'Жогорку Кенеш',
+			href: 'https://kenesh.kg'
+		},
+		{
+			node: (
+				<Image src={logo_skynet} alt="logo_skynet" width={50} height={50} />
+			),
+			title: 'Skynet',
+			href: 'https://skynet.kg'
+		},
+		{
+			node: (
+				<Image
+					src={logo_kyrgyzaltyn}
+					alt="logo_kyrgyzaltyn"
+					width={100}
+					height={100}
+				/>
+			),
+			title: 'Кыргыз Алтын',
+			href: 'https://www.kyrgyzaltyn.kg'
+		},
+		{
+			node: (
+				<Image src={logo_growave} alt="logo_growave" width={50} height={50} />
+			),
+			title: 'Growave',
+			href: 'https://www.growave.io/'
+		},
+		{
+			node: (
+				<Image src={logo_remotion} alt="logo_remotion" width={90} height={80} />
+			),
+			title: 'Remotion',
+			href: 'https://remotion.kg'
+		},
+		{
+			node: (
+				<Image
+					src={logo_timelyskills}
+					alt="logo_timelyskills"
+					width={50}
+					height={50}
+				/>
+			),
+			title: 'TimelySkills',
+			href: 'https://timelyskills.com/'
+		}
 	];
-
-
-
 
 	return (
 		<section className={scss.StudentsWorkplace}>
