@@ -19,7 +19,7 @@ const HomePage: FC = () => {
 			<SomeCourses />
 			<AdditionalCourses />
 			<AboutUs />
-			<OurMentors />
+			{/* <OurMentors /> */}
 			<StudentsWorkplace />
 			<License />
 			<Podcasts />
