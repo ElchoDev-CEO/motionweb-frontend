@@ -403,3 +403,185 @@
 		}
 	}
 }
+
+@media (max-width: 1200px) {
+	.grid {
+		grid-template-columns: 1.4fr 1fr;
+		gap: 16px;
+	}
+	.title {
+		font-size: 26px;
+	}
+	:global(.fc .fc-toolbar-title) {
+		font-size: 20px;
+	}
+}
+@media (max-width: 1024px) {
+	.grid {
+		grid-template-columns: 1fr;
+		gap: 18px;
+	}
+	.calendarCard,
+	.sideCard {
+		padding: 16px;
+	}
+	.sideCard {
+		order: 2;
+	}
+}
+
+@media (max-width: 768px) {
+	.EventCalendar {
+		padding: 50px 0;
+	}
+	.content {
+		padding: 18px;
+		border-radius: 20px;
+	}
+	.title {
+		font-size: 22px;
+	}
+	.subtitle {
+		font-size: 13px;
+	}
+	.sideTitle {
+		font-size: 16px;
+	}
+	:global(.fc) {
+		font-size: 13px;
+	}
+	:global(.fc .fc-toolbar) {
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	:global(.fc .fc-button) {
+		padding: 7px 10px;
+		font-size: 13px;
+	}
+}
+@media (max-width: 600px) {
+	.content {
+		padding: 16px;
+	}
+	.calendarCard,
+	.sideCard {
+		padding: 14px;
+		border-radius: 16px;
+	}
+	.item {
+		padding: 10px;
+	}
+	.itemTitle {
+		font-size: 13px;
+	}
+	.itemDesc {
+		font-size: 12px;
+	}
+	:global(.fc .fc-daygrid-day-frame) {
+		min-height: 70px;
+	}
+}
+
+@media (max-width: 480px) {
+	.EventCalendar {
+		padding: 40px 0;
+	}
+	.content {
+		padding: 14px;
+	}
+	.title {
+		font-size: 20px;
+	}
+	:global(.fc) {
+		font-size: 12px;
+	}
+	:global(.fc .fc-header-toolbar) {
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	:global(.fc .fc-toolbar-chunk) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+	}
+
+	:global(.fc .fc-toolbar-title) {
+		width: 100%;
+		font-size: 16px;
+	}
+
+	:global(.fc .fc-button) {
+		padding: 6px 9px;
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 360px) {
+	.content {
+		padding: 12px;
+	}
+
+	.title {
+		font-size: 18px;
+	}
+
+	.itemTop {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 4px;
+	}
+
+	.itemDate {
+		white-space: normal;
+	}
+
+	:global(.fc .fc-toolbar-title) {
+		font-size: 15px;
+	}
+
+	:global(.fc .fc-daygrid-day-frame) {
+		min-height: 60px;
+	}
+}
+
+@media (max-width: 320px) {
+	.EventCalendar {
+		padding: 32px 0;
+	}
+
+	.content {
+		padding: 10px;
+	}
+
+	.calendarCard,
+	.sideCard {
+		padding: 12px;
+	}
+
+	:global(.fc) {
+		font-size: 11px;
+	}
+
+	:global(.fc .fc-toolbar-title) {
+		font-size: 14px;
+	}
+
+	:global(.fc .fc-button) {
+		padding: 5px 7px;
+		font-size: 11px;
+		border-radius: 8px;
+	}
+
+	:global(.fc .fc-daygrid-day-frame) {
+		min-height: 55px;
+	}
+
+	.calendarCard {
+		overflow: hidden;
+	}
+
+	:global(.fc .fc-view-harness),
+	:global(.fc .fc-scroller) {
+		overflow-x: hidden !important;
+	}
+}
