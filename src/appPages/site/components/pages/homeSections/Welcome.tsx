@@ -42,7 +42,12 @@ const TABS_DATA: ITab[] = [
 		company: company3,
 		image: TabImage3
 	},
-
+	{
+		area: 'FullStack Ментор',
+		label: 'Руководитель FS',
+		company: company4,
+		image: TabImage4
+	},
 	{
 		area: 'Frontend Ментор',
 		label: 'IT инженер',

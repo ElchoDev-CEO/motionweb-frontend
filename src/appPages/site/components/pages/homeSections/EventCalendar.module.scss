@@ -1,0 +1,409 @@
+.EventCalendar {
+	padding: 80px 0;
+	background: #ffffff;
+}
+
+.content {
+	background: #fff;
+	border-radius: 24px;
+	padding: 28px;
+	border: 1px solid #f0f0f0;
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+}
+
+.header {
+	margin-bottom: 18px;
+}
+
+.title {
+	margin: 0;
+	font-size: 28px;
+	font-weight: 800;
+	color: #111;
+}
+
+.subtitle {
+	margin: 8px 0 0;
+	font-size: 14px;
+	color: #5b5b5b;
+}
+
+/* состояния */
+.loading,
+.error {
+	margin-bottom: 16px;
+	padding: 14px 16px;
+	border-radius: 12px;
+	font-size: 14px;
+}
+
+.loading {
+	background: #f9f9f9;
+	color: #555;
+	border: 1px solid #efefef;
+}
+
+.error {
+	background: #ffecec;
+	color: #c62828;
+	border: 1px solid #ffd3d3;
+}
+
+/* layout */
+.grid {
+	display: grid;
+	grid-template-columns: 1.6fr 1fr;
+	gap: 18px;
+	align-items: start;
+}
+
+.calendarCard {
+	background: #fff;
+	border-radius: 18px;
+	border: 1px solid #f0f0f0;
+	padding: 14px;
+}
+
+.sideCard {
+	background: #fff;
+	border-radius: 18px;
+	border: 1px solid #f0f0f0;
+	padding: 16px;
+}
+
+.sideHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.sideTitle {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 800;
+	color: #111;
+}
+
+.legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.badge {
+	font-size: 12px;
+	padding: 6px 10px;
+	border-radius: 999px;
+	border: 1px solid transparent;
+	user-select: none;
+}
+
+.webinar {
+	background: rgba(37, 99, 235, 0.1);
+	border-color: rgba(37, 99, 235, 0.25);
+	color: #1e40af;
+}
+
+.deadline {
+	background: rgba(255, 59, 59, 0.1);
+	border-color: rgba(255, 59, 59, 0.25);
+	color: #b71c1c;
+}
+
+.other {
+	background: rgba(17, 24, 39, 0.08);
+	border-color: rgba(17, 24, 39, 0.16);
+	color: #111827;
+}
+
+/* Upcoming list */
+.upcoming {
+	display: grid;
+	gap: 10px;
+}
+
+.empty {
+	color: #666;
+	font-size: 14px;
+	padding: 12px;
+	background: #fafafa;
+	border: 1px solid #eee;
+	border-radius: 14px;
+}
+
+.item {
+	padding: 12px;
+	border-radius: 16px;
+	border: 1px solid #eeeeee;
+	background: #ffffff;
+	cursor: pointer;
+	transition:
+		transform 0.15s ease,
+		box-shadow 0.15s ease,
+		border-color 0.15s ease;
+
+	&:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+		border-color: #e6e6e6;
+	}
+}
+
+.itemTop {
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 6px;
+}
+
+.itemType {
+	font-size: 12px;
+	font-weight: 800;
+}
+
+.itemDate {
+	font-size: 12px;
+	color: #666;
+	white-space: nowrap;
+}
+
+.itemTitle {
+	font-size: 14px;
+	font-weight: 800;
+	color: #111;
+	margin-bottom: 4px;
+}
+
+.itemDesc {
+	font-size: 13px;
+	color: #555;
+	line-height: 1.35;
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.item_webinar {
+	border-color: rgba(37, 99, 235, 0.25);
+	background: rgba(37, 99, 235, 0.03);
+}
+
+.item_deadline {
+	border-color: rgba(255, 59, 59, 0.25);
+	background: rgba(255, 59, 59, 0.03);
+}
+
+.item_other {
+	border-color: rgba(17, 24, 39, 0.16);
+	background: rgba(17, 24, 39, 0.02);
+}
+
+/* Modal */
+.modalOverlay {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.35);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+}
+
+.modal {
+	width: min(620px, 100%);
+	background: #fff;
+	border-radius: 22px;
+	border: 1px solid #f0f0f0;
+	box-shadow: 0 18px 60px rgba(0, 0, 0, 0.18);
+	padding: 18px;
+}
+
+.modalTop {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.modalType {
+	font-size: 12px;
+	font-weight: 900;
+	color: #ff3b3b;
+	margin-bottom: 6px;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.modalTitle {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 900;
+	color: #111;
+}
+
+.modalTime {
+	margin-top: 6px;
+	font-size: 13px;
+	color: #666;
+}
+
+.modalClose {
+	width: 40px;
+	height: 40px;
+	border-radius: 12px;
+	border: 1px solid #eee;
+	background: #fff;
+	cursor: pointer;
+	transition: 0.15s ease;
+
+	&:hover {
+		background: #f7f7f7;
+	}
+}
+
+.modalBody {
+	margin-top: 14px;
+	font-size: 14px;
+	color: #333;
+	white-space: pre-wrap;
+	line-height: 1.5;
+}
+
+.modalActions {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 16px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+	border-radius: 12px;
+	padding: 10px 14px;
+	font-size: 14px;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.primaryBtn {
+	background: #ff3b3b;
+	color: #fff;
+	border: 1px solid #ff3b3b;
+
+	&:hover {
+		filter: brightness(0.95);
+	}
+}
+
+.secondaryBtn {
+	background: #fff;
+	color: #111;
+	border: 1px solid #e8e8e8;
+
+	&:hover {
+		background: #f7f7f7;
+	}
+}
+
+/* FullCalendar (Light MotionWeb) */
+:global(.fc) {
+	font-family: inherit;
+	color: #222;
+
+	.fc-toolbar-title {
+		font-size: 22px;
+		font-weight: 800;
+		color: #111;
+	}
+
+	.fc-button {
+		background: #fff;
+		border: 1px solid #e5e5e5;
+		border-radius: 10px;
+		padding: 8px 14px;
+		font-size: 14px;
+		color: #333;
+		transition: 0.2s ease;
+
+		&:hover {
+			background: #f5f5f5;
+		}
+	}
+
+	.fc-button-primary:not(:disabled).fc-button-active {
+		background: #ff3b3b;
+		border-color: #ff3b3b;
+		color: #fff;
+	}
+
+	.fc-theme-standard {
+		td,
+		th {
+			border-color: #eeeeee;
+		}
+	}
+
+	.fc-day-today {
+		background: rgba(255, 59, 59, 0.08) !important;
+	}
+
+	/* events classes from eventClassNames */
+	.mw-event {
+		border-radius: 10px;
+		padding: 4px 6px;
+		font-size: 13px;
+		cursor: pointer;
+		border: 1px solid transparent;
+	}
+
+	.mw-event--webinar {
+		background: rgba(37, 99, 235, 0.12);
+		border-color: rgba(37, 99, 235, 0.25);
+		color: #1e40af;
+	}
+
+	.mw-event--deadline {
+		background: rgba(255, 59, 59, 0.12);
+		border-color: rgba(255, 59, 59, 0.25);
+		color: #b71c1c;
+	}
+
+	.mw-event--other {
+		background: rgba(17, 24, 39, 0.08);
+		border-color: rgba(17, 24, 39, 0.16);
+		color: #111827;
+	}
+
+	.fc-list-event:hover td {
+		background: #fafafa;
+	}
+}
+
+/* responsive */
+@media (max-width: 980px) {
+	.grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 768px) {
+	.EventCalendar {
+		padding: 50px 0;
+	}
+
+	.content {
+		padding: 18px;
+	}
+
+	:global(.fc) {
+		.fc-toolbar-title {
+			font-size: 18px;
+		}
+	}
+}
