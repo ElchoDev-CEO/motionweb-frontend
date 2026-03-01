@@ -26,6 +26,7 @@ import DropDownMenu from '@/ui/dropDownMenu/DropDownMenu';
 import { useLogoutMutation } from '@/redux/api/auth';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/utils/firebase';
+import { useTheme } from 'next-themes';
 
 const Header: FC = () => {
 	const [headerScroll, setHeaderScroll] = useState(false);
@@ -86,10 +87,11 @@ const Header: FC = () => {
 		router.push('/auth/sign-in');
 	};
 
-	const theme = createTheme({
+	const themes = createTheme({
 		cursorType: 'pointer'
 	});
 
+	const { theme, setTheme } = useTheme();
 	return (
 		<>
 			<header className={scss.Header}>
@@ -100,9 +102,13 @@ const Header: FC = () => {
 				>
 					<div className="container">
 						<div className={scss.content}>
-							<div className={scss.logo}>
+							<div
+								onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+								className={scss.logo}
+							>
 								<Image loading="eager" src={logo} alt="logo" />
 							</div>
+
 							{!isMobile ? (
 								<>
 									<nav className={scss.nav}>
@@ -158,7 +164,7 @@ const Header: FC = () => {
 										{userData?.results ? (
 											<>
 												{isAdminOrMentor && (
-													<MantineProvider theme={theme}>
+													<MantineProvider theme={themes}>
 														<Switch
 															defaultChecked={isEdit}
 															onLabel="ON"

@@ -39,7 +39,10 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 			// 	);
 			// }
 			.title {
-				font-family: system-ui, -apple-system, BlinkMacSystemFont;
+				font-family:
+					system-ui,
+					-apple-system,
+					BlinkMacSystemFont;
 				margin-bottom: clamp(10px, 8vw, 20px);
 				color: var(--black);
 				font-size: clamp(30px, 8vw, 50px);
@@ -57,8 +60,10 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 				// 	-webkit-text-fill-color: transparent;
 				// }
 				span {
-					background: var(--2,
-							linear-gradient(97deg, #eb3023 12.04%, #d32f2f 81.84%));
+					background: var(
+						--2,
+						linear-gradient(97deg, #eb3023 12.04%, #d32f2f 81.84%)
+					);
 					background-clip: text;
 					-webkit-background-clip: text;
 					-webkit-text-fill-color: transparent;
@@ -103,8 +108,10 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 				}
 
 				.bg {
-					background: var(--3,
-							linear-gradient(97deg, #d32f2f 12.04%, #f57c7c 81.84%));
+					background: var(
+						--3,
+						linear-gradient(97deg, #d32f2f 12.04%, #f57c7c 81.84%)
+					);
 				}
 
 				.no_bg {
@@ -353,7 +360,8 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 
 						// ? line
 						&::after {
-							background: url(../../../../../assets/img/people/line.svg) no-repeat center/cover;
+							background: url(../../../../../assets/img/people/line.svg)
+								no-repeat center/cover;
 						}
 
 						&.animate-out {
