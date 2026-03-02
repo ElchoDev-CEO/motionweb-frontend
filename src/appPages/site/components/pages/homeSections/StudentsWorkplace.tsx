@@ -17,7 +17,15 @@ import {
 	logo_aiylbank,
 	logo_asiabank,
 	logo_bishkekcityhall,
-	logo_timelyskills
+	logo_timelyskills,
+	logo_chase,
+	logo_apple,
+	logo_microsoft,
+	logo_verizon,
+	logo_caterpillar,
+	logo_amazon,
+	logo_trueaccord,
+	logo_openfit
 } from '@/assets/company_logos';
 import {
 	SiReact,
@@ -28,8 +36,6 @@ import {
 import Image from 'next/image';
 
 import { useTranslation } from 'react-i18next';
-
-
 
 const StudentsWorkplace: FC = () => {
 	const [logoHeightTrack, setLogoHeightTrack] = useState(40);
@@ -51,7 +57,6 @@ const StudentsWorkplace: FC = () => {
 
 	const company_logos = [
 		{
-
 			node: <Image src={logo_chase} alt="Chase" width={50} height={50} />,
 			title: 'Chase',
 			href: 'https://chase.com'
@@ -72,7 +77,8 @@ const StudentsWorkplace: FC = () => {
 			node: <Image src={logo_verizon} alt="Verizon" width={50} height={50} />,
 			title: 'Verizon',
 			href: 'https://verizon.com'
-
+		},
+		{
 			node: (
 				<Image src={logo_asiabank} alt="logo_asiabank" width={50} height={50} />
 			),
@@ -102,18 +108,12 @@ const StudentsWorkplace: FC = () => {
 			),
 			title: 'AiylBank',
 			href: 'https://www.ab.kg/ky'
-
 		},
 		{
 			node: (
 				<Image
-
-					src={logo_caterpillar}
-					alt="Caterpillar"
-
 					src={logo_jogorkukenesh}
 					alt="logo_jogorkukenesh"
-
 					width={50}
 					height={50}
 				/>
@@ -142,58 +142,6 @@ const StudentsWorkplace: FC = () => {
 	];
 
 	const { t } = useTranslation('home');
-
-
-			title: 'Жогорку Кенеш',
-			href: 'https://kenesh.kg'
-		},
-		{
-			node: (
-				<Image src={logo_skynet} alt="logo_skynet" width={50} height={50} />
-			),
-			title: 'Skynet',
-			href: 'https://skynet.kg'
-		},
-		{
-			node: (
-				<Image
-					src={logo_kyrgyzaltyn}
-					alt="logo_kyrgyzaltyn"
-					width={100}
-					height={100}
-				/>
-			),
-			title: 'Кыргыз Алтын',
-			href: 'https://www.kyrgyzaltyn.kg'
-		},
-		{
-			node: (
-				<Image src={logo_growave} alt="logo_growave" width={50} height={50} />
-			),
-			title: 'Growave',
-			href: 'https://www.growave.io/'
-		},
-		{
-			node: (
-				<Image src={logo_remotion} alt="logo_remotion" width={90} height={80} />
-			),
-			title: 'Remotion',
-			href: 'https://remotion.kg'
-		},
-		{
-			node: (
-				<Image
-					src={logo_timelyskills}
-					alt="logo_timelyskills"
-					width={50}
-					height={50}
-				/>
-			),
-			title: 'TimelySkills',
-			href: 'https://timelyskills.com/'
-		}
-	];
-
 
 	return (
 		<section className={scss.StudentsWorkplace}>
