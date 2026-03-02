@@ -1,0 +1,16 @@
+{
+	"banner": {
+		"theme": "Инженер",
+		"custom_theme": " Javascript",
+		"subtitle": "Cтань экспертом в разработке на языке JavaScript и овладей инженерными навыками для создания сложных веб-приложений.",
+		"btnText": "Записаться"
+	},
+	"courseModules": {
+		"theme": "Модули",
+		"custom_theme": " курса"
+	},
+	"advantages": {
+		"theme": "Преимущества",
+		"custom_theme": " курса"
+	}
+}

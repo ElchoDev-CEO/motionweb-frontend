@@ -19,6 +19,7 @@ import { useEditControlStore } from '@/stores/useEditControlStore';
 import { useMultiSelectStore } from '@/stores/useMultiSelectStore';
 import Loader from '@/ui/loader/Loader';
 import SearchableMultiSelectGroup from '@/shared/searchableMultiSelect/SearchableMultiSelectGroup';
+import { useTranslation } from 'react-i18next';
 
 interface IGroup {
 	title: string;
@@ -158,6 +159,8 @@ const Groups: FC = () => {
 	const hasGroupParticipantData = !!groupParticipantData?.results?.length;
 	const hasGroupData = !!groupData?.results?.length;
 
+	const { t } = useTranslation('myGroups');
+
 	return (
 		<>
 			<section className={scss.Groups}>
@@ -168,7 +171,7 @@ const Groups: FC = () => {
 								onClick={() => setIsOpenCreateModal(true)}
 								variant="filled"
 							>
-								Добавить новую группу
+								{t('addBtn')}
 							</Button>
 						)}
 						<div className={scss.list}>
@@ -199,7 +202,7 @@ const Groups: FC = () => {
 										</div>
 									))
 								) : (
-									<p>У вас нет групп...</p>
+									<p>{t('yourGroups')}</p>
 								)
 							) : isLoadingGroup ? (
 								<Loader />
@@ -225,8 +228,12 @@ const Groups: FC = () => {
 											</div>
 											<div className={scss.bottom}>
 												<div className={scss.date}>
-													<span>Создан: {item.createdAt}</span>
-													<span>Обновлен: {item.updatedAt}</span>
+													<span>
+														{t('group.createdAt')}: {item.createdAt}
+													</span>{' '}
+													<span>
+														{t('group.updatedAt')}: {item.updatedAt}
+													</span>{' '}
 												</div>
 												<div className={scss.buttons}>
 													<Button
@@ -258,7 +265,7 @@ const Groups: FC = () => {
 									</div>
 								))
 							) : (
-								<p>группы не найдены...</p>
+								<p>{t('groupsNotFound')}</p>
 							)}
 						</div>
 					</div>
@@ -269,18 +276,18 @@ const Groups: FC = () => {
 			<Modal
 				opened={isOpenCreateModal}
 				onClose={() => setIsOpenCreateModal(false)}
-				title="Создание группы"
+				title={t('createGroupForm.title')}
 				centered
 			>
 				<div className={scss.create_group}>
 					<form onSubmit={handleSubmitCreateGroup(createGroup)}>
 						<TextInput
-							placeholder="Введите название группы..."
+							placeholder={t('createGroupForm.nameInput')}
 							{...registerCreateGroup('title', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder="Выберите обложку для группы..."
+							placeholder={t('createGroupForm.coverGroupInput')}
 							onChange={(file) => setValueCreateGroup('photo', file)}
 						/>
 						<Button
@@ -289,7 +296,7 @@ const Groups: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							Создать
+							{t('createGroupForm.createBtn')}
 						</Button>
 					</form>
 				</div>
@@ -299,20 +306,20 @@ const Groups: FC = () => {
 			<Modal
 				opened={isOpenEditModal}
 				onClose={() => {
-					setIsOpenEditModal(false), setMultiSelectValue(() => []);
+					(setIsOpenEditModal(false), setMultiSelectValue(() => []));
 				}}
-				title="Редактирование группы"
+				title={t('updateGroupForm.title')}
 				centered
 			>
 				<div className={scss.update_group}>
 					<form onSubmit={handleSubmitEditGroup(editGroup)}>
 						<TextInput
-							placeholder="Введите название группы..."
+							placeholder={t('updateGroupForm.nameInput')}
 							{...registerEditGroup('title', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder="Выберите обложку для группы..."
+							placeholder={t('updateGroupForm.coverCourseInput')}
 							onChange={(file) => setValueEditGroup('photo', file)}
 						/>
 						<SearchableMultiSelectGroup groupId={isEditModalId!} />
@@ -322,7 +329,7 @@ const Groups: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							Обновить
+							{t('updateGroupForm.updateBtn')}
 						</Button>
 					</form>
 				</div>
@@ -332,27 +339,24 @@ const Groups: FC = () => {
 			<Modal
 				opened={isOpenDeleteModal}
 				onClose={() => setIsOpenDeleteModal(false)}
-				title="Подтверждение удаления"
+				title={t('deleteGroupConfirm.title')}
 				centered
 			>
 				<div className={scss.delete_group}>
-					<p>
-						Вы уверены, что хотите удалить этот группу? Это действие невозможно
-						отменить.
-					</p>
+					<p>{t('deleteGroupConfirm.confirm')}</p>
 					<div className={scss.delete_buttons}>
 						<Button
 							onClick={() => setIsOpenDeleteModal(false)}
 							variant="outline"
 						>
-							Отмена
+							{t('deleteGroupConfirm.cancelBtn')}
 						</Button>
 						<Button
 							onClick={handleDeleteGroup}
 							loading={isDeleting[deleteGroupId || 0]}
 							variant="filled"
 						>
-							Удалить
+							{t('deleteGroupConfirm.deleteBtn')}
 						</Button>
 					</div>
 				</div>

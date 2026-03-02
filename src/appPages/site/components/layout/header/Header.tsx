@@ -11,7 +11,8 @@ import {
 	dropDownMenuCourses,
 	dropDownMenuResources,
 	siteLinks,
-	getMenuLinks
+	getMenuLinks,
+	languages
 } from '@/constants/links';
 import { useHeaderStore } from '@/stores/useHeaderStore';
 import { useEditControlStore } from '@/stores/useEditControlStore';
@@ -26,7 +27,13 @@ import DropDownMenu from '@/ui/dropDownMenu/DropDownMenu';
 import { useLogoutMutation } from '@/redux/api/auth';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/utils/firebase';
+
+import { useTranslation } from 'react-i18next';
+import LangSwitcher from '@/ui/lang-switcher/LangSwitcher';
+import { MdOutlineTranslate } from 'react-icons/md';
+
 import { useTheme } from 'next-themes';
+
 
 const Header: FC = () => {
 	const [headerScroll, setHeaderScroll] = useState(false);
@@ -34,6 +41,15 @@ const Header: FC = () => {
 	const [menuLinks, setMenuLinks] = useState<{ name: string; href: string }[]>(
 		[]
 	);
+	const { i18n, t } = useTranslation('header');
+	const handleChangeLang = (newLang: string) => {
+		// const newLang =
+		// 	i18n.language === 'ru' ? 'kg' : i18n.language === 'kg' ? 'en' : 'ru';
+		i18n.changeLanguage(newLang);
+		// setShowLangModal(false);
+	};
+
+	const [showLangModal, setShowLangModal] = useState<boolean>(false);
 
 	const {
 		isOpen,
@@ -125,7 +141,11 @@ const Header: FC = () => {
 														}
 														href={item.href}
 													>
-														{item.name}
+														{i18n.language === 'ru'
+															? item.name
+															: i18n.language === 'kg'
+																? item.nameKg
+																: item.nameEn}
 														{(pathname === item.href ||
 															(item.href !== '/' &&
 																pathname.startsWith(item.href))) && (
@@ -147,19 +167,71 @@ const Header: FC = () => {
 										</ul>
 										<div className={scss.dropDownMenus}>
 											<DropDownMenu
-												title="Наши курсы"
+												title={t('ourCourses')}
 												links={dropDownMenuCourses}
 												isOpen={isOpenDropDownMenuCourses}
 												setIsOpen={setIsOpenDropDownMenuCourses}
 											/>
 											<DropDownMenu
-												title="Ресурсы"
+												title={t('resources')}
 												links={dropDownMenuResources}
 												isOpen={isOpenDropDownMenuResources}
 												setIsOpen={setIsOpenDropDownMenuResources}
 											/>
 										</div>
 									</nav>
+									<div className="relative">
+										<div className="">
+											<MdOutlineTranslate
+												fontSize={18}
+												onClick={() => setShowLangModal(!showLangModal)}
+												className={showLangModal ? 'text-[#f64b6a]' : ''}
+											/>
+										</div>
+										<LangSwitcher
+											isOpen={showLangModal}
+											onClose={() => setShowLangModal(false)}
+										>
+											<ul
+												className="absolute top-10 -right-10 text-sm min-w-38 bg-white rounded-lg border border-[#e5ebef] flex flex-col"
+												style={{
+													padding: '10px'
+												}}
+											>
+												<li
+													className="font-bold text-center"
+													style={{ marginBottom: '5px' }}
+												>
+													{t('selectLang')}
+												</li>
+												{languages.map((item) => (
+													<li
+														onClick={() => handleChangeLang(item.value)}
+														key={item.value}
+														className={
+															i18n.language === item.value
+																? 'bg-[#F0F0E6]'
+																: 'hover:bg-[#f7f7f7]'
+														}
+														style={{
+															padding: '10px',
+															borderRadius: '5px'
+														}}
+													>
+														<span
+															className={
+																i18n.language === item.value
+																	? 'bg-[#f0f0f0] bg-gradient-to-r from-[#ff9898] via-[#f64b6a] to-[#bc1f5e] bg-clip-text text-transparent'
+																	: ''
+															}
+														>
+															{item.name}
+														</span>
+													</li>
+												))}
+											</ul>
+										</LangSwitcher>
+									</div>
 									<div className={scss.profile}>
 										{userData?.results ? (
 											<>
@@ -194,10 +266,10 @@ const Header: FC = () => {
 											<>
 												<div className={scss.auth_login_buttons}>
 													<Button onClick={linkToSignIn} variant="filled">
-														Вход
+														{t('login')}
 													</Button>
 													<Button onClick={linkToSignUp} variant="outline">
-														Регистрация
+														{t('register')}
 													</Button>
 												</div>
 											</>

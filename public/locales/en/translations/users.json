@@ -1,0 +1,23 @@
+{
+	"theme": "User",
+	"custom_theme": " list",
+	"inputSearch": "Find user",
+	"select": {
+		"all": "All users",
+		"admins": "Administrators",
+		"managers": "Managers",
+		"mentors": "Mentors",
+		"students": "Students"
+	},
+	"table": {
+		"user": "User",
+		"userName": "User name",
+		"email": "Mail",
+		"phone": "Phone number",
+		"rights": "Rights",
+		"createdAt": "On the platform with",
+		"more": "More details",
+		"action": "Actions",
+		"noData": "No data to display"
+	}
+}

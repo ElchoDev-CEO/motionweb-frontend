@@ -8,6 +8,7 @@ import { FaLinkedin, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import logo from '@/assets/logo.png';
 import { extraSiteLinks, siteLinks } from '@/constants/links';
+import { useTranslation } from 'react-i18next';
 
 type Inputs = {
 	email: string;
@@ -22,6 +23,7 @@ const Footer: FC = () => {
 
 	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
+	const { i18n, t } = useTranslation('footer');
 	return (
 		<>
 			<footer className={scss.Footer}>
@@ -33,7 +35,11 @@ const Footer: FC = () => {
 									<a className={scss.tel_link} href="tel:+996700232400">
 										+996-700-232-400
 									</a>
+
+									<span>{t('contactCenter')}</span>
+
 									<span>Контактный центр</span>
+
 									<Link className={scss.email_link} href="#">
 										motion.web@gmail.com
 									</Link>
@@ -71,14 +77,22 @@ const Footer: FC = () => {
 								<div className={scss.directions_block__links}>
 									{siteLinks.map((item, index) => (
 										<Link key={index} href={item.href}>
-											{item.name}
+											{i18n.language === 'ru'
+												? item.name
+												: i18n.language === 'en'
+													? item.nameEn
+													: item.nameKg}
 										</Link>
 									))}
 								</div>
 								<div className={scss.directions_block__links}>
 									{extraSiteLinks.map((item, index) => (
 										<Link key={index} href={item.href}>
-											{item.name}
+											{i18n.language === 'ru'
+												? item.name
+												: i18n.language === 'en'
+													? item.nameEn
+													: item.nameKg}
 										</Link>
 									))}
 								</div>
@@ -86,12 +100,16 @@ const Footer: FC = () => {
 						</div>
 						<div className={scss.block_about}>
 							<Image className={scss.logo} src={logo} alt="logo" />
+
+							<p>{t('blockAbout')}</p>
+
 							<p>
 								Поднимите свою карьеру, доход и жизнь на новый уровень.
 								MotionWeb помог более 100 студентам получить свою первую работу
 								в сфере технологий. Станьте следующим и измените свою жизнь уже
 								сегодня!
 							</p>
+
 						</div>
 						<span className={scss.line}></span>
 						<div className={scss.bottom}>

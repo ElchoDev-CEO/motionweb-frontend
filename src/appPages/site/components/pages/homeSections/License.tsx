@@ -7,32 +7,24 @@ import { IconSchool } from '@tabler/icons-react';
 // import license_bg from '@/assets/license-bg.png';
 import license_photo from '@/assets/license-photo.png';
 import CustomTitle from '@/ui/title/CustomTitle';
+import { useTranslation } from 'react-i18next';
 
 const License: FC = () => {
+	const { i18n, t } = useTranslation('home');
+
 	return (
 		<section className={scss.License}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.left}>
-						<Tag icon={<IconSchool stroke={2} />}>Диплом</Tag>
-						<CustomTitle
-							title="Лицензия от Министерства Образования"
-							color="#ffffff"
-						/>
+						<Tag icon={<IconSchool stroke={2} />}>{t('license.subtopic')}</Tag>
+						<CustomTitle title={t('license.theme')} color="#ffffff" />
 						<ul className={scss.text}>
 							<li>
-								<p>
-									Наша академия имеет Лицензию от Министерства Образования, что
-									гарантирует качество и законность предоставляемых
-									образовательных услуг.
-								</p>
+								<p>{t('license.subtitle')}</p>
 							</li>
 							<li>
-								<p>
-									Кроме того, наша академия после успешного завершения обучения,
-									каждому студенту выдает диплом или сертификат об окончании
-									образовательной программы.
-								</p>
+								<p>{t('license.additionally')}</p>
 							</li>
 						</ul>
 					</div>

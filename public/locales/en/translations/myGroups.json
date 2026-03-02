@@ -1,0 +1,29 @@
+{
+	"addBtn": "Add a new group",
+	"yourGroups": "You don't have any groups...",
+	"group": {
+		"createdAt": "Created",
+		"updateAt": "Updated"
+	},
+	"groupNotFound": "No groups found...",
+	"createGroupForm": {
+		"title": "Create a group",
+		"nameInput": "Enter group name...",
+		"descriptionInput": "Enter group description...",
+		"coverGroupInput": "Select a group cover...",
+		"createBtn": "Create"
+	},
+	"updateGroupForm": {
+		"title": "Editing a group",
+		"nameInput": "Enter group name...",
+		"descriptionInput": "Enter group description...",
+		"coverGroupInput": "Select a group cover...",
+		"updateBtn": "Update"
+	},
+	"deleteGroupConfirm": {
+		"title": "Deletion confirmation",
+		"confirm": "Are you sure you want to delete this group? This action cannot be undone.",
+		"cancelBtn": "Cancel",
+		"deleteBtn": "Delete"
+	}
+}
