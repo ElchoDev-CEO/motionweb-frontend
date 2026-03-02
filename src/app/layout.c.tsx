@@ -15,6 +15,7 @@ import MantineProvider from '@/providers/MantineProvider';
 import { ReduxProvider } from '@/providers/ReduxProvider';
 import { SessionProvider } from '@/providers/SessionProvider';
 import TelegramAuthProvider from '@/providers/TelegramAuthProvider';
+import { ThemeProvider } from '@/providers/ThemeProvider';
 
 interface LayoutRootType {
 	children: ReactNode;
@@ -27,13 +28,20 @@ const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 			<ToastContainer />
 			<Toaster />
 			<VideoRecProvider>
-				<MantineProvider>
-					<ReduxProvider>
-						<SessionProvider>
-							<TelegramAuthProvider>{children}</TelegramAuthProvider>
-						</SessionProvider>
-					</ReduxProvider>
-				</MantineProvider>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					storageKey="theme_mode"
+					enableSystem
+				>
+					<MantineProvider>
+						<ReduxProvider>
+							<SessionProvider>
+								<TelegramAuthProvider>{children}</TelegramAuthProvider>
+							</SessionProvider>
+						</ReduxProvider>
+					</MantineProvider>
+				</ThemeProvider>
 			</VideoRecProvider>
 		</>
 	);

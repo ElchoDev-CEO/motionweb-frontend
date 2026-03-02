@@ -29,27 +29,53 @@ interface ITab {
 const TABS_DATA: ITab[] = [
 	{
 		area: 'Основатель MotionWeb',
+
 		areaEn: 'Founder MotionWeb',
 		labelRu: 'Software engineer',
 		labelEn: 'Software engineer',
+
+		label: 'Software engineer',
+
 		company: company2,
 		image: TabImage2
 	},
 	{
 		area: 'Сооснователь MotionWeb',
+
 		areaEn: 'Co-founder MotionWeb',
 		labelRu: 'Предприниматель',
 		labelEn: 'Entrepreneur',
+
+		label: 'Предприниматель',
+
 		company: company1,
 		image: TabImage1
 	},
 	{
 		area: 'Сооснователь MotionWeb',
+
 		areaEn: 'Co-founder MotionWeb',
 		labelRu: 'FullStack',
 		labelEn: 'FullStack',
 		company: company3,
 		image: TabImage3
+
+		label: 'FullStack',
+		company: company3,
+		image: TabImage3
+	},
+	{
+		area: 'FullStack Ментор',
+		label: 'Руководитель FS',
+		company: company4,
+		image: TabImage4
+	},
+	{
+		area: 'Frontend Ментор',
+		label: 'IT инженер',
+		company: company5,
+		image: TabImage5
+
 	}
 ];
 
@@ -57,6 +83,7 @@ const Welcome: FC = () => {
 	const [activeTab, setActiveTab] = useState<number>(0);
 	const [isPaused, setIsPaused] = useState<boolean>(false);
 	// const intervalIdRef = useRef<number | null>(null);
+
 
 	const { i18n, t } = useTranslation('home');
 	const lang = i18n.language;
@@ -83,6 +110,31 @@ const Welcome: FC = () => {
 			setIsPaused(false);
 		}, 2000);
 	};
+
+
+	const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	useEffect(() => {
+		if (isPaused) return;
+
+		const id = setInterval(() => {
+			setActiveTab((prev) => (prev + 1) % TABS_DATA.length);
+		}, 3000);
+
+		return () => clearInterval(id);
+	}, [isPaused]);
+
+	const handleTabClick = (index: number) => {
+		setActiveTab(index);
+		setIsPaused(true);
+
+		if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+
+		pauseTimeoutRef.current = setTimeout(() => {
+			setIsPaused(false);
+		}, 2000);
+	};
+
 
 	// Очистка при размонтировании
 	useEffect(() => {

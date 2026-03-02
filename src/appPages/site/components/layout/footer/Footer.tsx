@@ -35,7 +35,11 @@ const Footer: FC = () => {
 									<a className={scss.tel_link} href="tel:+996700232400">
 										+996-700-232-400
 									</a>
+
 									<span>{t('contactCenter')}</span>
+
+									<span>Контактный центр</span>
+
 									<Link className={scss.email_link} href="#">
 										motion.web@gmail.com
 									</Link>
@@ -96,13 +100,22 @@ const Footer: FC = () => {
 						</div>
 						<div className={scss.block_about}>
 							<Image className={scss.logo} src={logo} alt="logo" />
+
 							<p>{t('blockAbout')}</p>
+
+							<p>
+								Поднимите свою карьеру, доход и жизнь на новый уровень.
+								MotionWeb помог более 100 студентам получить свою первую работу
+								в сфере технологий. Станьте следующим и измените свою жизнь уже
+								сегодня!
+							</p>
+
 						</div>
 						<span className={scss.line}></span>
 						<div className={scss.bottom}>
 							<p>
-								Copyright © 2021-2025 MotionWeb | Powered by ElchoDev | Privacy
-								Policy | Terms & Conditions
+								Copyright © 2021-2025 MotionWeb | Privacy Policy | Terms &
+								Conditions
 							</p>
 						</div>
 					</div>
