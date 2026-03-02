@@ -9,6 +9,7 @@ import { IMaskInput } from 'react-imask';
 import { IconChevronRight } from '@tabler/icons-react';
 import { Bounce, toast } from 'react-toastify';
 import photo from '@/assets/contact.webp';
+import { useTranslation } from 'react-i18next';
 
 interface IContactForm {
 	username: string;
@@ -20,6 +21,8 @@ const CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
 
 const Contact: FC = () => {
 	const { register, handleSubmit, control, reset } = useForm<IContactForm>();
+
+	const { i18n, t } = useTranslation('home');
 
 	const messageModel = (data: IContactForm) => {
 		let message = `<b>***Заявка***</b>\n`;
@@ -37,7 +40,7 @@ const Contact: FC = () => {
 			text: messageModel({ ...data, phone: formattedPhone })
 		});
 
-		toast('Мы приняли вашу заявку, скоро мы с вами свяжемся!', {
+		toast(t('contactUs.alert'), {
 			position: 'top-right',
 			autoClose: 5000,
 			hideProgressBar: false,
@@ -58,25 +61,37 @@ const Contact: FC = () => {
 				<div className="container">
 					<div className={scss.content}>
 						<div className={scss.left}>
-							<h1 className={scss.title}>
-								Запишись через сайт и получи <span>10% скидку</span> на любой
-								курс
-							</h1>
+							{i18n.language === 'en' ? (
+								<h1 className={scss.title}>
+									Sign up through the website and get a{' '}
+									<span>10% discount</span> on any course.
+								</h1>
+							) : i18n.language === 'kg' ? (
+								<h1 className={scss.title}>
+									Сайт аркылуу жазылып, <span>10% көбүрөк скидка</span> алыңыз
+								</h1>
+							) : (
+								<h1 className={scss.title}>
+									Запишись через сайт и получи <span>10% скидку</span> на любой
+									курс
+								</h1>
+							)}
 							<Image
 								className={scss.photo}
 								width={500}
 								height={500}
 								src={photo}
 								alt="contact_photo"
-							/>	
+							/>
 						</div>
 						<div className={scss.right}>
 							<h1 className={scss.title}>
-								Оставьте <span>заявку</span>
+								{t('contactUs.theme')}{' '}
+								<span>{t('contactUs.custom_theme')}</span>
 							</h1>
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<Input
-									placeholder="Ваше имя"
+									placeholder={t('contactUs.form.nameInput')}
 									size="lg"
 									{...register('username', { required: true })}
 								/>
@@ -101,7 +116,7 @@ const Contact: FC = () => {
 									color="red"
 									size="lg"
 								>
-									Отправить
+									{t('contactUs.form.btnText')}
 								</Button>
 							</form>
 						</div>

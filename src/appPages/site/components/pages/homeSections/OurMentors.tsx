@@ -8,86 +8,99 @@ import 'keen-slider/keen-slider.min.css';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import { elcho, isa, marlen, take, dastan } from '@/assets/img/our_mentors';
 import CustomTitle from '@/ui/title/CustomTitle';
+import { useTranslation } from 'react-i18next';
 
 const mentorsData = [
 	{
 		name: 'Талаайбек Ыманкулов',
+		nameEn: 'Taalaibek Ymankulov',
 		role: 'FrontEnd Ментор',
+		roleEn: 'FrontEnd Mentor',
 		photoUrl: take,
 		linkedin: '#'
 	},
 	{
 		name: 'Ислам Аубакиров',
+		nameEn: 'Islam Aubakirov',
 		role: 'FrontEnd Ментор',
+		roleEn: 'FrontEnd Mentor',
 		photoUrl: isa,
 		linkedin: '#'
 	},
 	{
 		name: 'Эльхан Шаршенбеков',
+		nameEn: 'Elkhan Sharshenbekov',
 		role: 'FullStack Ментор',
+		roleEn: 'FullStack Mentor',
 		photoUrl: elcho,
 		linkedin: 'https://linkedin.com/in/elcho'
 	},
 	{
 		name: 'Марлен',
+		nameEn: 'Marlen',
 		role: 'BackEnd Ментор',
+		roleEn: 'BackEnd Mentor',
 		photoUrl: marlen,
 		linkedin: '#'
 	},
 	{
 		name: 'Дастан',
+		nameEn: 'Dastan',
 		role: 'FrontEnd Ментор',
+		roleEn: 'FrontEnd Mentor',
 		photoUrl: dastan,
 		linkedin: '#'
 	}
 ];
 
 const OurMentors: FC = () => {
-	const [currentSlide, setCurrentSlide] = useState(0)
-	const [loaded, setLoaded] = useState(false)
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const [loaded, setLoaded] = useState(false);
+
+	const { i18n, t } = useTranslation('home');
 
 	// refs для autoplay
-	const autoplayTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
-	const isPaused = useRef(false)
+	const autoplayTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+	const isPaused = useRef(false);
 
 	// autoplay plugin
 	const autoplay = (slider: any) => {
 		const clear = () => {
 			if (autoplayTimeout.current) {
-				clearTimeout(autoplayTimeout.current)
-				autoplayTimeout.current = null
+				clearTimeout(autoplayTimeout.current);
+				autoplayTimeout.current = null;
 			}
-		}
+		};
 
 		const start = () => {
-			clear()
-			if (isPaused.current) return
+			clear();
+			if (isPaused.current) return;
 
 			autoplayTimeout.current = setTimeout(() => {
-				slider.next()
-			}, 1300)
-		}
+				slider.next();
+			}, 1300);
+		};
 
 		slider.on('created', () => {
 			slider.container.addEventListener('mouseover', () => {
-				isPaused.current = true
-				clear()
-			})
+				isPaused.current = true;
+				clear();
+			});
 
 			slider.container.addEventListener('mouseout', () => {
-				isPaused.current = false
-				start()
-			})
+				isPaused.current = false;
+				start();
+			});
 
-			start()
-		})
+			start();
+		});
 
-		slider.on('dragStarted', clear)
-		slider.on('animationEnded', start)
-		slider.on('updated', start)
+		slider.on('dragStarted', clear);
+		slider.on('animationEnded', start);
+		slider.on('updated', start);
 
-		slider.autoplay = { clear, start }
-	}
+		slider.autoplay = { clear, start };
+	};
 
 	const [ref, instanceRef] = useKeenSlider(
 		{
@@ -99,66 +112,65 @@ const OurMentors: FC = () => {
 
 			breakpoints: {
 				'(max-width: 1250px)': {
-					slides: { perView: 3, spacing: 15 },
+					slides: { perView: 3, spacing: 15 }
 				},
 				'(max-width: 1000px)': {
-					slides: { perView: 2, spacing: 8 },
+					slides: { perView: 2, spacing: 8 }
 				},
 				'(max-width: 600px)': {
-					slides: { perView: 1, spacing: 6 },
-				},
+					slides: { perView: 1, spacing: 6 }
+				}
 			},
 
 			slideChanged(slider) {
-				setCurrentSlide(slider.track.details.rel)
+				setCurrentSlide(slider.track.details.rel);
 			},
 
 			created() {
-				setLoaded(true)
-			},
+				setLoaded(true);
+			}
 		},
 		[autoplay]
-	)
-
-
+	);
 
 	return (
 		<section className={scss.OurMentors}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.top_block}>
-						<CustomTitle title="Наши " spanRight="менторы" color="#000000" />
-						<p className={scss.text}>
-							Каждый ментор в нашей академии имеет высокую квалификацию и
-							большой опыт в своей области.
-						</p>
+						<CustomTitle
+							title={t('ourMentors.theme')}
+							spanRight={t('ourMentors.custom_theme')}
+							color="#000000"
+						/>
+						<p className={scss.text}>{t('ourMentors.subtitle')}</p>
 					</div>
 					<div className={scss.slider_control}>
 						{loaded && instanceRef.current && (
 							<>
 								<button
 									onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-										e.stopPropagation()
-										instanceRef.current?.autoplay.clear()
-										instanceRef.current?.prev()
-										instanceRef.current?.autoplay.start()
+										e.stopPropagation();
+										instanceRef.current?.autoplay.clear();
+										instanceRef.current?.prev();
+										instanceRef.current?.autoplay.start();
 									}}
-								// disabled={currentSlide === 0}
+									// disabled={currentSlide === 0}
 								>
 									<IconChevronLeft />
 								</button>
 
 								<button
 									onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-										e.stopPropagation()
-										instanceRef.current?.autoplay.clear()
-										instanceRef.current?.next()
-										instanceRef.current?.autoplay.start()
+										e.stopPropagation();
+										instanceRef.current?.autoplay.clear();
+										instanceRef.current?.next();
+										instanceRef.current?.autoplay.start();
 									}}
-								// disabled={
-								// 	currentSlide ===
-								// 	instanceRef.current.track.details.slides.length - 1
-								// }
+									// disabled={
+									// 	currentSlide ===
+									// 	instanceRef.current.track.details.slides.length - 1
+									// }
 								>
 									<IconChevronRight />
 								</button>
@@ -180,8 +192,12 @@ const OurMentors: FC = () => {
 										</div>
 										<div className={scss.info_block}>
 											<div className={scss.mentor_name_role}>
-												<h1 className={scss.name}>{item.name}</h1>
-												<p className={scss.role}>{item.role}</p>
+												<h1 className={scss.name}>
+													{i18n.language === 'en' ? item.nameEn : item.name}
+												</h1>
+												<p className={scss.role}>
+													{i18n.language === 'en' ? item.roleEn : item.role}
+												</p>
 											</div>
 											<a
 												className={scss.linkedin}

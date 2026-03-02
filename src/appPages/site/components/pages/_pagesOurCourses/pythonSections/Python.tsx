@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
 import pythonPhoto from '@/assets/img/python/python.webp';
+import { useTranslation } from 'react-i18next';
 
 const Python: FC = () => {
 	const handleScrollContact = () => {
@@ -12,6 +13,8 @@ const Python: FC = () => {
 			.getElementById('contact-section')
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
+
+	const { t } = useTranslation('python');
 
 	return (
 		<section className={scss.Python}>
@@ -23,14 +26,11 @@ const Python: FC = () => {
 								<IconCourses />
 							</span>
 							<h1 className={scss.title}>
-								Инженер <span>Python</span>
+								{t('banner.theme')} <span>{t('banner.custom_theme')}</span>
 							</h1>
-							<p className={scss.text}>
-								Стань экспертом в разработке на языке Python и овладей
-								инженерными навыками для создания мощных приложений.
-							</p>
+							<p className={scss.text}>{t('banner.subtitle')}</p>
 							<button className={scss.button} onClick={handleScrollContact}>
-								Записаться <IconChevronRight stroke={2} />
+								{t('banner.btnText')} <IconChevronRight stroke={2} />
 							</button>
 						</div>
 						<div className={scss.right}>

@@ -27,6 +27,10 @@ import {
 } from 'react-icons/si';
 import Image from 'next/image';
 
+import { useTranslation } from 'react-i18next';
+
+
+
 const StudentsWorkplace: FC = () => {
 	const [logoHeightTrack, setLogoHeightTrack] = useState(40);
 
@@ -47,6 +51,28 @@ const StudentsWorkplace: FC = () => {
 
 	const company_logos = [
 		{
+
+			node: <Image src={logo_chase} alt="Chase" width={50} height={50} />,
+			title: 'Chase',
+			href: 'https://chase.com'
+		},
+		{
+			node: <Image src={logo_apple} alt="Apple" width={50} height={50} />,
+			title: 'Apple',
+			href: 'https://apple.com'
+		},
+		{
+			node: (
+				<Image src={logo_microsoft} alt="Microsoft" width={50} height={50} />
+			),
+			title: 'Microsoft',
+			href: 'https://microsoft.com'
+		},
+		{
+			node: <Image src={logo_verizon} alt="Verizon" width={50} height={50} />,
+			title: 'Verizon',
+			href: 'https://verizon.com'
+
 			node: (
 				<Image src={logo_asiabank} alt="logo_asiabank" width={50} height={50} />
 			),
@@ -76,16 +102,48 @@ const StudentsWorkplace: FC = () => {
 			),
 			title: 'AiylBank',
 			href: 'https://www.ab.kg/ky'
+
 		},
 		{
 			node: (
 				<Image
+
+					src={logo_caterpillar}
+					alt="Caterpillar"
+
 					src={logo_jogorkukenesh}
 					alt="logo_jogorkukenesh"
+
 					width={50}
 					height={50}
 				/>
 			),
+
+			title: 'Caterpillar',
+			href: 'https://www.caterpillar.com'
+		},
+		{
+			node: <Image src={logo_amazon} alt="Amazon" width={50} height={50} />,
+			title: 'Amazon',
+			href: 'https://amazon.com'
+		},
+		{
+			node: (
+				<Image src={logo_trueaccord} alt="TrueAccord" width={90} height={80} />
+			),
+			title: 'TrueAccord',
+			href: 'https://trueaccord.com'
+		},
+		{
+			node: <Image src={logo_openfit} alt="OpenFit" width={50} height={50} />,
+			title: 'OpenFit',
+			href: 'https://openfit.com'
+		}
+	];
+
+	const { t } = useTranslation('home');
+
+
 			title: 'Жогорку Кенеш',
 			href: 'https://kenesh.kg'
 		},
@@ -136,6 +194,7 @@ const StudentsWorkplace: FC = () => {
 		}
 	];
 
+
 	return (
 		<section className={scss.StudentsWorkplace}>
 			<div className="container">
@@ -146,8 +205,8 @@ const StudentsWorkplace: FC = () => {
 								<IconStudentsWorkplace />
 							</div>
 							<CustomTitle
-								title="Где работают "
-								spanRight="наши студенты"
+								title={t('studentsWorkPlace.theme')}
+								spanRight={t('studentsWorkPlace.custom_theme')}
 								color="#000000"
 							/>
 						</div>

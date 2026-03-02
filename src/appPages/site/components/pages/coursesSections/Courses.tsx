@@ -29,6 +29,7 @@ import { useMultiSelectStore } from '@/stores/useMultiSelectStore';
 import Loader from '@/ui/loader/Loader';
 import SearchableMultiSelect from '@/shared/searchableMultiSelect/SearchableMultiSelectCourse';
 import SearchableMultiSelectTelegram from '@/shared/searchableMultiSelect/SearchableMultiSelectTelegram';
+import { useTranslation } from 'react-i18next';
 
 interface ICourse {
 	title: string;
@@ -176,6 +177,8 @@ const Courses: FC = () => {
 	const hasCourseParticipantData = !!courseParticipantData?.results?.length;
 	const hasCourseData = !!courseData?.results?.length;
 
+	const { t } = useTranslation('myCourses');
+
 	return (
 		<>
 			<section className={scss.Courses}>
@@ -186,7 +189,7 @@ const Courses: FC = () => {
 								onClick={() => setIsOpenCreateModal(true)}
 								variant="filled"
 							>
-								Добавить новый курс
+								{t('addBtn')}
 							</Button>
 						)}
 						<div className={scss.list}>
@@ -198,11 +201,11 @@ const Courses: FC = () => {
 										const getStatusMessage = () => {
 											switch (item.status) {
 												case 'subscription-has-expired':
-													return 'Продлите подписку для доступа к курсу';
+													return t('renewSub');
 												case 'subscription-not-found':
-													return 'Доступ к курсу открыт, но оплата не произведена';
+													return t("paymentHasn'tBeenMade");
 												default:
-													return 'Загрузка...';
+													return t('loading');
 											}
 										};
 										const showLoadingOverlay = !(
@@ -254,7 +257,7 @@ const Courses: FC = () => {
 										);
 									})
 								) : (
-									<p>У вас нет курсов...</p>
+									<p>{t('yourCourses')}</p>
 								)
 							) : isLoadingCourse ? (
 								<Loader />
@@ -281,8 +284,12 @@ const Courses: FC = () => {
 											</div>
 											<div className={scss.bottom}>
 												<div className={scss.date}>
-													<span>Создан: {item.createdAt}</span>
-													<span>Обновлен: {item.updatedAt}</span>
+													<span>
+														{t('course.createdAt')}: {item.createdAt}
+													</span>
+													<span>
+														{t('course.updatedAt')}: {item.updatedAt}
+													</span>
 												</div>
 												<div className={scss.buttons}>
 													<Button
@@ -318,7 +325,7 @@ const Courses: FC = () => {
 									</div>
 								))
 							) : (
-								<p>Курсы не найдены...</p>
+								<p>{t('coursesNotFound')}</p>
 							)}
 						</div>
 					</div>
@@ -329,22 +336,22 @@ const Courses: FC = () => {
 			<Modal
 				opened={isOpenCreateModal}
 				onClose={() => setIsOpenCreateModal(false)}
-				title="Создание курса"
+				title={t('createCourseForm.title')}
 				centered
 			>
 				<div className={scss.create_course}>
 					<form onSubmit={handleSubmitCreateCourse(createCourse)}>
 						<TextInput
-							placeholder="Введите название курса..."
+							placeholder={t('createCourseForm.nameInput')}
 							{...registerCreateCourse('title', { required: true })}
 						/>
 						<TextInput
-							placeholder="Введите описание курса..."
+							placeholder={t('createCourseForm.descriptionInput')}
 							{...registerCreateCourse('description', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder="Выберите обложку для курса..."
+							placeholder={t('createCourseForm.coverCourseInput')}
 							onChange={(file) => setValueCreateCourse('photo', file)}
 						/>
 						<Button
@@ -353,7 +360,7 @@ const Courses: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							Создать
+							{t('createCourseForm.createBtn')}
 						</Button>
 					</form>
 				</div>
@@ -363,24 +370,24 @@ const Courses: FC = () => {
 			<Modal
 				opened={isOpenEditModal}
 				onClose={() => {
-					setIsOpenEditModal(false), setMultiSelectValue(() => []);
+					(setIsOpenEditModal(false), setMultiSelectValue(() => []));
 				}}
-				title="Редактирование курса"
+				title={t('updateCourseForm.title')}
 				centered
 			>
 				<div className={scss.update_course}>
 					<form onSubmit={handleSubmitEditCourse(editCourse)}>
 						<TextInput
-							placeholder="Введите название курса..."
+							placeholder={t('updateCourseForm.nameInput')}
 							{...registerEditCourse('title', { required: true })}
 						/>
 						<TextInput
-							placeholder="Введите описание курса..."
+							placeholder={t('updateCourseForm.descriptionInput')}
 							{...registerEditCourse('description', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder="Выберите обложку для курса..."
+							placeholder={t('updateCourseForm.coverCourseInput')}
 							onChange={(file) => setValueEditCourse('photo', file)}
 						/>
 						<SearchableMultiSelect courseId={isEditModalId!} />
@@ -391,7 +398,7 @@ const Courses: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							Обновить
+							{t('updateCourseForm.updateBtn')}
 						</Button>
 					</form>
 				</div>
@@ -401,28 +408,25 @@ const Courses: FC = () => {
 			<Modal
 				opened={isOpenDeleteModal}
 				onClose={() => setIsOpenDeleteModal(false)}
-				title="Подтверждение удаления"
+				title={t('deleteCourseConfirm.title')}
 				centered
 			>
 				<div className={scss.delete_course}>
-					<p>
-						Вы уверены, что хотите удалить этот курс? Это действие невозможно
-						отменить.
-					</p>
+					<p>{t('deleteCourseConfirm.confirm')}</p>
 					<div className={scss.delete_buttons}>
 						<Button
 							type="button"
 							onClick={() => setIsOpenDeleteModal(false)}
 							variant="outline"
 						>
-							Отмена
+							{t('deleteCourseConfirm.cancelBtn')}
 						</Button>
 						<Button
 							onClick={handleDeleteCourse}
 							loading={isDeleting[deleteCourseId || 0]}
 							variant="filled"
 						>
-							Удалить
+							{t('deleteCourseConfirm.deleteBtn')}
 						</Button>
 					</div>
 				</div>

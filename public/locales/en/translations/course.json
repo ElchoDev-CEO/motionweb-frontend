@@ -1,0 +1,33 @@
+{
+	"isEmpty": "This section is empty...",
+	"continue": "Continue creating a course",
+	"structure": {
+		"title": "Structure",
+		"text": "Create a structure for a course"
+	},
+	"section": {
+		"title": "Section",
+		"text": "Create a section for the structure"
+	},
+	"lesson": {
+		"title": "Lesson",
+		"text": "Create a lesson for sections"
+	},
+	"modal": {
+		"themeStructure": "Create a structure",
+		"themeSection": "Create a section",
+		"themeLesson": "Create a lesson",
+		"inputNameStructure": "Enter structure name...",
+		"inputNameSection": "Enter section name...",
+		"formLesson": {
+			"inputNameLesson": "Enter a lesson name...",
+			"select": {
+				"defType": "Select lesson type...",
+				"theory": "Theory",
+				"practice": "Practice",
+				"btnText": "Complete"
+			}
+		},
+		"btnText": "Continue"
+	}
+}

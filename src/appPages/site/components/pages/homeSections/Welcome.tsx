@@ -16,38 +16,66 @@ import company5 from '@/assets/img/company/5.png';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import AnimatedNumbers from '../../framerMotion/AnimatedNumbers';
+import { useTranslation } from 'react-i18next';
 
 interface ITab {
 	area: string;
-	label: string;
+	areaEn: string;
+	labelRu: string;
+	labelEn: string;
 	company: StaticImageData;
 	image: StaticImageData;
 }
 const TABS_DATA: ITab[] = [
 	{
 		area: 'Основатель MotionWeb',
+
+		areaEn: 'Founder MotionWeb',
+		labelRu: 'Software engineer',
+		labelEn: 'Software engineer',
+
 		label: 'Software engineer',
+
 		company: company2,
 		image: TabImage2
 	},
 	{
 		area: 'Сооснователь MotionWeb',
+
+		areaEn: 'Co-founder MotionWeb',
+		labelRu: 'Предприниматель',
+		labelEn: 'Entrepreneur',
+
 		label: 'Предприниматель',
+
 		company: company1,
 		image: TabImage1
 	},
 	{
 		area: 'Сооснователь MotionWeb',
+
+		areaEn: 'Co-founder MotionWeb',
+		labelRu: 'FullStack',
+		labelEn: 'FullStack',
+		company: company3,
+		image: TabImage3
+
 		label: 'FullStack',
 		company: company3,
 		image: TabImage3
 	},
-
+	{
+		area: 'FullStack Ментор',
+		label: 'Руководитель FS',
+		company: company4,
+		image: TabImage4
+	},
 	{
 		area: 'Frontend Ментор',
 		label: 'IT инженер',
 		company: company5,
 		image: TabImage5
+
 	}
 ];
 
@@ -55,6 +83,10 @@ const Welcome: FC = () => {
 	const [activeTab, setActiveTab] = useState<number>(0);
 	const [isPaused, setIsPaused] = useState<boolean>(false);
 	// const intervalIdRef = useRef<number | null>(null);
+
+
+	const { i18n, t } = useTranslation('home');
+	const lang = i18n.language;
 
 	const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -79,6 +111,31 @@ const Welcome: FC = () => {
 		}, 2000);
 	};
 
+
+	const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+	useEffect(() => {
+		if (isPaused) return;
+
+		const id = setInterval(() => {
+			setActiveTab((prev) => (prev + 1) % TABS_DATA.length);
+		}, 3000);
+
+		return () => clearInterval(id);
+	}, [isPaused]);
+
+	const handleTabClick = (index: number) => {
+		setActiveTab(index);
+		setIsPaused(true);
+
+		if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+
+		pauseTimeoutRef.current = setTimeout(() => {
+			setIsPaused(false);
+		}, 2000);
+	};
+
+
 	// Очистка при размонтировании
 	useEffect(() => {
 		return () => {
@@ -93,42 +150,19 @@ const Welcome: FC = () => {
 					<div className={scss.content}>
 						<div className={scss.left}>
 							<h1 className={scss.title}>
-								Исследуйте будущее <span>MotionWeb</span>
+								{t('banner.theme')} <span>MotionWeb</span>
 							</h1>
 							<p className={scss.text}>
 								{/* eslint-disable-next-line react/no-unescaped-entities */}
-								Давайте исследуем и разработаем ваш опыт работы с Motion Web.
+								{t('banner.subtitle')}
 							</p>
 							<div className={scss.buttons}>
 								<Link href={'/courses'} className={scss.bg}>
-									Давайте начнем!
+									{t('banner.btnText')}
 								</Link>
 								{/* <Link href={'/'} className={scss.no_bg}>
 									Explore Now
 								</Link> */}
-							</div>
-							<div className={scss.stats}>
-								<div className={scss.stat}>
-									<h3>
-										<AnimatedNumbers value={290} />
-										K+
-									</h3>
-									<p>Запросы</p>
-								</div>
-								<div className={scss.stat}>
-									<h3>
-										<AnimatedNumbers value={40} />
-										K+
-									</h3>
-									<p>Пользователи</p>
-								</div>
-								<div className={scss.stat}>
-									<h3>
-										<AnimatedNumbers value={72} />
-										K+
-									</h3>
-									<p>Запросов в день</p>
-								</div>
 							</div>
 						</div>
 						{/* <div className={scss.right}>
@@ -169,7 +203,7 @@ const Welcome: FC = () => {
 																	: `${scss.role_text}`
 															}
 														>
-															{tab.label}
+															{lang === 'en' ? tab.labelEn : tab.labelRu}
 														</pre>
 													</div>
 												</div>
@@ -184,7 +218,9 @@ const Welcome: FC = () => {
 														: `${scss.base_people}`
 												}
 											>
-												<pre className={scss.person_company}>{tab.area}</pre>
+												<pre className={scss.person_company}>
+													{lang === 'ru' ? tab.area : tab.areaEn}
+												</pre>
 												<Image
 													className={scss.person_img}
 													src={tab.image}

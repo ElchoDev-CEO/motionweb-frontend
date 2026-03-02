@@ -1,0 +1,32 @@
+{
+	"addBtn": "Жаңы курс кошуу",
+	"renewSub": "Курска кирүү үчүн жазылууну жаңыртыңыз",
+	"paymantHasn'tBeenMade": "Курска кирүү ачык, бирок төлөм жүргүзүлгөн жок",
+	"loading": "Жүктөө...",
+	"yourCourses": "Сизде курстар жок...",
+	"course": {
+		"createdAt": "Түзүлдү",
+		"updateAt": "Жаңыланган"
+	},
+	"coursesNotFound": "Курстар табылган жок...",
+	"createCourseForm": {
+		"title": "Курс түзүү",
+		"nameInput": "Курстун атын киргизиңиз...",
+		"descriptionInput": "Курстун сүрөттөмөсүн киргизиңиз...",
+		"coverCourseInput": "Курстун мукабасын тандаңыз...",
+		"createBtn": "Түзүү"
+	},
+	"updateCourseForm": {
+		"title": "Курсту редакциялоо",
+		"nameInput": "Курстун атын киргизиңиз...",
+		"descriptionInput": "Курстун сүрөттөмөсүн киргизиңиз...",
+		"coverCourseInput": "Курстун мукабасын тандаңыз...",
+		"updateBtn": "Жаңыртуу"
+	},
+	"deleteCourseConfirm": {
+		"title": "Өчүрүүнү ырастоо",
+		"confirm": "Бул курсту өчүрүп салгыңыз келеби? Бул аракетти артка кайтарууга болбойт.",
+		"cancelBtn": "Айынуу",
+		"deleteBtn": "Өчүрүү"
+	}
+}
