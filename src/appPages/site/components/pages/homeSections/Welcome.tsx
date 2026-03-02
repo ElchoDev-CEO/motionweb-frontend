@@ -136,7 +136,7 @@ const Welcome: FC = () => {
 								</div>
 							</div>
 						</div>
-						<div className={scss.right}>
+						{/* <div className={scss.right}>
 							<div className={scss.tab_carousel}>
 								<div className={scss.position}>
 									<div className={scss.carousel}>
@@ -200,7 +200,7 @@ const Welcome: FC = () => {
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</section>

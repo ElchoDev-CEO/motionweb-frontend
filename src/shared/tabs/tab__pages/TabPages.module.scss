@@ -127,7 +127,7 @@ $arrowSizeHover: 30px;
 			font-size: 40px;
 
 			opacity: 0.4;
-			color: #000;
+			color: var(--foreground);
 			cursor: pointer;
 
 			transition: 0.4s;
@@ -260,7 +260,7 @@ $arrowSizeHover: 30px;
 			font-size: 40px;
 
 			opacity: 0.4;
-			color: #fff;
+			color: var(--foreground);
 			cursor: pointer;
 
 			transition: 0.4s;

@@ -292,7 +292,7 @@
 
 .primaryBtn {
 	background: #ff3b3b;
-	color: #fff;
+	color: var(--foreground);
 	border: 1px solid #ff3b3b;
 
 	&:hover {
@@ -337,7 +337,7 @@
 	.fc-button-primary:not(:disabled).fc-button-active {
 		background: #ff3b3b;
 		border-color: #ff3b3b;
-		color: #fff;
+		color: var(--foreground);
 	}
 
 	.fc-theme-standard {

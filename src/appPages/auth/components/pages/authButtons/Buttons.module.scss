@@ -15,7 +15,7 @@
 	border-radius: 6px;
 
 	transition: 0.2s;
-	color: #fff;
+	color: var(--foreground);
 	cursor: pointer;
 
 	span {
@@ -57,7 +57,7 @@
 		svg {
 			font-size: 28px;
 
-			color: #fff;
+			color: var(--foreground);
 		}
 	}
 }
@@ -75,7 +75,7 @@
 		svg {
 			font-size: 28px;
 
-			color: #fff;
+			color: var(--foreground);
 		}
 	}
 }

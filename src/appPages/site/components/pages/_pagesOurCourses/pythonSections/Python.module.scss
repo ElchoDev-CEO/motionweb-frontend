@@ -30,13 +30,13 @@
 			// }
 			.title {
 				margin-bottom: clamp(10px, 8vw, 20px);
-				color:#715A5A;
+				color: #715a5a;
 				font-size: clamp(25px, 8vw, 50px);
 				font-style: normal;
 				font-weight: 600;
 				line-height: clamp(30px, 8vw, 60px);
 				span {
-					color: #B7B7B7;
+					color: #b7b7b7;
 				}
 			}
 			.text {
@@ -55,9 +55,9 @@
 				justify-content: center;
 				align-items: center;
 				border-radius: 9999px;
-				background: #715A5A;
+				background: #715a5a;
 				border: none;
-				color: #ffffff;
+				color: var(--foreground) fff;
 				font-size: 17.16px;
 				font-weight: 600;
 				line-height: 28px;

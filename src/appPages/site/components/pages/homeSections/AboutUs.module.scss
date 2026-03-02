@@ -62,7 +62,7 @@
 						font-weight: 400;
 						line-height: clamp(30px, 5vw, 63px);
 						letter-spacing: 0%;
-						color: #ffffff;
+						color: var(--foreground) fff;
 						span {
 							background: linear-gradient(90deg, #f96b6b, #f64b6a, #bc1f5e);
 							-webkit-background-clip: text;

@@ -16,7 +16,6 @@
 .modal {
 	width: min(640px, 100%);
 	background: #ffffff;
-
 	border-radius: 22px;
 	border: 1px solid #f0f0f0;
 	box-shadow: 0 24px 70px rgba(0, 0, 0, 0.2);
@@ -149,7 +148,7 @@
 .primaryBtn {
 	background: #ff3b3b;
 	border: 1px solid #ff3b3b;
-	color: #fff;
+	color: var(--foreground);
 
 	&:hover {
 		filter: brightness(0.96);

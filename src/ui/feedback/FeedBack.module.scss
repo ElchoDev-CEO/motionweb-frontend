@@ -5,7 +5,7 @@
 	align-items: center;
 	justify-content: center;
 	z-index: 200;
-	background-color: #00000075;
+	background-color: var(--foreground) 00075;
 	backdrop-filter: blur(4px);
 
 	.container {
@@ -19,8 +19,8 @@
 		.modal {
 			padding: 15px;
 			position: relative;
-			background-color: #ffffff;
-			color: #000000;
+			background-color: var(--foreground) fff;
+			color: var(--foreground) 000;
 			border-radius: 0.5rem;
 			width: 100%;
 			margin-left: 0.75rem;

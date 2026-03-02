@@ -44,7 +44,7 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 					-apple-system,
 					BlinkMacSystemFont;
 				margin-bottom: clamp(10px, 8vw, 20px);
-				color: var(--black);
+				color: var(--foreground);
 				font-size: clamp(30px, 8vw, 50px);
 				font-style: normal;
 				font-weight: 600;
@@ -74,13 +74,12 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 				margin-bottom: clamp(12px, 8vw, 50px);
 				width: 100%;
 				max-width: 450px;
-				color: var(--black);
+				color: var(--foreground);
 				font-size: 20px;
 				font-style: normal;
 				font-weight: 400;
 				line-height: normal;
 			}
-
 			.buttons {
 				margin-bottom: clamp(20px, 8vw, 40px);
 				display: flex;
@@ -90,7 +89,7 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 
 				a {
 					padding: 14px 25px;
-					color: #fff;
+					color: var(--white);
 					text-decoration: none;
 					font-size: 20px;
 					font-style: normal;
@@ -142,7 +141,7 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 				.stat {
 					h3 {
 						width: 70px;
-						color: var(--black);
+						color: var(--foreground);
 						font-size: 24px;
 						font-style: normal;
 						font-weight: 500;
@@ -154,7 +153,7 @@ $--carousel-box-shadow-light: rgba(0, 0, 0, 0.18);
 					}
 
 					p {
-						color: var(--black);
+						color: var(--foreground);
 						font-size: 18px;
 						font-style: normal;
 						font-weight: 400;

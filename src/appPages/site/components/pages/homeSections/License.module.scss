@@ -31,7 +31,7 @@
 				line-height: clamp(21px, 4vw, 39px);
 
 				letter-spacing: 0%;
-				color: #ffffff;
+				color: var(--foreground) fff;
 			}
 			.text {
 				padding-left: 20px;
@@ -40,7 +40,7 @@
 				display: flex;
 				gap: 16px;
 				flex-direction: column;
-				color: #ffffffcc;
+				color: var(--foreground) fffcc;
 				li {
 					p {
 						font-size: clamp(14px, 3vw, 17px);

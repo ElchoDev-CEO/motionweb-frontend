@@ -20,7 +20,7 @@ import {
 	BiLogoRedux,
 	BiLogoTypescript
 } from 'react-icons/bi';
-import { SiNginx } from "react-icons/si";
+import { SiNginx } from 'react-icons/si';
 import { FcLinux } from 'react-icons/fc';
 import {
 	some_courses_1,
@@ -102,13 +102,21 @@ const SomeCourses: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top}>
 						<IconSomeCourse />
-						<CustomTitle title="Скоро " spanRight="стартует" color="#000000" />
+						<CustomTitle
+							title="Скоро "
+							spanRight="стартует"
+							color="var(--foreground)"
+						/>
 					</div>
 					<div className={scss.cards}>
 						{courseData.map((item, index) => (
-							<SpotlightCard key={index} className={scss.card} spotlightColor="#f96b6b">
+							<SpotlightCard
+								key={index}
+								className={scss.card}
+								spotlightColor="#f96b6b"
+							>
 								{item.isHit && <span className={scss.is_hit}>Хит продаж</span>}
-								<div className={scss.left} >
+								<div className={scss.left}>
 									<Image
 										width={200}
 										height={200}
@@ -129,7 +137,9 @@ const SomeCourses: FC = () => {
 											<ul>
 												{item.technologies.map((tech, index) => (
 													<li key={index} className={scss.tech_stack}>
-														{tech.icon && <span className={scss.icon_img}>{tech.icon}</span>}
+														{tech.icon && (
+															<span className={scss.icon_img}>{tech.icon}</span>
+														)}
 														<p className={scss.icon_name}>{tech.name}</p>
 													</li>
 												))}
@@ -151,12 +161,11 @@ const SomeCourses: FC = () => {
 									</div>
 								</div>
 							</SpotlightCard>
-
 						))}
 					</div>
 				</div>
 			</div>
-		</section >
+		</section>
 	);
 };
 

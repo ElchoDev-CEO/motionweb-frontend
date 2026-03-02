@@ -95,7 +95,7 @@
 						align-items: center;
 						background: #ffffff33;
 						border-radius: 14px;
-						color: #fff;
+						color: var(--foreground);
 						transition: var(--transition);
 						&:hover {
 							background: #ffffff44;

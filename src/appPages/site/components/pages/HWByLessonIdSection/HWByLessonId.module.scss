@@ -21,7 +21,7 @@
 			.tableHead {
 				position: sticky;
 				top: 0;
-				background-color: #fff;
+				background-color: var(--foreground);
 				z-index: 1;
 			}
 		}

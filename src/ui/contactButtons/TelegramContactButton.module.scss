@@ -12,13 +12,13 @@
 			border-radius: 50%;
 			width: 55px; /*ширина кнопки*/
 			height: 55px; /*высота кнопки*/
-			color: #fff;
+			color: var(--foreground);
 			text-align: center;
 			line-height: 53px; /*центровка иконки в кнопке*/
 			font-size: 35px; /*размер иконки*/
 			z-index: 9999;
 			a {
-				color: #fff;
+				color: var(--foreground);
 			}
 			&:before,
 			&:after {

@@ -37,7 +37,7 @@
 				padding: 32px;
 				border-radius: 20px;
 				background: #202020;
-				color: #ffffff;
+				color: var(--foreground) fff;
 				overflow: hidden;
 				transition:
 					transform 0.3s ease,

@@ -1,7 +1,7 @@
 .InternshipProgram {
 	padding: 120px 0;
 	// background: #0f0f0f; // f dark mode
-	color: #ffffff;
+	color: var(--foreground) fff;
 
 	.content {
 		display: flex;
@@ -60,7 +60,7 @@
 			padding: 28px;
 			border-radius: 20px;
 			// background: #202020; // f dark mode
-			background: #44444E;
+			background: #44444e;
 			flex: 1;
 			transition:
 				transform 0.3s ease,

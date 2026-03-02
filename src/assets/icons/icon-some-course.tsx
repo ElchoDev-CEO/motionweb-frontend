@@ -76,7 +76,7 @@ const IconSomeCourse: FC = () => {
 						width="100"
 						height="31"
 						transform="translate(1.5 1.5)"
-						fill="#F6F6F6"
+						fill="var(--backgorund)"
 						fillOpacity="1"
 					/>
 					<g clipPath="url(#clip488_6681)">
@@ -123,7 +123,7 @@ const IconSomeCourse: FC = () => {
 						width="100"
 						height="31"
 						transform="translate(1.5 1.5)"
-						stroke="#ECECEC"
+						stroke="var(--border)"
 						strokeOpacity="1"
 						strokeWidth="1"
 					/>

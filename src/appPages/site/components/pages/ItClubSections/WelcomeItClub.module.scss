@@ -14,8 +14,8 @@
 			flex-direction: column;
 		}
 		.left {
-			@media (max-width:768px)  {
-					margin-bottom: 50px;
+			@media (max-width: 768px) {
+				margin-bottom: 50px;
 			}
 			.icon {
 				margin-bottom: 26px;
@@ -52,7 +52,7 @@
 				border-radius: 9999px;
 				background: #ff6368;
 				border: none;
-				color: #ffffff;
+				color: var(--foreground) fff;
 				font-size: 17.16px;
 				font-weight: 600;
 				line-height: 28px;

@@ -4,10 +4,11 @@
 	top: 0;
 	width: 100%;
 	z-index: 99;
+	background: var(--background);
 	.scroll {
 		// padding-block: 15px;
 		padding-block: 7px;
-		background: var(--bg-primary);
+		// background: var(--bg-primary);
 		backdrop-filter: blur(4px);
 		// transition: var(--transition);
 		&.active {
@@ -23,6 +24,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
 		.logo {
 			padding-block: 8px;
 			display: flex;
@@ -55,7 +57,7 @@
 						position: relative;
 						padding: 10px;
 						font-size: 15px;
-						color: var(--black);
+						color: var(--foreground);
 						z-index: 2;
 						transition: var(--transition);
 						text-decoration: none;

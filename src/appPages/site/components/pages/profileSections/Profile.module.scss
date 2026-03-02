@@ -69,7 +69,7 @@
 					span {
 						font-size: 16px;
 						font-weight: 600;
-						color: #000;
+						color: var(--foreground);
 					}
 					p {
 						font-size: 12px;
@@ -81,7 +81,7 @@
 					.avatar_btn {
 						border: 2px solid black;
 						background: none;
-						color: #000;
+						color: var(--foreground);
 					}
 				}
 			}
@@ -174,7 +174,7 @@
 					margin: 0 auto;
 					max-width: 34rem;
 					border-radius: 10px;
-					background-color: #fff;
+					background-color: var(--foreground);
 					color: #474652;
 					overflow: hidden;
 					padding: 15px;
@@ -247,7 +247,7 @@
 					padding: 3px 11px;
 					width: 100%;
 					gap: 20px;
-					background-color: #fff;
+					background-color: var(--foreground);
 					border-radius: 12px;
 					span {
 						font-size: 16px;
