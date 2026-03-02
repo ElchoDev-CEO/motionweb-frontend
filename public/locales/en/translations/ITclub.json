@@ -1,0 +1,22 @@
+{
+	"banner": {
+		"theme": "IT",
+		"custom_theme": " Club",
+		"subtitle": "A community where learning happens through practice. Real-world projects, live communication, teamwork, and mentor support.",
+		"btnText": "Apply now"
+	},
+	"program": {
+		"theme": "Internship",
+		"custom_theme": " program"
+	},
+	"advantage": {
+		"theme": "Why",
+		"custom_theme": " this internship",
+		"piece_theme": " is so effective"
+	},
+	"clubStats": {
+		"subtopic": "Statistics",
+		"theme": "Statistics",
+		"custom_theme": " of the club"
+	}
+}

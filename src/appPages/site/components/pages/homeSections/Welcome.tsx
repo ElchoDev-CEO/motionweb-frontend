@@ -50,22 +50,6 @@ const TABS_DATA: ITab[] = [
 		labelEn: 'FullStack',
 		company: company3,
 		image: TabImage3
-	},
-	{
-		area: 'FullStack Ментор',
-		areaEn: 'FullStack Mentor',
-		labelRu: 'Руководитель FS',
-		labelEn: 'Head of FS',
-		company: company4,
-		image: TabImage4
-	},
-	{
-		area: 'Frontend Ментор',
-		areaEn: 'Frontend Mentor',
-		labelRu: 'IT инженер',
-		labelEn: 'IT engineer',
-		company: company5,
-		image: TabImage5
 	}
 ];
 
@@ -128,29 +112,6 @@ const Welcome: FC = () => {
 									Explore Now
 								</Link> */}
 							</div>
-							<div className={scss.stats}>
-								<div className={scss.stat}>
-									<h3>
-										<AnimatedNumbers value={290} />
-										K+
-									</h3>
-									<p> {t('banner.stats.requests')}</p>
-								</div>
-								<div className={scss.stat}>
-									<h3>
-										<AnimatedNumbers value={40} />
-										K+
-									</h3>
-									<p> {t('banner.stats.users')}</p>
-								</div>
-								<div className={scss.stat}>
-									<h3>
-										<AnimatedNumbers value={72} />
-										K+
-									</h3>
-									<p> {t('banner.stats.requestsPerDay')}</p>
-								</div>
-							</div>
 						</div>
 						<div className={scss.right}>
 							<div className={scss.tab_carousel}>
@@ -190,7 +151,7 @@ const Welcome: FC = () => {
 																	: `${scss.role_text}`
 															}
 														>
-															{lang === 'ru' ? tab.labelRu : tab.labelEn}
+															{lang === 'en' ? tab.labelEn : tab.labelRu}
 														</pre>
 													</div>
 												</div>

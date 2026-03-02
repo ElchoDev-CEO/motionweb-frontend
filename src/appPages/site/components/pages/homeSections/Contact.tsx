@@ -61,15 +61,19 @@ const Contact: FC = () => {
 				<div className="container">
 					<div className={scss.content}>
 						<div className={scss.left}>
-							{i18n.language === 'ru' ? (
-								<h1 className={scss.title}>
-									Запишись через сайт и получи <span>10% скидку</span> на любой
-									курс
-								</h1>
-							) : (
+							{i18n.language === 'en' ? (
 								<h1 className={scss.title}>
 									Sign up through the website and get a{' '}
 									<span>10% discount</span> on any course.
+								</h1>
+							) : i18n.language === 'kg' ? (
+								<h1 className={scss.title}>
+									Сайт аркылуу жазылып, <span>10% көбүрөк скидка</span> алыңыз
+								</h1>
+							) : (
+								<h1 className={scss.title}>
+									Запишись через сайт и получи <span>10% скидку</span> на любой
+									курс
 								</h1>
 							)}
 							<Image

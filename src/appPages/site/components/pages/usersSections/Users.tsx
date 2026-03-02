@@ -30,6 +30,7 @@ import { useRouter } from 'nextjs-toploader/app';
 import { useGetMeQuery } from '@/redux/api/me';
 import Loader from '@/ui/loader/Loader';
 import CustomTitle from '@/ui/title/CustomTitle';
+import { useTranslation } from 'react-i18next';
 
 type SortableFields =
 	| 'firstName&lastName'
@@ -193,24 +194,25 @@ const Users: FC = () => {
 					rightSection={<IconChevronRight size={18} />}
 					onClick={() => router.push(`/users/${item.id}`)}
 				>
-					Подробнее
+					{t('table.more')}
 				</Button>
 			</Table.Td>
 		</Table.Tr>
 	));
+	const { t } = useTranslation('users');
 
 	return (
 		<section className={scss.Users}>
 			<div className={scss.container}>
 				<div className={scss.content}>
 					<CustomTitle
-						title="Список"
-						spanRight="пользователей"
+						title={t('theme')}
+						spanRight={t('custom_theme')}
 						color="#000000"
 					/>
 					<div className={scss.controls}>
 						<Input
-							placeholder="Найти пользователя"
+							placeholder={t('inputSearch')}
 							value={searchTerm}
 							onChange={(event) => {
 								const value = event.currentTarget.value;
@@ -231,11 +233,11 @@ const Users: FC = () => {
 						/>
 						<NativeSelect
 							data={[
-								{ value: 'ALL', label: 'Все пользователи' },
-								{ value: 'ADMIN', label: 'Администраторы' },
-								{ value: 'MANAGER', label: 'Менеджеры' },
-								{ value: 'MENTOR', label: 'Менторы' },
-								{ value: 'STUDENT', label: 'Студенты' }
+								{ value: 'ALL', label: t('select.all') },
+								{ value: 'ADMIN', label: t('select.admins') },
+								{ value: 'MANAGER', label: t('select.managers') },
+								{ value: 'MENTOR', label: t('select.mentors') },
+								{ value: 'STUDENT', label: t('select.students') }
 							]}
 							value={filterRole}
 							onChange={handleRoleChange}
@@ -259,7 +261,7 @@ const Users: FC = () => {
 													onClick={() => handleSort('firstName&lastName')}
 												>
 													<Group align="center">
-														<span>Пользователь</span>
+														<span>{t('table.user')}</span>
 														<Center>
 															{sortBy === 'firstName&lastName' ? (
 																sortDirection === 'asc' ? (
@@ -277,7 +279,7 @@ const Users: FC = () => {
 											<Table.Th className={scss.tableHead}>
 												<UnstyledButton onClick={() => handleSort('username')}>
 													<Group align="center">
-														<span>Имя пользователя</span>
+														<span>{t('table.userName')}</span>
 														<Center>
 															{sortBy === 'username' ? (
 																sortDirection === 'asc' ? (
@@ -295,7 +297,7 @@ const Users: FC = () => {
 											<Table.Th className={scss.tableHead}>
 												<UnstyledButton onClick={() => handleSort('email')}>
 													<Group align="center">
-														<span>Почта</span>
+														<span>{t('table.email')}</span>
 														<Center>
 															{sortBy === 'email' ? (
 																sortDirection === 'asc' ? (
@@ -311,15 +313,15 @@ const Users: FC = () => {
 												</UnstyledButton>
 											</Table.Th>
 											<Table.Th className={scss.tableHead}>
-												<span>Номер телефона</span>
+												<span>{t('table.phone')}</span>
 											</Table.Th>
 											<Table.Th className={scss.tableHead}>
-												<span>Права</span>
+												<span>{t('table.rights')}</span>
 											</Table.Th>
 											<Table.Th className={scss.tableHead}>
 												<UnstyledButton onClick={() => handleSort('createdAt')}>
 													<Group align="center">
-														<span>На платформе с</span>
+														<span>{t('table.user')}</span>
 														<Center>
 															{sortBy === 'createdAt' ? (
 																sortDirection === 'asc' ? (
@@ -335,14 +337,14 @@ const Users: FC = () => {
 												</UnstyledButton>
 											</Table.Th>
 											<Table.Th className={scss.tableHead}>
-												<span>Действия</span>
+												<span>{t('table.action')}</span>
 											</Table.Th>
 										</Table.Tr>
 									</Table.Thead>
 									<Table.Tbody>{rows}</Table.Tbody>
 								</Table>
 							) : (
-								<Center>Нет данных для отображения</Center>
+								<Center>{t('table.noData')}</Center>
 							)}
 						</Box>
 					</ScrollArea>

@@ -17,6 +17,7 @@ const about_stats = [
 	{
 		icon: <IconRosetteDiscountCheck stroke={2} />,
 		name: 'Опыт в сфере IT',
+		nameKg: 'Иш чөйрөсүндөгү тажрыйба',
 		nameEn: 'IT experience',
 		stat: 5,
 		statType: '+'
@@ -24,6 +25,7 @@ const about_stats = [
 	{
 		icon: <IconUserCheck stroke={2} />,
 		name: 'Количество студентов',
+		nameKg: 'Студенттердин саны',
 		nameEn: 'Number of students',
 		stat: 50,
 		statType: '-100'
@@ -31,6 +33,7 @@ const about_stats = [
 	{
 		icon: <IconStar stroke={2} />,
 		name: 'Позитивных отзывов',
+		nameKg: 'Позитивдүү сын-пикирлер',
 		nameEn: 'Positive reviews',
 		stat: 95,
 		statType: '%'
@@ -38,6 +41,7 @@ const about_stats = [
 	{
 		icon: <IconUsersGroup stroke={2} />,
 		name: 'Сотрудники',
+		nameKg: 'Кызматкерлер',
 		nameEn: 'Employees',
 		stat: 15,
 		statType: '+'
@@ -74,7 +78,13 @@ const AboutUs: FC = () => {
 									<div className={scss.card}>
 										<div className={scss.icon}>{item.icon}</div>
 										<div className={scss.name}>
-											<p>{i18n.language === 'ru' ? item.name : item.nameEn}</p>
+											<p>
+												{i18n.language === 'ru'
+													? item.name
+													: i18n.language === 'kg'
+														? item.nameKg
+														: item.nameEn}
+											</p>
 										</div>
 										<div className={scss.count}>
 											<p>

@@ -9,35 +9,47 @@ import {
 	done_brown,
 	done_yellow
 } from '@/assets/img/advantages';
+import { useTranslation } from 'react-i18next';
 
 const advantages_data = [
 	{
 		icon: done_blue,
 		title: 'Менторство',
+		titleEn: 'Mentoring',
 		description:
-			'Индивидуальная поддержка от практикующих специалистов IT-индустрии.'
+			'Индивидуальная поддержка от практикующих специалистов IT-индустрии.',
+		descriptionEn:
+			'Personalized support from practicing IT industry professionals.'
 	},
 	{
 		icon: done_yellow,
 		title: 'Практический опыт',
-		description:
-			'Работа с реальными задачами и проектами в командной среде.'
+		titleEn: 'Practical Experience',
+		description: 'Работа с реальными задачами и проектами в командной среде.',
+		descriptionEn:
+			'Working on real-world problems and projects in a team environment.'
 	},
+
 	{
 		icon: done_brown,
 		title: 'Обучение',
-		description:
-			'Современные методики обучения и развитие ключевых навыков.'
+		titleEn: 'Training',
+		description: 'Современные методики обучения и развитие ключевых навыков.',
+		descriptionEn: 'Modern teaching methods and development of key skills.'
 	},
 	{
 		icon: done_green,
 		title: 'Трудоустройство',
+		titleEn: 'Employment',
 		description:
-			'Лучшие стажёры получают предложения о работе после программы.'
+			'Лучшие стажёры получают предложения о работе после программы.',
+
+		descriptionEn: 'The best interns receive job offers after the program.'
 	}
 ];
 
 const Advantages: FC = () => {
+	const { i18n, t } = useTranslation('ITclub');
 	return (
 		<section className={scss.Advantages}>
 			<div className="container">
@@ -45,13 +57,12 @@ const Advantages: FC = () => {
 					{/* Highlight */}
 					<div className={scss.highlight}>
 						<h2>
-							Почему <span>эта стажировка</span>
-							<br /> даёт результат
+							{t('advantage.theme')}
+							<span>{t('advantage.custom_theme')}</span>
+							<br />
+							{t('advantage.piece_theme')}
 						</h2>
-						<p>
-							Мы создаём среду, максимально приближенную к реальной
-							работе в IT-командах, где вы растёте как настоящий специалист.
-						</p>
+						<p>{t('advantage.subtitle')}</p>
 
 						<Image
 							src={advantages_photo}
@@ -72,8 +83,12 @@ const Advantages: FC = () => {
 										alt={item.title}
 									/>
 								</div>
-								<h3>{item.title}</h3>
-								<p>{item.description}</p>
+								<h3>{i18n.language === 'ru' ? item.title : item.titleEn}</h3>
+								<p>
+									{i18n.language === 'ru'
+										? item.description
+										: item.descriptionEn}
+								</p>
 							</div>
 						))}
 					</div>

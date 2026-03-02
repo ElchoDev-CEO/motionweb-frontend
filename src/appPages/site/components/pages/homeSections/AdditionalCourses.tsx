@@ -14,9 +14,12 @@ import { useTranslation } from 'react-i18next';
 const additionalCoursesData = [
 	{
 		title: 'Искусство публичных выступлений',
+		titleKg: 'Эл алдында сүйлөө өнөрү',
 		titleEn: 'The art of public speaking',
 		description:
 			'Улучшите свои навыки ораторского искусства и добейтесь отличных результатов в презентациях и мероприятиях.',
+		descriptionKg:
+			'Эл алдында сүйлөө жөндөмүңүздү өркүндөтүңүз жана презентацияларда жана иш-чараларда эң сонун натыйжаларга жетиңиз.',
 		descriptionEn:
 			'Improve your public speaking skills and achieve excellent results in presentations and events.',
 		image: extraCourse_1,
@@ -24,9 +27,12 @@ const additionalCoursesData = [
 	},
 	{
 		title: 'Английский язык',
+		titleKg: 'Английс тили',
 		titleEn: 'English language',
 		description:
 			'Мы обучаем студентов английскому языку с начала программы до завершения курса.',
+		descriptionKg:
+			'Биз студенттерге англис тилин программанын башынан аягына чейин үйрөтөбүз.',
 		descriptionEn:
 			'We teach students English from the beginning of the program until the end of the course.',
 		image: extraCourse_2,
@@ -34,9 +40,12 @@ const additionalCoursesData = [
 	},
 	{
 		title: 'Русский язык',
+		titleKg: 'Орус тили',
 		titleEn: 'Russian language',
 		description:
 			'Мы обучаем студентов русскому языку с начала программы до завершения курса.',
+		descriptionKg:
+			'Биз студенттерге орус тилин программанын башталышынан баштап курстун аягына чейин окутабыз.',
 		descriptionEn:
 			'We teach students Russian from the beginning of the program until the end of the course.',
 		image: extraCourse_3,
@@ -44,8 +53,10 @@ const additionalCoursesData = [
 	},
 	{
 		title: 'Онлайн-урок для родителей',
+		titleKg: 'Ата-энелер үчүн онлайн сабак',
 		titleEn: 'Online lesson for parents',
 		description: 'Дополнительный 6-дневный онлайн-курс для родителей.',
+		descriptionKg: 'Ата-энелер үчүн кошумча 6 күндүк онлайн курс.',
 		descriptionEn: 'Additional 6-day online course for parents.',
 		image: extraCourse_4,
 		accentColor: '#a59bfc'
@@ -104,12 +115,18 @@ const AdditionalCourses: FC = () => {
 
 							<div className={scss.content}>
 								<h3 className={scss.title}>
-									{i18n.language === 'ru' ? course.title : course.titleEn}
+									{i18n.language === 'ru'
+										? course.title
+										: i18n.language === 'kg'
+											? course.titleKg
+											: course.titleEn}
 								</h3>
 								<p className={scss.description}>
 									{i18n.language === 'ru'
 										? course.description
-										: course.descriptionEn}
+										: i18n.language === 'kg'
+											? course.descriptionKg
+											: course.descriptionEn}
 								</p>
 
 								<div className={scss.accentLine} />

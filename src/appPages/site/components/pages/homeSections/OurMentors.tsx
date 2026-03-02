@@ -193,10 +193,10 @@ const OurMentors: FC = () => {
 										<div className={scss.info_block}>
 											<div className={scss.mentor_name_role}>
 												<h1 className={scss.name}>
-													{i18n.language === 'ru' ? item.name : item.nameEn}
+													{i18n.language === 'en' ? item.nameEn : item.name}
 												</h1>
 												<p className={scss.role}>
-													{i18n.language === 'ru' ? item.role : item.roleEn}
+													{i18n.language === 'en' ? item.roleEn : item.role}
 												</p>
 											</div>
 											<a

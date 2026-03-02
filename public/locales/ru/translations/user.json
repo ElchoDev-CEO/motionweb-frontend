@@ -1,0 +1,19 @@
+{
+	"theme": "Профиль",
+	"custom_theme": " пользователя",
+	"backBtn": "Назад",
+	"form": {
+		"inputName": "Имя",
+		"inputSurname": "Фамилия",
+		"inputEmail": "Email",
+		"formRole": {
+			"role": "Роль",
+			"admin": "Админ",
+			"manager": "Менеджер",
+			"mentor": "Ментор",
+			"student": "Студент"
+		},
+		"inputUserName": "Имя пользователя",
+		"inputPhone": "Номер телефона"
+	}
+}

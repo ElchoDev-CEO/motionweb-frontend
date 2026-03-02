@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 interface DropDownMenuProps {
 	title: string;
-	links: { name: string; nameEn: string; href: string }[];
+	links: { name: string; nameEn?: string; href: string }[];
 	isOpen: boolean;
 	setIsOpen: (open: boolean) => void;
 }

@@ -24,12 +24,14 @@ import {
 } from '@tabler/icons-react';
 import CustomTitle from '@/ui/title/CustomTitle';
 import { debounce } from 'throttle-debounce';
+import { useTranslation } from 'react-i18next';
 
 type SortableFields = 'firstName&lastName' | 'email' | 'joinedAt';
 
 const GroupById: FC = () => {
 	const { groupId } = useParams();
 	const router = useRouter();
+	const { t } = useTranslation('group');
 	const [searchUser, setSearchUser] = useState<string>('');
 	const [searchTerm, setSearchTerm] = useState<string>('');
 	const [limit, setLimit] = useState<number>(100);
@@ -139,7 +141,7 @@ const GroupById: FC = () => {
 					rightSection={<IconChevronRight size={18} />}
 					onClick={() => router.push(`/users/${item.userId}`)}
 				>
-					Подробнее
+					{t('table.more')}
 				</Button>
 			</Table.Td>
 		</Table.Tr>
@@ -150,14 +152,14 @@ const GroupById: FC = () => {
 			<div className="container">
 				<div className={scss.content}>
 					<CustomTitle
-						title="Группа:"
+						title={t('theme')}
 						spanRight={studentData?.group.title}
 						color="#000000"
 					/>
 					<div className={scss.controls}>
 						<div className={scss.filters}>
 							<Input
-								placeholder="Найти пользователя"
+								placeholder={t('inputSearch')}
 								value={searchTerm}
 								onChange={(event) => {
 									const value = event.currentTarget.value;
@@ -204,7 +206,7 @@ const GroupById: FC = () => {
 													onClick={() => handleSort('firstName&lastName')}
 												>
 													<Group align="center">
-														<span>Пользователь</span>
+														<span>{t('table.user')}</span>
 														<Center>
 															{sortBy === 'firstName&lastName' ? (
 																sortDirection === 'asc' ? (
@@ -222,7 +224,7 @@ const GroupById: FC = () => {
 											<Table.Th className={scss.tableHead}>
 												<UnstyledButton onClick={() => handleSort('email')}>
 													<Group align="center">
-														<span>Почта</span>
+														<span>{t('table.email')}</span>
 														<Center>
 															{sortBy === 'email' ? (
 																sortDirection === 'asc' ? (
@@ -240,7 +242,7 @@ const GroupById: FC = () => {
 											<Table.Th className={scss.tableHead}>
 												<UnstyledButton onClick={() => handleSort('joinedAt')}>
 													<Group align="center">
-														<span>Дата подключения</span>
+														<span>{t('table.createdAt')}</span>
 														<Center>
 															{sortBy === 'joinedAt' ? (
 																sortDirection === 'asc' ? (
@@ -256,14 +258,14 @@ const GroupById: FC = () => {
 												</UnstyledButton>
 											</Table.Th>
 											<Table.Th className={scss.tableHead}>
-												<span>Действия</span>
+												<span>{t('table.action')}</span>
 											</Table.Th>
 										</Table.Tr>
 									</Table.Thead>
 									<Table.Tbody>{rows}</Table.Tbody>
 								</Table>
 							) : (
-								<Center>Нет данных для отображения</Center>
+								<Center>{t('table.noData')}</Center>
 							)}
 						</Box>
 					</ScrollArea>
