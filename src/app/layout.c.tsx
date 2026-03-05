@@ -28,20 +28,20 @@ const LayoutRoot: FC<LayoutRootType> = ({ children }) => {
 			<ToastContainer />
 			<Toaster />
 			<VideoRecProvider>
-				<ThemeProvider
+				{/* <ThemeProvider
 					attribute="class"
 					defaultTheme="system"
 					storageKey="theme_mode"
 					enableSystem
-				>
-					<MantineProvider>
-						<ReduxProvider>
-							<SessionProvider>
-								<TelegramAuthProvider>{children}</TelegramAuthProvider>
-							</SessionProvider>
-						</ReduxProvider>
-					</MantineProvider>
-				</ThemeProvider>
+				> */}
+				<MantineProvider>
+					<ReduxProvider>
+						<SessionProvider>
+							<TelegramAuthProvider>{children}</TelegramAuthProvider>
+						</SessionProvider>
+					</ReduxProvider>
+				</MantineProvider>
+				{/* </ThemeProvider> */}
 			</VideoRecProvider>
 		</>
 	);

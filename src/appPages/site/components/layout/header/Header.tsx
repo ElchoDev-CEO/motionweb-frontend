@@ -32,8 +32,6 @@ import { useTranslation } from 'react-i18next';
 import LangSwitcher from '@/ui/lang-switcher/LangSwitcher';
 import { MdOutlineTranslate } from 'react-icons/md';
 
-import { useTheme } from 'next-themes';
-
 const Header: FC = () => {
 	const [headerScroll, setHeaderScroll] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
@@ -106,7 +104,6 @@ const Header: FC = () => {
 		cursorType: 'pointer'
 	});
 
-	const { theme, setTheme } = useTheme();
 	return (
 		<>
 			<header className={scss.Header}>
@@ -117,10 +114,7 @@ const Header: FC = () => {
 				>
 					<div className="container">
 						<div className={scss.content}>
-							<div
-								onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-								className={scss.logo}
-							>
+							<div className={scss.logo}>
 								<Image loading="eager" src={logo} alt="logo" />
 							</div>
 
