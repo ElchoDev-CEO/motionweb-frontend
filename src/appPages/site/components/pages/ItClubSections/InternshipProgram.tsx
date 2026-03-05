@@ -7,35 +7,47 @@ import {
 	duration,
 	opportunities
 } from '@/assets/img/internship_program';
+import { useTranslation } from 'react-i18next';
 
 const internship_program_data = [
 	{
 		pic: termsOfParticipation,
 		title: 'Условия участия',
+		titleEn: 'Terms of participation',
 		description:
-			'Необходимо иметь базовые знания в выбранной области IT. Участники проходят отбор на основе навыков и мотивации.'
+			'Необходимо иметь базовые знания в выбранной области IT. Участники проходят отбор на основе навыков и мотивации.',
+		descriptionEn:
+			'Basic knowledge in the chosen IT field is required. Participants are selected based on skills and motivation.'
 	},
 	{
 		pic: duration,
 		title: 'Длительность',
+		titleEn: 'Duration',
 		description:
-			'Стажировка длится от 3 до 6 месяцев с гибким графиком и поэтапной нагрузкой.'
+			'Стажировка длится от 3 до 6 месяцев с гибким графиком и поэтапной нагрузкой.',
+		descriptionEn:
+			'The internship lasts from 3 to 6 months with a flexible schedule and gradual workload.'
 	},
 	{
 		pic: opportunities,
 		title: 'Возможности',
+		titleEn: 'Features',
 		description:
-			'Работа над реальными проектами, участие в мастер-классах и развитие профессиональных навыков.'
+			'Работа над реальными проектами, участие в мастер-классах и развитие профессиональных навыков.',
+		descriptionEn:
+			'Work on real projects, participate in master classes, and develop professional skills.'
 	}
 ];
 
 const InternshipProgram: FC = () => {
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.InternshipProgram}>
 			<div className="container">
 				<div className={scss.content}>
 					<h2 className={scss.heading}>
-						Программа <span>стажировки</span>
+						{t('ITclub.program.theme')}
+						<span>{t('ITclub.program.custom_theme')}</span>
 					</h2>
 
 					<div className={scss.timeline}>
@@ -53,8 +65,14 @@ const InternshipProgram: FC = () => {
 										alt={item.title}
 									/>
 									<div className={scss.text}>
-										<h3>{item.title}</h3>
-										<p>{item.description}</p>
+										<h3>
+											{i18n.language === 'ru' ? item.title : item.titleEn}
+										</h3>
+										<p>
+											{i18n.language === 'ru'
+												? item.description
+												: item.descriptionEn}
+										</p>
 									</div>
 								</div>
 							</div>

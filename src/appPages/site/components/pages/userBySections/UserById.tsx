@@ -9,10 +9,12 @@ import { useGetUserQuery, useUpdateUserMutation } from '@/redux/api/user';
 import { useEditControlStore } from '@/stores/useEditControlStore';
 import { useUserRoleStore } from '@/stores/useUserRoleStore';
 import { IconChevronLeft } from '@tabler/icons-react';
+import { useTranslation } from 'react-i18next';
 
 const UserById: FC = () => {
 	const { userId } = useParams();
 	const router = useRouter();
+	const { t } = useTranslation('user');
 	const { isEdit } = useEditControlStore();
 	const { isAdminOrMentor, isManager } = useUserRoleStore();
 	const { data: session } = useGetUserQuery(Number(userId));
@@ -82,13 +84,13 @@ const UserById: FC = () => {
 			<div className="container">
 				<div className={scss.content}>
 					<h1 className={scss.title}>
-						Профиль <span>пользователя</span>
+						{t('theme')} <span>{t('custom_theme')}</span>
 					</h1>
 					<Button
 						onClick={() => router.back()}
 						leftSection={<IconChevronLeft size={18} />}
 					>
-						Назад
+						{t('backBtn')}
 					</Button>
 					<div className={scss.profile}>
 						<div className={scss.top}>
@@ -111,7 +113,7 @@ const UserById: FC = () => {
 							/>
 							<div className={scss.userInfo}>
 								<TextInput
-									label="Имя"
+									label={t('form.inputName')}
 									value={tempFirstName}
 									onChange={(e) =>
 										handleChangeUser('firstName', e.target.value)
@@ -119,33 +121,37 @@ const UserById: FC = () => {
 									disabled={!isEdit}
 								/>
 								<TextInput
-									label="Фамилия"
+									label={t('form.inputSurname')}
 									value={tempLastName}
 									onChange={(e) => handleChangeUser('lastName', e.target.value)}
 									disabled={!isEdit}
 								/>
-								<TextInput label="Email" value={tempEmail} disabled />
+								<TextInput
+									label={t('form.inputEmail')}
+									value={tempEmail}
+									disabled
+								/>
 								<NativeSelect
-									label="Роль"
+									label={t('form.formRole.role')}
 									data={[
-										{ value: 'ADMIN', label: 'Админ' },
-										{ value: 'MANAGER', label: 'Менеджер' },
-										{ value: 'MENTOR', label: 'Ментор' },
-										{ value: 'STUDENT', label: 'Студент' }
+										{ value: 'ADMIN', label: t('form.formRole.admin') },
+										{ value: 'MANAGER', label: t('form.formRole.manager') },
+										{ value: 'MENTOR', label: t('form.formRole.mentor') },
+										{ value: 'STUDENT', label: t('form.formRole.student') }
 									]}
 									value={selectedRole}
 									onChange={handleRoleChange}
 									disabled={!isEdit}
 								/>
 								<TextInput
-									label="Имя пользователя"
+									label={t('form.inputUserName')}
 									value={tempUsername}
 									onChange={(e) => handleChangeUser('username', e.target.value)}
 									disabled={!isEdit}
 								/>
 								{(isAdminOrMentor || isManager) && (
 									<TextInput
-										label="Номер телефона"
+										label={t('form.inputPhone')}
 										value={tempPhone}
 										onChange={(e) => handleChangeUser('phone', e.target.value)}
 										disabled={!isEdit}

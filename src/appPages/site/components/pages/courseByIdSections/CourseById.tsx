@@ -23,6 +23,7 @@ import {
 } from '@/redux/api/course';
 import Loader from '@/ui/loader/Loader';
 import { useEditControlStore } from '@/stores/useEditControlStore';
+import { useTranslation } from 'react-i18next';
 
 interface IContinueCreatingTheCourse {
 	type?: string;
@@ -32,6 +33,7 @@ interface IContinueCreatingTheCourse {
 const CourseById: FC = () => {
 	const { courseId } = useParams();
 	const router = useRouter();
+	const { t } = useTranslation('course.ated');
 	const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
 	const [courseCreationPart, setCourseCreationPart] = useState<number>(-1);
 	const { isEdit } = useEditControlStore();
@@ -183,29 +185,29 @@ const CourseById: FC = () => {
 					<Loader />
 				) : (
 					<>
-						<p>Этот раздел пуст...</p>
+						<p>{t('course.isEmpty')}</p>
 						{isEdit && (
 							<>
 								<Button
 									onClick={() => setIsOpenCreateModal(true)}
 									variant="filled"
 								>
-									Продолжить создание курса
+									{t('course.continue')}
 								</Button>
 								<Timeline active={courseCreationPart} bulletSize={25}>
-									<Timeline.Item title="Структура">
+									<Timeline.Item title={t('course.structure.title')}>
 										<Text color="dimmed" size="sm">
-											Создать структуру для курса
+											{t('course.structure.text')}
 										</Text>
 									</Timeline.Item>
-									<Timeline.Item title="Секция">
+									<Timeline.Item title={t('course.section.title')}>
 										<Text color="dimmed" size="sm">
-											Создать секции для структуры
+											{t('course.section.text')}
 										</Text>
 									</Timeline.Item>
-									<Timeline.Item title="Урок">
+									<Timeline.Item title={t('course.lesson.title')}>
 										<Text color="dimmed" size="sm">
-											Создать урок для секции
+											{t('course.lesson.text')}
 										</Text>
 									</Timeline.Item>
 								</Timeline>
@@ -220,10 +222,10 @@ const CourseById: FC = () => {
 				onClose={() => setIsOpenCreateModal(false)}
 				title={
 					courseCreationPart === -1
-						? 'Создание структуры'
+						? t('course.modal.themeStructure')
 						: courseCreationPart === 0
-							? 'Создание секции'
-							: 'Создание урока'
+							? t('course.modal.themeSection')
+							: t('course.modal.themeLesson')
 				}
 				centered
 			>
@@ -232,7 +234,7 @@ const CourseById: FC = () => {
 						{courseCreationPart === -1 && (
 							<>
 								<Input
-									placeholder="Введите название структуры..."
+									placeholder={t('course.modal.inputNameStructure')}
 									{...register('title', { required: true })}
 								/>
 								<Button
@@ -241,14 +243,14 @@ const CourseById: FC = () => {
 									type="submit"
 									variant="filled"
 								>
-									Продолжить -&gt;
+									{t('course.modal.btnText')} -&gt;
 								</Button>
 							</>
 						)}
 						{courseCreationPart === 0 && (
 							<>
 								<Input
-									placeholder="Введите название секции..."
+									placeholder={t('course.modal.inputNameSection')}
 									{...register('title', { required: true })}
 								/>
 								<Button
@@ -257,14 +259,14 @@ const CourseById: FC = () => {
 									type="submit"
 									variant="filled"
 								>
-									Продолжить -&gt;
+									{t('course.modal.btnText')} -&gt;
 								</Button>
 							</>
 						)}
 						{courseCreationPart === 1 && (
 							<>
 								<Input
-									placeholder="Введите название урока..."
+									placeholder={t('course.modal.fromLesson.inputNameLesson')}
 									{...register('title', { required: true })}
 								/>
 								<Controller
@@ -274,10 +276,16 @@ const CourseById: FC = () => {
 									render={({ field }) => (
 										<Select
 											{...field}
-											placeholder="Выберите тип урока..."
+											placeholder={t('course.modal.fromLesson.select.defType')}
 											data={[
-												{ value: 'THEORY', label: 'Теория' },
-												{ value: 'PRACTICE', label: 'Практика' }
+												{
+													value: 'THEORY',
+													label: t('course.modal.fromLesson.select.theory')
+												},
+												{
+													value: 'PRACTICE',
+													label: t('course.modal.fromLesson.select.practice')
+												}
 											]}
 											onChange={(value) => field.onChange(value)}
 										/>
@@ -289,7 +297,7 @@ const CourseById: FC = () => {
 									type="submit"
 									variant="filled"
 								>
-									Завершить
+									{t('course.modal.fromLesson.btnText')}
 								</Button>
 							</>
 						)}

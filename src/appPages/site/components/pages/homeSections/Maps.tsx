@@ -1,12 +1,13 @@
 'use client';
 import { FC, useEffect, useState } from 'react';
 import scss from './Maps.module.scss';
-import Image from 'next/image';
-import mapImage from '@/assets/map.png';
 import CustomTitle from '@/ui/title/CustomTitle';
+import { useTranslation } from 'react-i18next';
 
 const Maps: FC = () => {
 	const [isMobile, setIsMobile] = useState(false);
+
+	const { t } = useTranslation('translated');
 
 	useEffect(() => {
 		const handleResize = () => setIsMobile(window.innerWidth < 700);
@@ -23,12 +24,12 @@ const Maps: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top}>
 						<CustomTitle
-							title="Где мы "
-							spanRight="находимся"
+							title={t('home.location.theme')}
+							spanRight={t('home.location.custom_theme')}
 							color="#000000"
 						/>
 						<div className={scss.right}>
-							<p className={scss.address}>Бишкек, Куренкеева 138</p>
+							<p className={scss.address}>{t('home.location.adress')}</p>
 							<a className={scss.phone} href="tel:+996700232400">
 								+996-700-232-400
 							</a>

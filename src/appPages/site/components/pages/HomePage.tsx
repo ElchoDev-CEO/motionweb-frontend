@@ -10,16 +10,18 @@ import License from './homeSections/License';
 import Podcasts from './homeSections/Podcasts';
 import Contact from './homeSections/Contact';
 import Maps from './homeSections/Maps';
+import EventCalendar from './homeSections/EventCalendar';
 
 const HomePage: FC = () => {
 	return (
 		<>
 			<Welcome />
-			<WeeklyStudentRating />
+			{/* <WeeklyStudentRating /> */}
 			<SomeCourses />
+			{/* <EventCalendar /> */}
 			<AdditionalCourses />
 			<AboutUs />
-			<OurMentors />
+			{/* <OurMentors /> */}
 			<StudentsWorkplace />
 			<License />
 			<Podcasts />

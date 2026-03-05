@@ -5,10 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IconChevronDown } from '@tabler/icons-react';
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import { useTranslation } from 'react-i18next';
 
 interface DropDownMenuProps {
 	title: string;
-	links: { name: string; href: string }[];
+	links: { name: string; nameEn?: string; href: string }[];
 	isOpen: boolean;
 	setIsOpen: (open: boolean) => void;
 }
@@ -22,6 +23,9 @@ const DropDownMenu: FC<DropDownMenuProps> = ({
 	const pathname = usePathname();
 	const { setIsOpen: setIsOpenBurgerMenu } = useHeaderStore();
 	const menuRef = useRef<HTMLDivElement>(null);
+
+	const { i18n } = useTranslation('home');
+	const lang = i18n.language;
 
 	const isActive = isOpen || links.some((link) => pathname.includes(link.href));
 
@@ -94,7 +98,7 @@ const DropDownMenu: FC<DropDownMenuProps> = ({
 														: `${scss.text}`
 												}
 											>
-												{item.name}
+												{lang === 'ru' ? item.name : item.nameEn}
 											</span>
 										</Link>
 									</li>

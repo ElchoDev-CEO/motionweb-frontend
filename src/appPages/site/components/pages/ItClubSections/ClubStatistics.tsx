@@ -9,35 +9,45 @@ import {
 } from '@tabler/icons-react';
 import Tag from '@/ui/tag/Tag';
 import AnimatedNumbers from '../../framerMotion/AnimatedNumbers';
+import { useTranslation } from 'react-i18next';
 
 const about_stats = [
 	{
 		icon: <IconRosetteDiscountCheck stroke={2} />,
 		name: 'Успешно трудоустроены',
+		nameEn: 'Successfully Employed',
+		nameKg: 'Ийгиликтүү иштеп жатат',
 		stat: 100,
 		statType: '+'
 	},
 	{
 		icon: <IconUsersGroup stroke={2} />,
 		name: 'В менторстве',
+		nameEn: 'Under Mentoring',
+		nameKg: 'Ментордукта',
 		stat: 30,
 		statType: '+'
 	},
 	{
 		icon: <IconStar stroke={2} />,
 		name: 'Улучшили навыки',
+		nameEn: 'Improved Skills',
+		nameKg: 'Жакшыртылган көндүмдөр',
 		stat: 95,
 		statType: '%'
 	},
 	{
 		icon: <IconUsersGroup stroke={2} />,
 		name: 'Реальные проекты',
+		nameEn: 'Real projects',
+		nameKg: 'Реалдуу долбоорлор',
 		stat: 50,
 		statType: '+'
 	}
 ];
 
 const ClubStatistics: FC = () => {
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.ClubStatistics}>
 			<div className="container">
@@ -45,9 +55,12 @@ const ClubStatistics: FC = () => {
 					<div className={scss.block}>
 						<div className={scss.top}>
 							<div className={scss.top_left}>
-								<Tag icon={<IconAntennaBars5 stroke={2} />}>Статистика</Tag>
+								<Tag icon={<IconAntennaBars5 stroke={2} />}>
+									{t('ITclub.clubStats.subtopic')}{' '}
+								</Tag>
 								<h1 className={scss.title}>
-									Статистика <span>клуба</span>
+									{t('ITclub.clubStats.theme')}
+									<span>{t('ITclub.clubStats.custom_theme')}</span>
 								</h1>
 							</div>
 						</div>
@@ -57,7 +70,7 @@ const ClubStatistics: FC = () => {
 									<div className={scss.card}>
 										<div className={scss.icon}>{item.icon}</div>
 										<div className={scss.name}>
-											<p>{item.name}</p>
+											<p>{i18n.language === 'ru' ? item.name : item.nameEn}</p>
 										</div>
 										<div className={scss.count}>
 											<p>

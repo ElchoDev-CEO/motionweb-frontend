@@ -2,56 +2,79 @@
 const links = {
 	main: {
 		name: 'Главная',
+		nameEn: 'Main',
+		nameKg: 'Башкы бет',
 		href: '/'
 	},
 	questions: {
 		name: 'Вопросы',
+		nameEn: 'Questions',
+		nameKg: 'Суроолор',
 		href: '/questions'
 	},
 	myCourses: {
 		name: 'Мои курсы',
+		nameEn: 'My courses',
+		nameKg: 'Курстарым',
 		href: '/courses'
 	},
 	myGroups: {
 		name: 'Мои группы',
+		nameEn: 'My groups',
+		nameKg: 'Группаларым',
 		href: '/groups'
 	},
-	users: {
-		name: 'Пользователи',
-		href: '/users'
-	},
+
 	contracts: {
 		name: 'Контракты',
+		nameEn: 'Contacts',
+		nameKg: 'Контакттар',
 		href: '/contracts'
 	},
 	motionAI: {
 		name: 'Motion AI',
+		nameEn: 'Motion AI',
+		nameKg: 'Motion AI',
 		href: '/motion-ai'
 	},
 	profile: {
 		name: 'Мой профиль',
+		nameEn: 'My profile',
+		nameKg: 'Менин профилим',
 		href: '/profile'
 	}
 };
 
 const extraLinks = {
 	python: {
-		name: "Python для всех",
-		href: "/our-courses/python"
+		name: 'Python для всех',
+		nameEn: 'Python for everyone',
+		nameKg: 'Python баары учун',
+		href: '/our-courses/python'
 	},
 	fullstack: {
-		name: "Fullstack курс",
-		href: "/our-courses/full-stack"
+		name: 'Fullstack курс',
+		nameEn: 'Fullstack course',
+		nameKg: 'Fullstack курсу',
+		href: '/our-courses/full-stack'
 	},
 	kids: {
-		name: "IT для детей",
-		href: "our-courses/kids"
+		name: 'IT для детей',
+		nameEn: 'IT for kids',
+		nameKg: 'IT балдар учун',
+		href: 'our-courses/kids'
 	}
-}
-
+};
 // Функция для создания ссылок на курсы
-const createCourseLink = (name: string, slug: string) => ({
+const createCourseLink = (
+	name: string,
+	nameEn: string,
+	nameKg: string,
+	slug: string
+) => ({
 	name,
+	nameEn,
+	nameKg,
 	href: `/our-courses/${slug}`
 });
 
@@ -60,15 +83,14 @@ export const siteLinks = [
 	links.main,
 	links.questions,
 	links.myCourses,
-	links.myGroups,
-	links.users
+	links.myGroups
 ];
 
 export const extraSiteLinks = [
 	extraLinks.python,
 	extraLinks.fullstack,
-	extraLinks.kids,
-]
+	extraLinks.kids
+];
 
 // Функция для создания меню профиля в зависимости от роли пользователя
 export const getMenuLinks = (role: UserRole) => {
@@ -94,13 +116,18 @@ export const getMenuLinks = (role: UserRole) => {
 
 // Выпадающее меню с ресурсами
 export const dropDownMenuResources = [
-	{ name: 'IT Клуб', href: '/it-club' },
-	{ name: 'О руководстве', href: '/management' }
+	{ name: 'IT Клуб', nameEn: 'IT Club', href: '/it-club' },
+	{ name: 'О руководстве', nameEn: 'About management', href: '/management' }
 ];
 
 // Выпадающее меню с курсами
 export const dropDownMenuCourses = [
-	createCourseLink('Full-Stack', 'full-stack'),
-	createCourseLink('Python', 'python'),
-	createCourseLink('Kids', 'kids')
+	createCourseLink('Full-Stack', 'Full-Stack', 'Full-Stack', 'full-stack'),
+	createCourseLink('Python', 'Python', 'Python', 'python'),
+	createCourseLink('Kids', 'Kids', 'Kids', 'kids')
+];
+export const languages = [
+	{ name: 'Русский', value: 'ru' },
+	{ name: 'Кыргызча', value: 'kg' },
+	{ name: 'English', value: 'en' }
 ];

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { IconChevronRight } from '@tabler/icons-react';
 import { IconCourses } from '@/assets/icons';
 import fullStackPhoto from '@/assets/img/full-stack/fullstack-dev.webp';
-import { IoIosLeaf } from "react-icons/io";
+import { IoIosLeaf } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
 
 const FullStack: FC = () => {
 	const handleScrollContact = () => {
@@ -13,6 +14,7 @@ const FullStack: FC = () => {
 			.getElementById('contact-section')
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
+	const { t } = useTranslation('translated');
 
 	return (
 		<section className={scss.FullStack}>
@@ -25,14 +27,12 @@ const FullStack: FC = () => {
 								<IconCourses />
 							</span>
 							<h1 className={scss.title}>
-								Инженер <span>Javascript</span>
+								{t('fullStack.banner.theme')}{' '}
+								<span>{t('fullStack.banner.custom_theme')}</span>
 							</h1>
-							<p className={scss.text}>
-								Cтань экспертом в разработке на языке JavaScript и овладей
-								инженерными навыками для создания сложных веб-приложений.
-							</p>
+							<p className={scss.text}>{t('fullStack.banner.subtitle')}</p>
 							<button className={scss.button} onClick={handleScrollContact}>
-								Записаться <IconChevronRight stroke={2} />
+								{t('fullStack.banner.btnText')} <IconChevronRight stroke={2} />
 							</button>
 						</div>
 						<div className={scss.right}>

@@ -47,6 +47,7 @@ export const api = createApi({
 		'feedback',
 		'feedback-lesson',
 		'ai',
+		'Events',
 		'get-section-by-structureId',
 		'get-lesson-by-sectionId',
 		'get-lesson-content-by-lessonId',
