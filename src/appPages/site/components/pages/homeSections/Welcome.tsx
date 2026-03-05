@@ -53,22 +53,6 @@ const TABS_DATA: ITab[] = [
 		labelEn: 'FullStack',
 		company: company3,
 		image: TabImage3
-	},
-	{
-		area: 'FullStack Ментор',
-		areaEn: 'FullStack Mentor',
-		labelRu: 'Руководитель FS',
-		labelEn: 'FS Lead',
-		company: company4,
-		image: TabImage4
-	},
-	{
-		area: 'Frontend Ментор',
-		areaEn: 'Frontend Mentor',
-		labelRu: 'IT инженер',
-		labelEn: 'IT Engineer',
-		company: company5,
-		image: TabImage5
 	}
 ];
 
@@ -77,8 +61,7 @@ const Welcome: FC = () => {
 	const [isPaused, setIsPaused] = useState<boolean>(false);
 	// const intervalIdRef = useRef<number | null>(null);
 
-
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 	const lang = i18n.language;
 
 	const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -104,8 +87,6 @@ const Welcome: FC = () => {
 		}, 2000);
 	};
 
-
-
 	// Очистка при размонтировании
 	useEffect(() => {
 		return () => {
@@ -120,15 +101,15 @@ const Welcome: FC = () => {
 					<div className={scss.content}>
 						<div className={scss.left}>
 							<h1 className={scss.title}>
-								{t('banner.theme')} <span>MotionWeb</span>
+								{t('home.banner.theme')} <span>MotionWeb</span>
 							</h1>
 							<p className={scss.text}>
 								{/* eslint-disable-next-line react/no-unescaped-entities */}
-								{t('banner.subtitle')}
+								{t('home.banner.subtitle')}
 							</p>
 							<div className={scss.buttons}>
 								<Link href={'/courses'} className={scss.bg}>
-									{t('banner.btnText')}
+									{t('home.banner.btnText')}
 								</Link>
 								{/* <Link href={'/'} className={scss.no_bg}>
 									Explore Now

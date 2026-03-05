@@ -119,7 +119,7 @@ const founders_data = [
 ];
 
 const OurOwners: FC = () => {
-	const { i18n, t } = useTranslation('');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.OurOwners}>
 			<div className="container">

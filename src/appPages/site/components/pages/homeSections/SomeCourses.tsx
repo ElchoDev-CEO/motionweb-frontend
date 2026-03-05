@@ -34,8 +34,10 @@ import { useTranslation } from 'react-i18next';
 const courseData = [
 	{
 		title: 'Инженер Javascript',
+		titleKg: 'Javascript Инженери',
 		titleEn: 'Engineer Javascript',
 		description: '18 месяцев + 1 месяц стажировки в подарок',
+		descriptionKg: '18 ай + 1 ай стажировка белекке берилет',
 		descriptionEn: '18 months + 1 month internship as a gift',
 		image: some_courses_1,
 		isHit: true,
@@ -50,12 +52,15 @@ const courseData = [
 			{ icon: <BiLogoRedux />, name: 'Redux' }
 		],
 		startDate: '25-января',
+		startDateKg: '25-январда',
 		startDateEn: '25-january'
 	},
 	{
 		title: 'AI Разработка',
+		titleKg: 'AI Иштеп чыгуу',
 		titleEn: 'AI Development',
 		description: '15 месяцев + 1 месяц стажировки в подарок',
+		descriptionKg: '15 ай + 1 ай стажировка белекке берилет',
 		descriptionEn: '15 months + 1 month internship as a gift',
 		image: some_courses_2,
 		isHit: false,
@@ -67,13 +72,16 @@ const courseData = [
 			{ icon: <SiNginx />, name: 'Nginx' }
 		],
 		startDate: '1-февраля',
+		startDateKg: '1-февралда',
 		startDateEn: '1-february'
 	},
 	{
 		title: 'Кибербезопасность',
+		titleЛп: 'Кибер-Коопсуздук',
 		titleEn: 'Cybersecurity',
 		description: '6 месяцев',
 		descriptionEn: '6 months',
+		descriptionKg: '6 ай',
 		image: some_courses_3,
 		isHit: false,
 		technologies: [
@@ -83,12 +91,15 @@ const courseData = [
 			{ icon: '', name: 'C#' }
 		],
 		startDate: '5-января',
+		startDateKg: '5-январда',
 		startDateEn: '5-january'
 	},
 	{
 		title: 'IT шаг для маленьких детей',
+		titleKg: 'IT жаш балдарга кадам',
 		titleEn: 'IT step for young children',
 		description: '4 месяца',
+		descriptionKg: '4 ай',
 		descriptionEn: '4 months',
 		image: some_courses_4,
 		isHit: true,
@@ -99,6 +110,7 @@ const courseData = [
 			{ icon: <FaPython />, name: 'Python' }
 		],
 		startDate: '29-декабря',
+		startDateKg: '29-декабрда',
 		startDateEn: '29-december'
 	}
 ];
@@ -109,7 +121,7 @@ const SomeCourses: FC = () => {
 			.getElementById('contact-section')
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 
 	return (
 		<section className={scss.SomeCourses}>
@@ -118,8 +130,8 @@ const SomeCourses: FC = () => {
 					<div className={scss.top}>
 						<IconSomeCourse />
 						<CustomTitle
-							title={t('courses.theme')}
-							spanRight={t('courses.custom_theme')}
+							title={t('home.someCourses.theme')}
+							spanRight={t('home.someCourses.custom_theme')}
 							color="#000000"
 						/>
 					</div>
@@ -132,7 +144,7 @@ const SomeCourses: FC = () => {
 							>
 								{item.isHit && (
 									<span className={scss.is_hit}>
-										{t('courses.course.bestsellers')}
+										{t('home.someCourses.course.bestsellers')}
 									</span>
 								)}
 								<div className={scss.left}>
@@ -147,21 +159,27 @@ const SomeCourses: FC = () => {
 								<div className={scss.right}>
 									<div className={scss.right_header}>
 										<h2 className={scss.title}>
-											{i18n.language === 'ru' ? item.title : item.titleEn}
+											{i18n.language === 'en'
+												? item.titleEn
+												: i18n.language === 'ru'
+													? item.title
+													: item.titleKg}
 										</h2>
 										<div className={scss.separator}>
 											<span className={scss.details}>
-												{t('courses.course.duration')}:
+												{t('home.someCourses.course.duration')}:
 											</span>
 											<p className={scss.text}>
-												{i18n.language === 'ru'
-													? item.description
-													: item.descriptionEn}
+												{i18n.language === 'en'
+													? item.descriptionEn
+													: i18n.language === 'ru'
+														? item.description
+														: item.descriptionKg}
 											</p>
 										</div>
 										<div>
 											<span className={scss.details}>
-												{t('courses.course.technologies')}:
+												{t('home.someCourses.course.technologies')}:
 											</span>
 											<ul>
 												{item.technologies.map((tech, index) => (
@@ -186,7 +204,7 @@ const SomeCourses: FC = () => {
 										>
 											{/* Подробнее */}
 
-											{t('courses.course.btnText')}
+											{t('home.someCourses.course.btnText')}
 										</button>
 									</div>
 								</div>

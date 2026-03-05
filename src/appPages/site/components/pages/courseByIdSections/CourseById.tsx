@@ -33,7 +33,7 @@ interface IContinueCreatingTheCourse {
 const CourseById: FC = () => {
 	const { courseId } = useParams();
 	const router = useRouter();
-	const { t } = useTranslation('course');
+	const { t } = useTranslation('course.ated');
 	const [isOpenCreateModal, setIsOpenCreateModal] = useState(false);
 	const [courseCreationPart, setCourseCreationPart] = useState<number>(-1);
 	const { isEdit } = useEditControlStore();
@@ -185,29 +185,29 @@ const CourseById: FC = () => {
 					<Loader />
 				) : (
 					<>
-						<p>{t('isEmpty')}</p>
+						<p>{t('course.isEmpty')}</p>
 						{isEdit && (
 							<>
 								<Button
 									onClick={() => setIsOpenCreateModal(true)}
 									variant="filled"
 								>
-									{t('continue')}
+									{t('course.continue')}
 								</Button>
 								<Timeline active={courseCreationPart} bulletSize={25}>
-									<Timeline.Item title={t('structure.title')}>
+									<Timeline.Item title={t('course.structure.title')}>
 										<Text color="dimmed" size="sm">
-											{t('structure.text')}
+											{t('course.structure.text')}
 										</Text>
 									</Timeline.Item>
-									<Timeline.Item title={t('section.title')}>
+									<Timeline.Item title={t('course.section.title')}>
 										<Text color="dimmed" size="sm">
-											{t('section.text')}
+											{t('course.section.text')}
 										</Text>
 									</Timeline.Item>
-									<Timeline.Item title={t('lesson.title')}>
+									<Timeline.Item title={t('course.lesson.title')}>
 										<Text color="dimmed" size="sm">
-											{t('lesson.text')}
+											{t('course.lesson.text')}
 										</Text>
 									</Timeline.Item>
 								</Timeline>
@@ -222,10 +222,10 @@ const CourseById: FC = () => {
 				onClose={() => setIsOpenCreateModal(false)}
 				title={
 					courseCreationPart === -1
-						? t('modal.themeStructure')
+						? t('course.modal.themeStructure')
 						: courseCreationPart === 0
-							? t('modal.themeSection')
-							: t('modal.themeLesson')
+							? t('course.modal.themeSection')
+							: t('course.modal.themeLesson')
 				}
 				centered
 			>
@@ -234,7 +234,7 @@ const CourseById: FC = () => {
 						{courseCreationPart === -1 && (
 							<>
 								<Input
-									placeholder={t('modal.inputNameStructure')}
+									placeholder={t('course.modal.inputNameStructure')}
 									{...register('title', { required: true })}
 								/>
 								<Button
@@ -243,14 +243,14 @@ const CourseById: FC = () => {
 									type="submit"
 									variant="filled"
 								>
-									{t('modal.btnText')} -&gt;
+									{t('course.modal.btnText')} -&gt;
 								</Button>
 							</>
 						)}
 						{courseCreationPart === 0 && (
 							<>
 								<Input
-									placeholder={t('modal.inputNameSection')}
+									placeholder={t('course.modal.inputNameSection')}
 									{...register('title', { required: true })}
 								/>
 								<Button
@@ -259,14 +259,14 @@ const CourseById: FC = () => {
 									type="submit"
 									variant="filled"
 								>
-									{t('modal.btnText')} -&gt;
+									{t('course.modal.btnText')} -&gt;
 								</Button>
 							</>
 						)}
 						{courseCreationPart === 1 && (
 							<>
 								<Input
-									placeholder={t('modal.fromLesson.inputNameLesson')}
+									placeholder={t('course.modal.fromLesson.inputNameLesson')}
 									{...register('title', { required: true })}
 								/>
 								<Controller
@@ -276,15 +276,15 @@ const CourseById: FC = () => {
 									render={({ field }) => (
 										<Select
 											{...field}
-											placeholder={t('modal.fromLesson.select.defType')}
+											placeholder={t('course.modal.fromLesson.select.defType')}
 											data={[
 												{
 													value: 'THEORY',
-													label: t('modal.fromLesson.select.theory')
+													label: t('course.modal.fromLesson.select.theory')
 												},
 												{
 													value: 'PRACTICE',
-													label: t('modal.fromLesson.select.practice')
+													label: t('course.modal.fromLesson.select.practice')
 												}
 											]}
 											onChange={(value) => field.onChange(value)}
@@ -297,7 +297,7 @@ const CourseById: FC = () => {
 									type="submit"
 									variant="filled"
 								>
-									{t('modal.fromLesson.btnText')}
+									{t('course.modal.fromLesson.btnText')}
 								</Button>
 							</>
 						)}

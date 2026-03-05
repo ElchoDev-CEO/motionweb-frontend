@@ -22,7 +22,7 @@ const CHAT_ID = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
 const Contact: FC = () => {
 	const { register, handleSubmit, control, reset } = useForm<IContactForm>();
 
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 
 	const messageModel = (data: IContactForm) => {
 		let message = `<b>***Заявка***</b>\n`;
@@ -40,7 +40,7 @@ const Contact: FC = () => {
 			text: messageModel({ ...data, phone: formattedPhone })
 		});
 
-		toast(t('contactUs.alert'), {
+		toast(t('home.contactUs.alert'), {
 			position: 'top-right',
 			autoClose: 5000,
 			hideProgressBar: false,
@@ -86,12 +86,12 @@ const Contact: FC = () => {
 						</div>
 						<div className={scss.right}>
 							<h1 className={scss.title}>
-								{t('contactUs.theme')}{' '}
-								<span>{t('contactUs.custom_theme')}</span>
+								{t('home.contactUs.theme')}{' '}
+								<span>{t('home.contactUs.custom_theme')}</span>
 							</h1>
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<Input
-									placeholder={t('contactUs.form.nameInput')}
+									placeholder={t('home.contactUs.form.nameInput')}
 									size="lg"
 									{...register('username', { required: true })}
 								/>
@@ -116,7 +116,7 @@ const Contact: FC = () => {
 									color="red"
 									size="lg"
 								>
-									{t('contactUs.form.btnText')}
+									{t('home.contactUs.form.btnText')}
 								</Button>
 							</form>
 						</div>

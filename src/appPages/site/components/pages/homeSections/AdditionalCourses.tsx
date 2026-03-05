@@ -65,7 +65,7 @@ const additionalCoursesData = [
 
 const AdditionalCourses: FC = () => {
 	const [isMobile, setIsMobile] = useState(false);
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 
 	useEffect(() => {
 		if (typeof window === 'undefined') return;
@@ -84,11 +84,13 @@ const AdditionalCourses: FC = () => {
 			<div className="container">
 				<div className={scss.header}>
 					<CustomTitle
-						spanLeft={t('additionalCourses.theme')}
-						title={t('additionalCourses.custom_theme')}
+						spanLeft={t('home.additionalCourses.theme')}
+						title={t('home.additionalCourses.custom_theme')}
 						color="#000000"
 					/>
-					<p className={scss.subtitle}>{t('additionalCourses.subtitle')}</p>
+					<p className={scss.subtitle}>
+						{t('home.additionalCourses.subtitle')}
+					</p>
 				</div>
 
 				<div className={scss.cardsGrid}>

@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 const Maps: FC = () => {
 	const [isMobile, setIsMobile] = useState(false);
 
-	const { t } = useTranslation('home');
+	const { t } = useTranslation('translated');
 
 	useEffect(() => {
 		const handleResize = () => setIsMobile(window.innerWidth < 700);
@@ -24,12 +24,12 @@ const Maps: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top}>
 						<CustomTitle
-							title={t('location.theme')}
-							spanRight={t('location.custom_theme')}
+							title={t('home.location.theme')}
+							spanRight={t('home.location.custom_theme')}
 							color="#000000"
 						/>
 						<div className={scss.right}>
-							<p className={scss.address}>{t('location.adress')}</p>
+							<p className={scss.address}>{t('home.location.adress')}</p>
 							<a className={scss.phone} href="tel:+996700232400">
 								+996-700-232-400
 							</a>

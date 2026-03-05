@@ -14,7 +14,7 @@ const Kids: FC = () => {
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	const { i18n, t } = useTranslation('kids');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.Kids}>
 			<div className="container">
@@ -25,11 +25,12 @@ const Kids: FC = () => {
 								<IconCourses />
 							</span>
 							<h1 className={scss.title}>
-								{t('banner.theme')} <span>{t('banner.custom_theme')}</span>
+								{t('kids.banner.theme')}{' '}
+								<span>{t('kids.banner.custom_theme')}</span>
 							</h1>
-							<p className={scss.text}>{t('banner.subtitle')}</p>
+							<p className={scss.text}>{t('kids.banner.subtitle')}</p>
 							<button className={scss.button} onClick={handleScrollContact}>
-								{t('banner.btnText')} <IconChevronRight stroke={2} />
+								{t('kids.banner.btnText')} <IconChevronRight stroke={2} />
 							</button>
 						</div>
 						<div className={scss.right}>

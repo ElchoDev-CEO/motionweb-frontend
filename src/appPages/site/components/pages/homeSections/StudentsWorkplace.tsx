@@ -29,8 +29,6 @@ import Image from 'next/image';
 
 import { useTranslation } from 'react-i18next';
 
-
-
 const StudentsWorkplace: FC = () => {
 	const [logoHeightTrack, setLogoHeightTrack] = useState(40);
 
@@ -52,7 +50,12 @@ const StudentsWorkplace: FC = () => {
 	const company_logos = [
 		{
 			node: (
-				<Image src={logo_jogorkukenesh} alt="logo_jogorkukenesh" width={50} height={50} />
+				<Image
+					src={logo_jogorkukenesh}
+					alt="logo_jogorkukenesh"
+					width={50}
+					height={50}
+				/>
 			),
 			title: 'Жогорку Кенеш',
 			href: 'https://kenesh.kg'
@@ -135,7 +138,7 @@ const StudentsWorkplace: FC = () => {
 		}
 	];
 
-	const { t } = useTranslation('home');
+	const { t } = useTranslation('translated');
 
 	return (
 		<section className={scss.StudentsWorkplace}>
@@ -147,8 +150,8 @@ const StudentsWorkplace: FC = () => {
 								<IconStudentsWorkplace />
 							</div>
 							<CustomTitle
-								title={t('studentsWorkPlace.theme')}
-								spanRight={t('studentsWorkPlace.custom_theme')}
+								title={t('home.studentsWorkPlace.theme')}
+								spanRight={t('home.studentsWorkPlace.custom_theme')}
 								color="#000000"
 							/>
 						</div>

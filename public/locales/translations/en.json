@@ -1,0 +1,375 @@
+{
+	"header": {
+		"ourCourses": "Our courses",
+		"resources": "Resources",
+		"register": "Sign Up",
+		"login": "Sign In",
+		"selectLang": "Choose a language"
+	},
+	"home": {
+		"banner": {
+			"theme": "Explore the future of ",
+			"subtitle": "Let's explore and design your Motion Web experience.",
+			"btnText": "Let's get started!",
+			"stats": {
+				"requests": "Requests",
+				"users": "Users",
+				"requestsPerDay": "Requests per day"
+			}
+		},
+		"weeklyStudentRating": {
+			"theme": "Top-7",
+			"custom_theme": " outstanding students of the week",
+			"label": "The rating is updated every Saturday at 00:00",
+			"text": "The ranking results will be out soon. The results are usually announced every Saturday at 12:00 AM Bishkek time.",
+			"no_direction": "No direction",
+			"points": "Points"
+		},
+		"someCourses": {
+			"subtopic": "Courses",
+			"theme": "Starting",
+			"custom_theme": " soon",
+			"course": {
+				"bestsellers": "Bestseller",
+				"duration": "Duration",
+				"technologies": "Technologies",
+				"btnText": "Enroll now"
+			}
+		},
+		"eventCalendar": {
+			"theme": "Events calendar",
+			"subtitle": "Webinars, deadlines, and important course events—all in one place.",
+			"errorMess": "Error loading events",
+			"commingEvent": "Upcoming Events",
+			"noCommingEvent": "There are no upcoming events.",
+			"classes": {
+				"webinar": "Webinar",
+				"deadline": "Deadline",
+				"other": "Other"
+			}
+		},
+		"additionalCourses": {
+			"theme": "Core courses",
+			"custom_theme": " include",
+			"subtitle": "Additional courses that will help you and your child develop harmoniously"
+		},
+		"aboutUs": {
+			"theme": "About the company",
+			"subtitle": "The Academy was founded in 2020 with the aim of providing high-quality education in the field of information technology.",
+			"onNumbers": {
+				"subtopic": "About the company",
+				"title": "We",
+				"custom_title": " are in numbers",
+				"subtitle": "Our company's mission is to train highly qualified specialists capable of successfully applying their knowledge and skills in the modern digital world."
+			}
+		},
+		"ourMentors": {
+			"theme": "Our",
+			"custom_theme": " mentors",
+			"subtitle": "Each mentor at our academy is highly qualified and has extensive experience in their field."
+		},
+		"studentsWorkPlace": {
+			"subtopic": "Graduates",
+			"theme": "Where",
+			"custom_theme": " do our students work?"
+		},
+		"license": {
+			"subtopic": "Diploma",
+			"theme": "License from the Ministry of Education",
+			"subtitle": "Our academy is licensed by the Ministry of Education, which guarantees the quality and legality of the educational services provided.",
+			"additionally": "In addition, upon successful completion of training, our academy issues each student a diploma or certificate of completion of the educational program."
+		},
+		"podcasts": {
+			"subtopic": "Podcasts",
+			"theme": "Motion",
+			"custom_theme": " Podcasts"
+		},
+		"contactUs": {
+			"theme": "Leave a",
+			"custom_theme": " request",
+			"form": {
+				"nameInput": "Your name",
+				"btnText": "Send"
+			},
+			"alert": "We have accepted your application, we will contact you soon!"
+		},
+		"location": {
+			"theme": "Where are we",
+			"custom_theme": " located",
+			"adress": "Bishkek, Kurenkeeva 138"
+		}
+	},
+	"myCourses": {
+		"addBtn": "Add a new course",
+		"renewSub": "Renew your subscription to access the course",
+		"paymantHasn'tBeenMade": "Access to the course is open, but payment has not been made.",
+		"loading": "Loading...",
+		"yourCourses": "You don't have any courses...",
+		"course": {
+			"createdAt": "Created",
+			"updateAt": "Updated"
+		},
+		"courseNotFound": "No courses found...",
+		"createCourseForm": {
+			"title": "Create a course",
+			"nameInput": "Enter course name...",
+			"descriptionInput": "Enter course description...",
+			"coverCourseInput": "Select a course cover...",
+			"createBtn": "Create"
+		},
+		"updateCourseForm": {
+			"title": "Editing a course",
+			"nameInput": "Enter course name...",
+			"descriptionInput": "Enter course description...",
+			"coverCourseInput": "Select a course cover...",
+			"updateBtn": "Update"
+		},
+		"deleteCourseConfirm": {
+			"title": "Deletion confirmation",
+			"confirm": "Are you sure you want to delete this course? This action cannot be undone.",
+			"cancelBtn": "Cancel",
+			"deleteBtn": "Delete"
+		}
+	},
+	"course": {
+		"isEmpty": "This section is empty...",
+		"continue": "Continue creating a course",
+		"structure": {
+			"title": "Structure",
+			"text": "Create a structure for a course"
+		},
+		"section": {
+			"title": "Section",
+			"text": "Create a section for the structure"
+		},
+		"lesson": {
+			"title": "Lesson",
+			"text": "Create a lesson for sections"
+		},
+		"modal": {
+			"themeStructure": "Create a structure",
+			"themeSection": "Create a section",
+			"themeLesson": "Create a lesson",
+			"inputNameStructure": "Enter structure name...",
+			"inputNameSection": "Enter section name...",
+			"formLesson": {
+				"inputNameLesson": "Enter a lesson name...",
+				"select": {
+					"defType": "Select lesson type...",
+					"theory": "Theory",
+					"practice": "Practice",
+					"btnText": "Complete"
+				}
+			},
+			"btnText": "Continue"
+		}
+	},
+	"myGroups": {
+		"addBtn": "Add a new group",
+		"yourGroups": "You don't have any groups...",
+		"group": {
+			"createdAt": "Created",
+			"updateAt": "Updated"
+		},
+		"groupNotFound": "No groups found...",
+		"createGroupForm": {
+			"title": "Create a group",
+			"nameInput": "Enter group name...",
+			"descriptionInput": "Enter group description...",
+			"coverGroupInput": "Select a group cover...",
+			"createBtn": "Create"
+		},
+		"updateGroupForm": {
+			"title": "Editing a group",
+			"nameInput": "Enter group name...",
+			"descriptionInput": "Enter group description...",
+			"coverGroupInput": "Select a group cover...",
+			"updateBtn": "Update"
+		},
+		"deleteGroupConfirm": {
+			"title": "Deletion confirmation",
+			"confirm": "Are you sure you want to delete this group? This action cannot be undone.",
+			"cancelBtn": "Cancel",
+			"deleteBtn": "Delete"
+		}
+	},
+	"group": {
+		"theme": "Group:",
+		"inputSearch": "Find user",
+		"table": {
+			"user": "User",
+			"email": "Mail",
+			"createdAt": "Connection date",
+			"action": "Actions",
+			"more": "More details",
+			"noData": "No data to display"
+		}
+	},
+	"users": {
+		"theme": "User",
+		"custom_theme": " list",
+		"inputSearch": "Find user",
+		"select": {
+			"all": "All users",
+			"admins": "Administrators",
+			"managers": "Managers",
+			"mentors": "Mentors",
+			"students": "Students"
+		},
+		"table": {
+			"user": "User",
+			"userName": "User name",
+			"email": "Mail",
+			"phone": "Phone number",
+			"rights": "Rights",
+			"createdAt": "On the platform with",
+			"more": "More details",
+			"action": "Actions",
+			"noData": "No data to display"
+		}
+	},
+	"user": {
+		"theme": "User",
+		"custom_theme": " profile",
+		"backBtn": "Back",
+		"form": {
+			"inputName": "Name",
+			"inputSurname": "Surname",
+			"inputEmail": "Email",
+			"formRole": {
+				"role": "Role",
+				"admin": "Admin",
+				"manager": "Manager",
+				"mentor": "Mentor",
+				"student": "Student"
+			},
+			"inputUserName": "User name",
+			"inputPhone": "Phone number"
+		}
+	},
+	"fullStack": {
+		"banner": {
+			"theme": "Javascript",
+			"custom_theme": " Engineer",
+			"subtitle": "Become an expert in JavaScript development and master the engineering skills to build complex web applications.",
+			"btnText": "Enroll Now"
+		},
+		"courseModules": {
+			"theme": "Course",
+			"custom_theme": " Modules"
+		},
+		"advantages": {
+			"theme": "Advantages",
+			"custom_theme": " of the course"
+		}
+	},
+	"python": {
+		"banner": {
+			"theme": "Python",
+			"custom_theme": " Engineer",
+			"subtitle": "Become an expert in Python development and master the engineering skills to build powerful applications.",
+			"btnText": "Enroll Now"
+		},
+		"courseModules": {
+			"theme": "Course",
+			"custom_theme": " Modules"
+		}
+	},
+	"kids": {
+		"banner": {
+			"theme": "Young",
+			"custom_theme": " IT Genius",
+			"subtitle": "Learn how to use a computer properly, work with programs, and surf the internet safely. Take your first steps into the world of technology!",
+			"btnText": "Enroll Now"
+		},
+		"courseModules": {
+			"subtopic": "Modules",
+			"theme": "Course",
+			"custom_theme": " Modules"
+		}
+	},
+	"ITclub": {
+		"banner": {
+			"theme": "IT",
+			"custom_theme": " Club",
+			"subtitle": "A community where learning happens through practice. Real-world projects, live communication, teamwork, and mentor support.",
+			"btnText": "Apply now"
+		},
+		"program": {
+			"theme": "Internship",
+			"custom_theme": " program"
+		},
+		"advantage": {
+			"theme": "Why",
+			"custom_theme": " this internship",
+			"piece_theme": " is so effective"
+		},
+		"clubStats": {
+			"subtopic": "Statistics",
+			"theme": "Statistics",
+			"custom_theme": " of the club"
+		}
+	},
+	"signUp": {
+		"back": "Back",
+		"accessBlock": {
+			"title": "Access to micro-lectures",
+			"description": "We offer free micro-lectures on Java and soft skills from experienced instructors from leading companies like Apple. Learn from the best and apply your acquired knowledge in real-world projects."
+		},
+		"consolidateBlock": {
+			"title": "Consolidate your knowledge in practice",
+			"description": "Our platform offers practical Java exercises with instant automatic result checking. This helps track progress and quickly identify areas requiring improvement."
+		},
+		"freeConsBlock": {
+			"title": "Free consultation",
+			"description": "Free personal consultations with our academic advisors will help you define your learning goals, select the right courses, and receive recommendations for successful completion."
+		},
+		"content": {
+			"text": "Welcome!",
+			"googleBtn": "Sign in with Google",
+			"gitHubBtn": "Sign in with GitHub",
+			"appleBtn": "Sign in with Apple",
+			"agree": {
+				"text": "By signing in, you agree to our",
+				"privacy": "Privacy policy",
+				"between": "and",
+				"terms": "Terms of use"
+			},
+			"alreadyHaveAcc": "Already have an account?",
+			"signIn": "Sign in"
+		}
+	},
+	"signIn": {
+		"back": "Back",
+		"accessBlock": {
+			"title": "Access to micro-lectures",
+			"description": "We offer free micro-lectures on Java and soft skills from experienced instructors from leading companies like Apple. Learn from the best and apply your acquired knowledge in real-world projects."
+		},
+		"consolidateBlock": {
+			"title": "Consolidate your knowledge in practice",
+			"description": "Our platform offers practical Java exercises with instant automatic result checking. This helps track progress and quickly identify areas requiring improvement."
+		},
+		"freeConsBlock": {
+			"title": "Free consultation",
+			"description": "Free personal consultations with our academic advisors will help you define your learning goals, select the right courses, and receive recommendations for successful completion."
+		},
+		"content": {
+			"text": "Welcome back!",
+			"googleBtn": "Sign in with Google",
+			"gitHubBtn": "Sign in with GitHub",
+			"appleBtn": "Sign in with Apple",
+			"agree": {
+				"text": "By signing in, you agree to our",
+				"privacy": "Privacy policy",
+				"between": "and",
+				"terms": "Terms of use"
+			},
+			"noAccount": "No account?",
+			"signUp": "Sign up"
+		}
+	},
+	"footer": {
+		"contactCenter": "Contact Center",
+		"blockAbout": "Take your career, income, and life to the next level. MotionWeb has helped over 100 students land their first tech job. Become the next one and change your life today!"
+	}
+}

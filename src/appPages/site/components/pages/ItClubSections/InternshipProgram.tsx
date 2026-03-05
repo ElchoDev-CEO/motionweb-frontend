@@ -40,14 +40,14 @@ const internship_program_data = [
 ];
 
 const InternshipProgram: FC = () => {
-	const { i18n, t } = useTranslation('ITclub');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.InternshipProgram}>
 			<div className="container">
 				<div className={scss.content}>
 					<h2 className={scss.heading}>
-						{t('program.theme')}
-						<span>{t('program.custom_theme')}</span>
+						{t('ITclub.program.theme')}
+						<span>{t('ITclub.program.custom_theme')}</span>
 					</h2>
 
 					<div className={scss.timeline}>

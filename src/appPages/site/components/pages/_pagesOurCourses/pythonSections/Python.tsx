@@ -14,7 +14,7 @@ const Python: FC = () => {
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
 
-	const { t } = useTranslation('python');
+	const { t } = useTranslation('translated');
 
 	return (
 		<section className={scss.Python}>
@@ -26,11 +26,12 @@ const Python: FC = () => {
 								<IconCourses />
 							</span>
 							<h1 className={scss.title}>
-								{t('banner.theme')} <span>{t('banner.custom_theme')}</span>
+								{t('python.banner.theme')}{' '}
+								<span>{t('python.banner.custom_theme')}</span>
 							</h1>
-							<p className={scss.text}>{t('banner.subtitle')}</p>
+							<p className={scss.text}>{t('python.banner.subtitle')}</p>
 							<button className={scss.button} onClick={handleScrollContact}>
-								{t('banner.btnText')} <IconChevronRight stroke={2} />
+								{t('python.banner.btnText')} <IconChevronRight stroke={2} />
 							</button>
 						</div>
 						<div className={scss.right}>

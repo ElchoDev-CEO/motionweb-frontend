@@ -159,7 +159,7 @@ const Groups: FC = () => {
 	const hasGroupParticipantData = !!groupParticipantData?.results?.length;
 	const hasGroupData = !!groupData?.results?.length;
 
-	const { t } = useTranslation('myGroups');
+	const { t } = useTranslation('translated');
 
 	return (
 		<>
@@ -171,7 +171,7 @@ const Groups: FC = () => {
 								onClick={() => setIsOpenCreateModal(true)}
 								variant="filled"
 							>
-								{t('addBtn')}
+								{t('myGroups.addBtn')}
 							</Button>
 						)}
 						<div className={scss.list}>
@@ -202,7 +202,7 @@ const Groups: FC = () => {
 										</div>
 									))
 								) : (
-									<p>{t('yourGroups')}</p>
+									<p>{t('myGroups.yourGroups')}</p>
 								)
 							) : isLoadingGroup ? (
 								<Loader />
@@ -229,10 +229,10 @@ const Groups: FC = () => {
 											<div className={scss.bottom}>
 												<div className={scss.date}>
 													<span>
-														{t('group.createdAt')}: {item.createdAt}
+														{t('myGroups.group.createdAt')}: {item.createdAt}
 													</span>{' '}
 													<span>
-														{t('group.updatedAt')}: {item.updatedAt}
+														{t('myGroups.group.updatedAt')}: {item.updatedAt}
 													</span>{' '}
 												</div>
 												<div className={scss.buttons}>
@@ -265,7 +265,7 @@ const Groups: FC = () => {
 									</div>
 								))
 							) : (
-								<p>{t('groupsNotFound')}</p>
+								<p>{t('myGroups.groupsNotFound')}</p>
 							)}
 						</div>
 					</div>
@@ -276,18 +276,18 @@ const Groups: FC = () => {
 			<Modal
 				opened={isOpenCreateModal}
 				onClose={() => setIsOpenCreateModal(false)}
-				title={t('createGroupForm.title')}
+				title={t('myGroups.createGroupForm.title')}
 				centered
 			>
 				<div className={scss.create_group}>
 					<form onSubmit={handleSubmitCreateGroup(createGroup)}>
 						<TextInput
-							placeholder={t('createGroupForm.nameInput')}
+							placeholder={t('myGroups.createGroupForm.nameInput')}
 							{...registerCreateGroup('title', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder={t('createGroupForm.coverGroupInput')}
+							placeholder={t('myGroups.createGroupForm.coverGroupInput')}
 							onChange={(file) => setValueCreateGroup('photo', file)}
 						/>
 						<Button
@@ -296,7 +296,7 @@ const Groups: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							{t('createGroupForm.createBtn')}
+							{t('myGroups.createGroupForm.createBtn')}
 						</Button>
 					</form>
 				</div>
@@ -308,18 +308,18 @@ const Groups: FC = () => {
 				onClose={() => {
 					(setIsOpenEditModal(false), setMultiSelectValue(() => []));
 				}}
-				title={t('updateGroupForm.title')}
+				title={t('myGroups.updateGroupForm.title')}
 				centered
 			>
 				<div className={scss.update_group}>
 					<form onSubmit={handleSubmitEditGroup(editGroup)}>
 						<TextInput
-							placeholder={t('updateGroupForm.nameInput')}
+							placeholder={t('myGroups.updateGroupForm.nameInput')}
 							{...registerEditGroup('title', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder={t('updateGroupForm.coverCourseInput')}
+							placeholder={t('myGroups.updateGroupForm.coverCourseInput')}
 							onChange={(file) => setValueEditGroup('photo', file)}
 						/>
 						<SearchableMultiSelectGroup groupId={isEditModalId!} />
@@ -329,7 +329,7 @@ const Groups: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							{t('updateGroupForm.updateBtn')}
+							{t('myGroups.updateGroupForm.updateBtn')}
 						</Button>
 					</form>
 				</div>
@@ -339,24 +339,24 @@ const Groups: FC = () => {
 			<Modal
 				opened={isOpenDeleteModal}
 				onClose={() => setIsOpenDeleteModal(false)}
-				title={t('deleteGroupConfirm.title')}
+				title={t('myGroups.deleteGroupConfirm.title')}
 				centered
 			>
 				<div className={scss.delete_group}>
-					<p>{t('deleteGroupConfirm.confirm')}</p>
+					<p>{t('myGroups.deleteGroupConfirm.confirm')}</p>
 					<div className={scss.delete_buttons}>
 						<Button
 							onClick={() => setIsOpenDeleteModal(false)}
 							variant="outline"
 						>
-							{t('deleteGroupConfirm.cancelBtn')}
+							{t('myGroups.deleteGroupConfirm.cancelBtn')}
 						</Button>
 						<Button
 							onClick={handleDeleteGroup}
 							loading={isDeleting[deleteGroupId || 0]}
 							variant="filled"
 						>
-							{t('deleteGroupConfirm.deleteBtn')}
+							{t('myGroups.deleteGroupConfirm.deleteBtn')}
 						</Button>
 					</div>
 				</div>
