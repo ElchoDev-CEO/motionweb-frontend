@@ -18,7 +18,7 @@ const HomePage: FC = () => {
 			<Welcome />
 			{/* <WeeklyStudentRating /> */}
 			<SomeCourses />
-			<EventCalendar />
+			{/* <EventCalendar /> */}
 			<AdditionalCourses />
 			<AboutUs />
 			{/* <OurMentors /> */}
