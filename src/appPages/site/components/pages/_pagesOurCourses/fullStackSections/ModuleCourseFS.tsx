@@ -13,6 +13,7 @@ import {
 import { GiCurledLeaf } from 'react-icons/gi';
 import { IoIosLeaf } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
+import { IconModule } from '@/assets/icons';
 
 const courseModules = [
 	{
@@ -99,7 +100,7 @@ const courseModules = [
 ];
 
 const ModuleCourseFS: FC = () => {
-	const { i18n, t } = useTranslation('FS');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.ModuleCourseFS}>
 			<GiCurledLeaf className={scss.decor_1} />
@@ -108,9 +109,11 @@ const ModuleCourseFS: FC = () => {
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.top}>
+						<IconModule />
+
 						<h2>
-							{t('courseModules.theme')}{' '}
-							<span>{t('courseModules.custom_theme')}</span>
+							{t('fullStack.courseModules.theme')}{' '}
+							<span>{t('fullStack.courseModules.custom_theme')}</span>
 						</h2>
 					</div>
 					<div className={scss.cards}>

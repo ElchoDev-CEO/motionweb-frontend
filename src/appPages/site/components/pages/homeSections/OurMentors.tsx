@@ -57,7 +57,7 @@ const OurMentors: FC = () => {
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [loaded, setLoaded] = useState(false);
 
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 
 	// refs для autoplay
 	const autoplayTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -139,11 +139,11 @@ const OurMentors: FC = () => {
 				<div className={scss.content}>
 					<div className={scss.top_block}>
 						<CustomTitle
-							title={t('ourMentors.theme')}
-							spanRight={t('ourMentors.custom_theme')}
+							title={t('home.ourMentors.theme')}
+							spanRight={t('home.ourMentors.custom_theme')}
 							color="#000000"
 						/>
-						<p className={scss.text}>{t('ourMentors.subtitle')}</p>
+						<p className={scss.text}>{t('home.ourMentors.subtitle')}</p>
 					</div>
 					<div className={scss.slider_control}>
 						{loaded && instanceRef.current && (

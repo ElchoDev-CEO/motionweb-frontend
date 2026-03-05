@@ -122,7 +122,7 @@ const courseModules = [
 ];
 
 const ModuleCourseKids: FC = () => {
-	const { i18n, t } = useTranslation('kids');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.ModuleCourseKids}>
 			<div className="container">
@@ -130,7 +130,8 @@ const ModuleCourseKids: FC = () => {
 					<div className={scss.top}>
 						<IconModule />
 						<h2>
-							{t('banner.theme')} <span>{t('banner.custom_theme')}</span>
+							{t('kids.banner.theme')}{' '}
+							<span>{t('kids.banner.custom_theme')}</span>
 						</h2>
 					</div>
 					<div className={scss.cards}>

@@ -177,7 +177,7 @@ const Courses: FC = () => {
 	const hasCourseParticipantData = !!courseParticipantData?.results?.length;
 	const hasCourseData = !!courseData?.results?.length;
 
-	const { t } = useTranslation('myCourses');
+	const { t } = useTranslation('translated');
 
 	return (
 		<>
@@ -189,7 +189,7 @@ const Courses: FC = () => {
 								onClick={() => setIsOpenCreateModal(true)}
 								variant="filled"
 							>
-								{t('addBtn')}
+								{t('myCourses.addBtn')}
 							</Button>
 						)}
 						<div className={scss.list}>
@@ -201,11 +201,11 @@ const Courses: FC = () => {
 										const getStatusMessage = () => {
 											switch (item.status) {
 												case 'subscription-has-expired':
-													return t('renewSub');
+													return t('myCourses.renewSub');
 												case 'subscription-not-found':
 													return t("paymentHasn'tBeenMade");
 												default:
-													return t('loading');
+													return t('myCourses.loading');
 											}
 										};
 										const showLoadingOverlay = !(
@@ -257,7 +257,7 @@ const Courses: FC = () => {
 										);
 									})
 								) : (
-									<p>{t('yourCourses')}</p>
+									<p>{t('myCourses.yourCourses')}</p>
 								)
 							) : isLoadingCourse ? (
 								<Loader />
@@ -285,10 +285,10 @@ const Courses: FC = () => {
 											<div className={scss.bottom}>
 												<div className={scss.date}>
 													<span>
-														{t('course.createdAt')}: {item.createdAt}
+														{t('myCourses.course.createdAt')}: {item.createdAt}
 													</span>
 													<span>
-														{t('course.updatedAt')}: {item.updatedAt}
+														{t('myCourses.course.updatedAt')}: {item.updatedAt}
 													</span>
 												</div>
 												<div className={scss.buttons}>
@@ -325,7 +325,7 @@ const Courses: FC = () => {
 									</div>
 								))
 							) : (
-								<p>{t('coursesNotFound')}</p>
+								<p>{t('myCourses.coursesNotFound')}</p>
 							)}
 						</div>
 					</div>
@@ -336,22 +336,22 @@ const Courses: FC = () => {
 			<Modal
 				opened={isOpenCreateModal}
 				onClose={() => setIsOpenCreateModal(false)}
-				title={t('createCourseForm.title')}
+				title={t('myCourses.createCourseForm.title')}
 				centered
 			>
 				<div className={scss.create_course}>
 					<form onSubmit={handleSubmitCreateCourse(createCourse)}>
 						<TextInput
-							placeholder={t('createCourseForm.nameInput')}
+							placeholder={t('myCourses.createCourseForm.nameInput')}
 							{...registerCreateCourse('title', { required: true })}
 						/>
 						<TextInput
-							placeholder={t('createCourseForm.descriptionInput')}
+							placeholder={t('myCourses.createCourseForm.descriptionInput')}
 							{...registerCreateCourse('description', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder={t('createCourseForm.coverCourseInput')}
+							placeholder={t('myCourses.createCourseForm.coverCourseInput')}
 							onChange={(file) => setValueCreateCourse('photo', file)}
 						/>
 						<Button
@@ -360,7 +360,7 @@ const Courses: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							{t('createCourseForm.createBtn')}
+							{t('myCourses.createCourseForm.createBtn')}
 						</Button>
 					</form>
 				</div>
@@ -372,22 +372,22 @@ const Courses: FC = () => {
 				onClose={() => {
 					(setIsOpenEditModal(false), setMultiSelectValue(() => []));
 				}}
-				title={t('updateCourseForm.title')}
+				title={t('myCourses.updateCourseForm.title')}
 				centered
 			>
 				<div className={scss.update_course}>
 					<form onSubmit={handleSubmitEditCourse(editCourse)}>
 						<TextInput
-							placeholder={t('updateCourseForm.nameInput')}
+							placeholder={t('myCourses.updateCourseForm.nameInput')}
 							{...registerEditCourse('title', { required: true })}
 						/>
 						<TextInput
-							placeholder={t('updateCourseForm.descriptionInput')}
+							placeholder={t('myCourses.updateCourseForm.descriptionInput')}
 							{...registerEditCourse('description', { required: true })}
 						/>
 						<FileInput
 							leftSection={<IconPhoto size={18} />}
-							placeholder={t('updateCourseForm.coverCourseInput')}
+							placeholder={t('myCourses.updateCourseForm.coverCourseInput')}
 							onChange={(file) => setValueEditCourse('photo', file)}
 						/>
 						<SearchableMultiSelect courseId={isEditModalId!} />
@@ -398,7 +398,7 @@ const Courses: FC = () => {
 							type="submit"
 							variant="filled"
 						>
-							{t('updateCourseForm.updateBtn')}
+							{t('myCourses.updateCourseForm.updateBtn')}
 						</Button>
 					</form>
 				</div>
@@ -408,25 +408,25 @@ const Courses: FC = () => {
 			<Modal
 				opened={isOpenDeleteModal}
 				onClose={() => setIsOpenDeleteModal(false)}
-				title={t('deleteCourseConfirm.title')}
+				title={t('myCourses.deleteCourseConfirm.title')}
 				centered
 			>
 				<div className={scss.delete_course}>
-					<p>{t('deleteCourseConfirm.confirm')}</p>
+					<p>{t('myCourses.deleteCourseConfirm.confirm')}</p>
 					<div className={scss.delete_buttons}>
 						<Button
 							type="button"
 							onClick={() => setIsOpenDeleteModal(false)}
 							variant="outline"
 						>
-							{t('deleteCourseConfirm.cancelBtn')}
+							{t('myCourses.deleteCourseConfirm.cancelBtn')}
 						</Button>
 						<Button
 							onClick={handleDeleteCourse}
 							loading={isDeleting[deleteCourseId || 0]}
 							variant="filled"
 						>
-							{t('deleteCourseConfirm.deleteBtn')}
+							{t('myCourses.deleteCourseConfirm.deleteBtn')}
 						</Button>
 					</div>
 				</div>

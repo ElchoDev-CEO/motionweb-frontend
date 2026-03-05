@@ -69,15 +69,15 @@ interface IAdvantagesProps {
 }
 
 const Advantages: FC<IAdvantagesProps> = ({ titleColor, spanColor }) => {
-	const { i18n, t } = useTranslation('FS');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.Advantages}>
 			<div className="container">
 				<div className={scss.content}>
 					<h2 style={{ color: `${titleColor}` }}>
-						{t('advantages.theme')}{' '}
+						{t('fullStack.advantages.theme')}{' '}
 						<span style={{ color: `${spanColor}` }}>
-							{t('advantages.custom_theme')}
+							{t('fullStack.advantages.custom_theme')}
 						</span>
 					</h2>
 					<div className={scss.wrapper}>
@@ -88,14 +88,14 @@ const Advantages: FC<IAdvantagesProps> = ({ titleColor, spanColor }) => {
 									<h3>
 										{i18n.language === 'ru'
 											? item.title
-											: i18n.language === 'kg'
+											: i18n.language === 'en'
 												? item.titleEn
 												: item.titleKg}
 									</h3>
 									<p>
 										{i18n.language === 'ru'
 											? item.text
-											: i18n.language === 'kg'
+											: i18n.language === 'en'
 												? item.textEn
 												: item.textKg}
 									</p>

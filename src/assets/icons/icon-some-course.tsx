@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const IconSomeCourse: FC = () => {
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<>
 			<svg
@@ -125,7 +125,7 @@ const IconSomeCourse: FC = () => {
 							fontSize="15"
 							fill="url(#paint_linear_488_6940_0)"
 						>
-							{t('courses.subtopic')}
+							{t('home.someCourses.subtopic')}
 						</text>
 					</g>
 					<rect

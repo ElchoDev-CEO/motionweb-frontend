@@ -47,7 +47,7 @@ const about_stats = [
 ];
 
 const ClubStatistics: FC = () => {
-	const { i18n, t } = useTranslation('ITclub');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.ClubStatistics}>
 			<div className="container">
@@ -56,11 +56,11 @@ const ClubStatistics: FC = () => {
 						<div className={scss.top}>
 							<div className={scss.top_left}>
 								<Tag icon={<IconAntennaBars5 stroke={2} />}>
-									{t('clubStats.subtopic')}{' '}
+									{t('ITclub.clubStats.subtopic')}{' '}
 								</Tag>
 								<h1 className={scss.title}>
-									{t('clubStats.theme')}
-									<span>{t('clubStats.custom_theme')}</span>
+									{t('ITclub.clubStats.theme')}
+									<span>{t('ITclub.clubStats.custom_theme')}</span>
 								</h1>
 							</div>
 						</div>

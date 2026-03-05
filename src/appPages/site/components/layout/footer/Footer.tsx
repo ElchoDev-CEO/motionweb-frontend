@@ -23,7 +23,7 @@ const Footer: FC = () => {
 
 	const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-	const { i18n, t } = useTranslation('footer');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<>
 			<footer className={scss.Footer}>
@@ -36,9 +36,7 @@ const Footer: FC = () => {
 										+996-700-232-400
 									</a>
 
-									<span>{t('contactCenter')}</span>
-
-									<span>Контактный центр</span>
+									<span>{t('footer.contactCenter')}</span>
 
 									<Link className={scss.email_link} href="#">
 										motion.web@gmail.com
@@ -101,15 +99,7 @@ const Footer: FC = () => {
 						<div className={scss.block_about}>
 							<Image className={scss.logo} src={logo} alt="logo" />
 
-							<p>{t('blockAbout')}</p>
-
-							<p>
-								Поднимите свою карьеру, доход и жизнь на новый уровень.
-								MotionWeb помог более 100 студентам получить свою первую работу
-								в сфере технологий. Станьте следующим и измените свою жизнь уже
-								сегодня!
-							</p>
-
+							<p>{t('footer.blockAbout')}</p>
 						</div>
 						<span className={scss.line}></span>
 						<div className={scss.bottom}>

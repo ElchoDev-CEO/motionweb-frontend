@@ -12,7 +12,7 @@ import logo from '@/assets/logo.png';
 import { useTranslation } from 'react-i18next';
 
 const SingUpPage: FC = () => {
-	const { t } = useTranslation('register');
+	const { t } = useTranslation('translated');
 
 	return (
 		<>
@@ -20,7 +20,7 @@ const SingUpPage: FC = () => {
 				{/* ! left */}
 				<div className={scss.left}>
 					<Link className={scss.back_link} href={'/'}>
-						&lt; {t('back')}
+						&lt; {t('signUp.back')}
 					</Link>
 					<div className={scss.container}>
 						<div className={scss.content}>
@@ -31,9 +31,11 @@ const SingUpPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>{t('accessBlock.title')}</p>
+											<p className={scss.title}>
+												{t('signUp.accessBlock.title')}
+											</p>
 											<p className={scss.text}>
-												{t('accessBlock.description')}
+												{t('signUp.accessBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -43,10 +45,10 @@ const SingUpPage: FC = () => {
 										</div>
 										<div className={scss.child_block}>
 											<p className={scss.title}>
-												{t('consolidateBlock.title')}{' '}
+												{t('signUp.consolidateBlock.title')}{' '}
 											</p>
 											<p className={scss.text}>
-												{t('consolidateBlock.description')}
+												{t('signUp.consolidateBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -55,9 +57,12 @@ const SingUpPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}> {t('freeConsBlock.title')}</p>
+											<p className={scss.title}>
+												{' '}
+												{t('signUp.freeConsBlock.title')}
+											</p>
 											<p className={scss.text}>
-												{t('freeConsBlock.description')}
+												{t('signUp.freeConsBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -104,7 +109,7 @@ const SingUpPage: FC = () => {
 							</Link>
 							<div className={scss.auth_buttons}>
 								<SplitText
-									text={t('content.text')}
+									text={t('signUp.content.text')}
 									className="text-3xl text-center"
 									delay={100}
 									duration={0.6}
@@ -116,25 +121,25 @@ const SingUpPage: FC = () => {
 									rootMargin="-100px"
 									textAlign="center"
 								/>
-								<GoogleButton>{t('content.googleBtn')}</GoogleButton>
-								<GitHubButton>{t('content.gitHubBtn')}</GitHubButton>
-								<AppleButton>{t('content.appleBtn')}</AppleButton>
+								<GoogleButton>{t('signUp.content.googleBtn')}</GoogleButton>
+								<GitHubButton>{t('signUp.content.gitHubBtn')}</GitHubButton>
+								<AppleButton>{t('signUp.content.appleBtn')}</AppleButton>
 								<p className={scss.privacy}>
-									{t('content.agree.text')}{' '}
+									{t('signUp.content.agree.text')}{' '}
 									<Link href={'/privacy-policy.pdf'} target={'_blank'}>
-										{t('content.agree.privacy')}
+										{t('signUp.content.agree.privacy')}
 									</Link>{' '}
-									{t('content.agree.between')}{' '}
+									{t('signUp.content.agree.between')}{' '}
 									<Link href={'/terms-of-service.pdf'} target={'_blank'}>
-										{t('content.agree.terms')}
+										{t('signUp.content.agree.terms')}
 									</Link>
 									.
 								</p>
 								<p className={scss.auth_switcher}>
 									{/* eslint-disable-next-line react/no-unescaped-entities */}
 									{/* Уже есть аккаунт? <Link href="/auth/sign-in">Войти</Link> */}
-									{t('content.alreadyHaveAcc')}{' '}
-									<Link href="/auth/sign-up">{t('content.signIn')}</Link>
+									{t('signUp.content.alreadyHaveAcc')}{' '}
+									<Link href="/auth/sign-up">{t('signUp.content.signIn')}</Link>
 								</p>
 							</div>
 						</div>

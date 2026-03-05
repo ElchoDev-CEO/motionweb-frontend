@@ -13,7 +13,7 @@ const WelcomeItClub: FC = () => {
 			.getElementById('contact-section')
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
-	const { t } = useTranslation('ITclub');
+	const { t } = useTranslation('translated');
 
 	return (
 		<section className={scss.WelcomeItClub}>
@@ -24,12 +24,13 @@ const WelcomeItClub: FC = () => {
 							<IconInternship />
 						</span>
 						<h1 className={scss.title}>
-							<span>{t('banner.theme')} </span> {t('banner.custom_theme')}
+							<span>{t('ITclub.banner.theme')} </span>{' '}
+							{t('ITclub.banner.custom_theme')}
 						</h1>
-						<p className={scss.text}>{t('banner.subtitle')}</p>
+						<p className={scss.text}>{t('ITclub.banner.subtitle')}</p>
 						{/* Исправлено: добавлен id-атрибут для плавной прокрутки */}
 						<button className={scss.button} onClick={handleScrollContact}>
-							{t('banner.btnText')} <IconChevronRight stroke={2} />
+							{t('ITclub.banner.btnText')} <IconChevronRight stroke={2} />
 						</button>
 					</div>
 					<div className={scss.right}>
