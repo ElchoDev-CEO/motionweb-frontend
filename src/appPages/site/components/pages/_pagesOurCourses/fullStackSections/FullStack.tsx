@@ -14,7 +14,7 @@ const FullStack: FC = () => {
 			.getElementById('contact-section')
 			?.scrollIntoView({ behavior: 'smooth' });
 	};
-	const { t } = useTranslation('FS');
+	const { t } = useTranslation('translated');
 
 	return (
 		<section className={scss.FullStack}>
@@ -27,11 +27,12 @@ const FullStack: FC = () => {
 								<IconCourses />
 							</span>
 							<h1 className={scss.title}>
-								{t('banner.theme')} <span>{t('banner.custom_theme')}</span>
+								{t('fullStack.banner.theme')}{' '}
+								<span>{t('fullStack.banner.custom_theme')}</span>
 							</h1>
-							<p className={scss.text}>{t('banner.subtitle')}</p>
+							<p className={scss.text}>{t('fullStack.banner.subtitle')}</p>
 							<button className={scss.button} onClick={handleScrollContact}>
-								{t('banner.btnText')} <IconChevronRight stroke={2} />
+								{t('fullStack.banner.btnText')} <IconChevronRight stroke={2} />
 							</button>
 						</div>
 						<div className={scss.right}>

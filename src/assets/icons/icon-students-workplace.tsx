@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const IconStudentsWorkplace: FC = () => {
-	const { t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<>
 			<svg
-				width="132.000000"
+				width={i18n.language === 'kg' ? '155' : '132.000000'}
 				height="34.000000"
 				viewBox="0 0 132 34"
 				fill="none"
@@ -17,7 +17,7 @@ const IconStudentsWorkplace: FC = () => {
 						id="filter_488_6937_dd"
 						x="0.000000"
 						y="0.000000"
-						width="132.000000"
+						width={i18n.language === 'kg' ? '150' : '132.000000'}
 						height="34.000000"
 						filterUnits="userSpaceOnUse"
 						colorInterpolationFilters="sRGB"
@@ -53,7 +53,7 @@ const IconStudentsWorkplace: FC = () => {
 						<rect
 							id="div.framer-qcernp"
 							rx="7.500000"
-							width="129.000000"
+							width={i18n.language === 'kg' ? '140' : '129.000000'}
 							height="31.000000"
 							transform="translate(1.500000 1.500000)"
 							fill="white"
@@ -77,7 +77,7 @@ const IconStudentsWorkplace: FC = () => {
 					<rect
 						id="div.framer-qcernp"
 						rx="7.500000"
-						width="129.000000"
+						width={i18n.language === 'kg' ? '140' : '129.000000'}
 						height="31.000000"
 						transform="translate(1.500000 1.500000)"
 						fill="#F6F6F6"
@@ -128,18 +128,18 @@ const IconStudentsWorkplace: FC = () => {
 							fillRule="evenodd"
 						/> */}
 						<text
-							x="33"
+							x={i18n.language === 'en' ? '38' : '33'}
 							y="22"
 							fontSize="15"
 							fill="url(#paint_linear_488_6940_0)"
 						>
-							{t('studentsWorkPlace.subtopic')}
+							{t('home.studentsWorkPlace.subtopic')}
 						</text>
 					</g>
 					<rect
 						id="div.framer-qcernp"
 						rx="7.500000"
-						width="129.000000"
+						width={i18n.language === 'kg' ? '140' : '129.000000'}
 						height="31.000000"
 						transform="translate(1.500000 1.500000)"
 						stroke="#ECECEC"

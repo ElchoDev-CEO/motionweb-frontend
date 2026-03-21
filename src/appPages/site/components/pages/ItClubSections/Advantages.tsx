@@ -49,7 +49,7 @@ const advantages_data = [
 ];
 
 const Advantages: FC = () => {
-	const { i18n, t } = useTranslation('ITclub');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.Advantages}>
 			<div className="container">
@@ -57,12 +57,12 @@ const Advantages: FC = () => {
 					{/* Highlight */}
 					<div className={scss.highlight}>
 						<h2>
-							{t('advantage.theme')}
-							<span>{t('advantage.custom_theme')}</span>
+							{t('ITclub.advantage.theme')}
+							<span>{t('ITclub.advantage.custom_theme')}</span>
 							<br />
-							{t('advantage.piece_theme')}
+							{t('ITclub.advantage.piece_theme')}
 						</h2>
-						<p>{t('advantage.subtitle')}</p>
+						<p>{t('ITclub.advantage.subtitle')}</p>
 
 						<Image
 							src={advantages_photo}

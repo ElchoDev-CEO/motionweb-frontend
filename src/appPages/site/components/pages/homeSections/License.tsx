@@ -10,21 +10,23 @@ import CustomTitle from '@/ui/title/CustomTitle';
 import { useTranslation } from 'react-i18next';
 
 const License: FC = () => {
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 
 	return (
 		<section className={scss.License}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.left}>
-						<Tag icon={<IconSchool stroke={2} />}>{t('license.subtopic')}</Tag>
-						<CustomTitle title={t('license.theme')} color="#ffffff" />
+						<Tag icon={<IconSchool stroke={2} />}>
+							{t('home.license.subtopic')}
+						</Tag>
+						<CustomTitle title={t('home.license.theme')} color="#ffffff" />
 						<ul className={scss.text}>
 							<li>
-								<p>{t('license.subtitle')}</p>
+								<p>{t('home.license.subtitle')}</p>
 							</li>
 							<li>
-								<p>{t('license.additionally')}</p>
+								<p>{t('home.license.additionally')}</p>
 							</li>
 						</ul>
 					</div>

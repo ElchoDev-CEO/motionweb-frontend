@@ -12,6 +12,7 @@ import scss from './EventCalendar.module.scss';
 
 import { useGetEventsQuery, mapToCalendarEvents } from '@/redux/api/event';
 import type { ICalendarEvent } from '@/redux/api/event/types';
+import { useTranslation } from 'react-i18next';
 
 // import EventDetailsModal from './EventDetailsModal';
 
@@ -26,7 +27,24 @@ const formatDT = (iso: string) => {
 	return new Date(iso).toLocaleString();
 };
 
+const date = {
+	today: 'Сегодня',
+	todayEn: 'Today',
+	todayKg: 'Бүгүн',
+	month: 'Месяц',
+	monthEn: 'Month',
+	monthKg: 'Ай',
+	week: 'Неделя',
+	weekEn: 'Week',
+	weekKg: 'Жума',
+	list: 'Список',
+	listEn: 'List',
+	listKg: 'Тизме'
+};
+
 const EventCalendar = () => {
+	const { i18n, t } = useTranslation('translated');
+
 	const [range, setRange] = useState<{ from?: string; to?: string }>({});
 	const { data, isLoading, isError } = useGetEventsQuery(range);
 
@@ -62,18 +80,50 @@ const EventCalendar = () => {
 			.slice(0, 6);
 	}, [events]);
 
+	const allDaysText =
+		i18n.language === 'ru'
+			? 'Весь день'
+			: i18n.language === 'en'
+				? 'All days'
+				: 'Баардык кундор';
+	const today =
+		i18n.language === 'ru'
+			? date.today
+			: i18n.language === 'en'
+				? date.todayEn
+				: date.todayKg;
+	const month =
+		i18n.language === 'ru'
+			? date.month
+			: i18n.language === 'en'
+				? date.monthEn
+				: date.monthKg;
+	const week =
+		i18n.language === 'ru'
+			? date.week
+			: i18n.language === 'en'
+				? date.weekEn
+				: date.weekKg;
+	const list =
+		i18n.language === 'ru'
+			? date.list
+			: i18n.language === 'en'
+				? date.listEn
+				: date.listKg;
 	return (
 		<div className={scss.EventCalendar}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.header}>
-						<h2 className={scss.title}>Календарь событий</h2>
-						<p className={scss.subtitle}>
-							Вебинары, дедлайны и важные события курса — всё в одном месте.
-						</p>
+						<h2 className={scss.title}>{t('home.eventCalendar.theme')}</h2>
+						<p className={scss.subtitle}>{t('home.eventCalendar.subtitle')}</p>
 					</div>
 
-					{isError && <div className={scss.error}>Ошибка загрузки событий</div>}
+					{isError && (
+						<div className={scss.error}>
+							{t('home.eventCalendar.errorMess')}
+						</div>
+					)}
 					{isLoading && <div className={scss.loading}>Загрузка...</div>}
 
 					<div className={scss.grid}>
@@ -90,12 +140,12 @@ const EventCalendar = () => {
 									right: 'dayGridMonth,listWeek'
 								}}
 								buttonText={{
-									today: 'Сегодня',
-									month: 'Месяц',
-									week: 'Неделя',
-									list: 'Список'
+									today: today,
+									month: month,
+									week: week,
+									list: list
 								}}
-								allDayText="Весь день"
+								allDayText={allDaysText}
 								noEventsText="Нет событий для отображения"
 								datesSet={onDatesSet}
 								eventClick={onEventClick}
@@ -111,16 +161,20 @@ const EventCalendar = () => {
 
 						<div className={scss.sideCard}>
 							<div className={scss.sideHeader}>
-								<h3 className={scss.sideTitle}>Ближайшие события</h3>
+								<h3 className={scss.sideTitle}>
+									{t('home.eventCalendar.commingEvent')}
+								</h3>
 
 								<div className={scss.legend}>
 									<span className={`${scss.badge} ${scss.webinar}`}>
-										Вебинар
+										{t('home.eventCalendar.classes.webinar')}
 									</span>
 									<span className={`${scss.badge} ${scss.deadline}`}>
-										Дедлайн
+										{t('home.eventCalendar.classes.deadline')}
 									</span>
-									<span className={`${scss.badge} ${scss.other}`}>Другое</span>
+									<span className={`${scss.badge} ${scss.other}`}>
+										{t('home.eventCalendar.classes.other')}
+									</span>
 								</div>
 							</div>
 
@@ -157,7 +211,9 @@ const EventCalendar = () => {
 									})}
 								</div>
 							) : (
-								<div className={scss.empty}>Ближайших событий нет.</div>
+								<div className={scss.empty}>
+									{t('home.eventCalendar.noCommingEvent')}
+								</div>
 							)}
 						</div>
 					</div>

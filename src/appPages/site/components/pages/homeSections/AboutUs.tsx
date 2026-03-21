@@ -49,28 +49,30 @@ const about_stats = [
 ];
 
 const AboutUs: FC = () => {
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<section className={scss.AboutUs}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.outside}>
-						<h1 className={scss.title}>{t('aboutUs.theme')}</h1>
-						<p className={scss.text}>{t('aboutUs.subtitle')}</p>
+						<h1 className={scss.title}>{t('home.aboutUs.theme')}</h1>
+						<p className={scss.text}>{t('home.aboutUs.subtitle')}</p>
 					</div>
 					<div className={scss.block}>
 						<div className={scss.top}>
 							<div className={scss.top_left}>
 								<Tag icon={<IconStairsUp stroke={2} />}>
-									{t('aboutUs.onNumbers.subtopic')}
+									{t('home.aboutUs.onNumbers.subtopic')}
 								</Tag>
 								<CustomTitle
-									title={t('aboutUs.onNumbers.title')}
-									spanRight={t('aboutUs.onNumbers.custom_title')}
+									title={t('home.aboutUs.onNumbers.title')}
+									spanRight={t('home.aboutUs.onNumbers.custom_title')}
 									color="#ffffff"
 								/>
 							</div>
-							<p className={scss.top_right_text}>{t('aboutUs.subtitle')}</p>
+							<p className={scss.top_right_text}>
+								{t('home.aboutUs.subtitle')}
+							</p>
 						</div>
 						<div className={scss.bottom}>
 							{about_stats.map((item, index) => (

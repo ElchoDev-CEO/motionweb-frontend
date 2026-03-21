@@ -76,7 +76,7 @@ const IconOurOwners = () => {
 					<rect
 						id="div.framer-qcernp"
 						rx="7.500000"
-						width="135.000000"
+						width={i18n.language === 'en' ? '100' : '135.000000'}
 						height="31.000000"
 						transform="translate(1.500000 1.500000)"
 						fill="#F6F6F6"
@@ -127,7 +127,7 @@ const IconOurOwners = () => {
 							fillRule="evenodd"
 						/> */}
 						<text
-							x="40"
+							x={i18n.language === 'en' ? '40' : '35'}
 							y="22"
 							fontSize="15"
 							fill="url(#paint_linear_308_2475_0)"
@@ -142,7 +142,7 @@ const IconOurOwners = () => {
 					<rect
 						id="div.framer-qcernp"
 						rx="7.500000"
-						width="135.000000"
+						width={i18n.language === 'en' ? '100' : '135.000000'}
 						height="31.000000"
 						transform="translate(1.500000 1.500000)"
 						stroke="#ECECEC"

@@ -58,7 +58,7 @@ const podcasts_data = [
 ];
 
 const Podcasts: FC = () => {
-	const { i18n, t } = useTranslation('home');
+	const { i18n, t } = useTranslation('translated');
 
 	const [ref] = useKeenSlider<HTMLDivElement>(
 		{
@@ -111,11 +111,11 @@ const Podcasts: FC = () => {
 			<div className="container">
 				<div className={scss.content}>
 					<Tag icon={<IconMicrophone stroke={2} />}>
-						{t('podcasts.subtopic')}
+						{t('home.podcasts.subtopic')}
 					</Tag>
 					<CustomTitle
-						title={t('podcasts.theme')}
-						spanRight={t('podcasts.custom_theme')}
+						title={t('home.podcasts.theme')}
+						spanRight={t('home.podcasts.custom_theme')}
 						color="#ffffff"
 					/>
 					<div className={scss.gridContainer}>

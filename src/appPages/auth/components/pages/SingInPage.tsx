@@ -13,14 +13,14 @@ import logo from '@/assets/logo.png';
 import { useTranslation } from 'react-i18next';
 
 const SingInPage: FC = () => {
-	const { t } = useTranslation('login');
+	const { t } = useTranslation('translated');
 	return (
 		<>
 			<div className={scss.auth}>
 				{/* ! left */}
 				<div className={scss.left}>
 					<Link className={scss.back_link} href={'/'}>
-						&lt; {t('back')}
+						&lt; {t('signIn.back')}
 					</Link>
 					<div className={scss.container}>
 						<div className={scss.content}>
@@ -31,9 +31,11 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}>{t('accessBlock.title')}</p>
+											<p className={scss.title}>
+												{t('signIn.accessBlock.title')}
+											</p>
 											<p className={scss.text}>
-												{t('accessBlock.description')}
+												{t('signIn.accessBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -43,10 +45,10 @@ const SingInPage: FC = () => {
 										</div>
 										<div className={scss.child_block}>
 											<p className={scss.title}>
-												{t('consolidateBlock.title')}{' '}
+												{t('signIn.consolidateBlock.title')}{' '}
 											</p>
 											<p className={scss.text}>
-												{t('consolidateBlock.description')}
+												{t('signIn.consolidateBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -55,9 +57,12 @@ const SingInPage: FC = () => {
 											<IoIosDoneAll />
 										</div>
 										<div className={scss.child_block}>
-											<p className={scss.title}> {t('freeConsBlock.title')}</p>
+											<p className={scss.title}>
+												{' '}
+												{t('signIn.freeConsBlock.title')}
+											</p>
 											<p className={scss.text}>
-												{t('freeConsBlock.description')}
+												{t('signIn.freeConsBlock.description')}
 											</p>
 										</div>
 									</div>
@@ -84,7 +89,7 @@ const SingInPage: FC = () => {
 							</Link>
 							<div className={scss.auth_buttons}>
 								<SplitText
-									text={t('content.text')}
+									text={t('signIn.content.text')}
 									className="text-3xl text-center"
 									delay={100}
 									duration={0.6}
@@ -97,24 +102,24 @@ const SingInPage: FC = () => {
 									textAlign="center"
 								/>
 								<h2 className={scss.title}></h2>
-								<GoogleButton>{t('content.googleBtn')}</GoogleButton>
-								<GitHubButton>{t('content.gitHubBtn')}</GitHubButton>
-								<AppleButton>{t('content.appleBtn')}</AppleButton>
+								<GoogleButton>{t('signIn.content.googleBtn')}</GoogleButton>
+								<GitHubButton>{t('signIn.content.gitHubBtn')}</GitHubButton>
+								<AppleButton>{t('signIn.content.appleBtn')}</AppleButton>
 								<p className={scss.privacy}>
-									{t('content.agree.text')}{' '}
+									{t('signIn.content.agree.text')}{' '}
 									<Link href={'/privacy-policy.pdf'} target={'_blank'}>
-										{t('content.agree.privacy')}
+										{t('signIn.content.agree.privacy')}
 									</Link>{' '}
-									{t('content.agree.between')}{' '}
+									{t('signIn.content.agree.between')}{' '}
 									<Link href={'/terms-of-service.pdf'} target={'_blank'}>
-										{t('content.agree.terms')}
+										{t('signIn.content.agree.terms')}
 									</Link>
 									.
 								</p>
 								<p className={scss.auth_switcher}>
 									{/* eslint-disable-next-line react/no-unescaped-entities */}
-									{t('content.noAccount')}{' '}
-									<Link href="/auth/sign-up">{t('content.signUp')}</Link>
+									{t('signIn.content.noAccount')}{' '}
+									<Link href="/auth/sign-up">{t('signIn.content.signUp')}</Link>
 								</p>
 							</div>
 						</div>

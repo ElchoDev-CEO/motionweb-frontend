@@ -8,8 +8,15 @@ import { useEditControlStore } from '@/stores/useEditControlStore';
 import { Switch } from '@mantine/core';
 import { useUserRoleStore } from '@/stores/useUserRoleStore';
 import DropDownMenu from '../dropDownMenu/DropDownMenu';
-import { dropDownMenuCourses, dropDownMenuResources } from '@/constants/links';
+import {
+	dropDownMenuCourses,
+	dropDownMenuResources,
+	languages
+} from '@/constants/links';
 import { useHeaderStore } from '@/stores/useHeaderStore';
+import LangSwitcher from '../lang-switcher/LangSwitcher';
+import { MdOutlineTranslate } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
 
 interface LinksType {
 	name: string;
@@ -26,6 +33,9 @@ interface BurgerMenuProps {
 	isOpen: boolean;
 	setIsOpen: (isOpen: boolean) => void;
 	pathname: string;
+	setShowLangModal: (showLangModal: boolean) => void;
+	showLangModal: boolean;
+	handleChangeLang: (value: string) => void;
 }
 
 const BurgerMenu: FC<BurgerMenuProps> = ({
@@ -37,7 +47,10 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
 	logout,
 	isOpen,
 	setIsOpen,
-	pathname
+	pathname,
+	setShowLangModal,
+	showLangModal,
+	handleChangeLang
 }) => {
 	const { isEdit, setIsEdit } = useEditControlStore();
 	const { isAdminOrMentor } = useUserRoleStore();
@@ -47,6 +60,7 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
 		isOpenDropDownMenuResources,
 		setIsOpenDropDownMenuResources
 	} = useHeaderStore();
+	const { i18n, t } = useTranslation('translated');
 	return (
 		<>
 			<div
@@ -144,6 +158,58 @@ const BurgerMenu: FC<BurgerMenuProps> = ({
 							setIsOpen={setIsOpenDropDownMenuResources}
 						/>
 						<span className={scss.line}></span>
+					</div>
+					<div className="relative flex justify-center">
+						<div className="">
+							<MdOutlineTranslate
+								fontSize={18}
+								onClick={() => setShowLangModal(!showLangModal)}
+								className={showLangModal ? 'text-[#f64b6a]' : ''}
+							/>
+						</div>
+						<LangSwitcher
+							isOpen={showLangModal}
+							onClose={() => setShowLangModal(false)}
+						>
+							<ul
+								className="absolute top-5 right-20 text-sm min-w-38 bg-white rounded-lg border border-[#e5ebef] flex flex-col"
+								style={{
+									padding: '10px'
+								}}
+							>
+								<li
+									className="font-bold text-center"
+									style={{ marginBottom: '5px' }}
+								>
+									{t('header.selectLang')}
+								</li>
+								{languages.map((item) => (
+									<li
+										onClick={() => handleChangeLang(item.value)}
+										key={item.value}
+										className={
+											i18n.language === item.value
+												? 'bg-[#F0F0E6]'
+												: 'hover:bg-[#f7f7f7]'
+										}
+										style={{
+											padding: '10px',
+											borderRadius: '5px'
+										}}
+									>
+										<span
+											className={
+												i18n.language === item.value
+													? 'bg-[#f0f0f0] bg-gradient-to-r from-[#ff9898] via-[#f64b6a] to-[#bc1f5e] bg-clip-text text-transparent'
+													: ''
+											}
+										>
+											{item.name}
+										</span>
+									</li>
+								))}
+							</ul>
+						</LangSwitcher>
 					</div>
 					{userData && (
 						<div className={scss.auth_logout_buttons}>
