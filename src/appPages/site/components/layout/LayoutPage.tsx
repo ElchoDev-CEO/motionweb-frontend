@@ -146,11 +146,11 @@ const LayoutPage: FC<LayoutPageType> = ({ children }) => {
 				{shouldShowFooter ? <Footer /> : <footer></footer>}
 			</div>
 			{/* <TelegramContactButton /> */}
-			<ElchoAI
+			{/* <ElchoAI
 				aiModel="motion_web"
 				telegramChatId="-1002546757793"
 				telegramBotToken={process.env.NEXT_PUBLIC_TELEGRAM_TOKEN!}
-			/>
+			/> */}
 			<FeedBack />
 			<LoadingOverlay
 				style={{ position: 'fixed' }}
