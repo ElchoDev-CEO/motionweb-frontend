@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	reactCompiler: true,
+	output: 'standalone',
 	experimental: {
 		optimizePackageImports: ['react-icons'] // for Tree Shaking
 	},
